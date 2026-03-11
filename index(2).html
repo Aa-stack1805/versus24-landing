@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Versus — Train Like a Fighter</title>
+<meta name="description" content="Train like a fighter, look like one too. Log every session, track technique progression, and know when to push — all in one place."/>
+<meta property="og:title" content="Versus — Train Like a Fighter"/>
+<meta property="og:description" content="Train like a fighter, look like one too."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:    #0B0D11;
+    --ink2:   #13161C;
+    --ink3:   #1A1E27;
+    --border: rgba(255,255,255,0.07);
+    --text:   #E8EAF0;
+    --muted:  #6B7280;
+    --accent: #4EFFC5;
+    --accent2:#3DE0AC;
+    --font-d: 'Bebas Neue', sans-serif;
+    --font-b: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink); color: var(--text);
+    font-family: var(--font-b); font-size: 16px;
+    line-height: 1.6; overflow-x: hidden; cursor: none;
+  }
+
+  .cursor {
+    position: fixed; width: 9px; height: 9px;
+    background: var(--accent); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%,-50%); transition: transform 0.15s ease;
+  }
+  .cursor-ring {
+    position: fixed; width: 32px; height: 32px;
+    border: 1px solid rgba(78,255,197,0.35); border-radius: 50%;
+    pointer-events: none; z-index: 9998; transform: translate(-50%,-50%);
+  }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.025; pointer-events: none; z-index: 1000;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 52px; z-index: 100;
+    backdrop-filter: blur(20px); background: rgba(11,13,17,0.65);
+    border-bottom: 1px solid var(--border); transition: background 0.3s;
+  }
+  .nav-logo { font-family: var(--font-d); font-size: 26px; letter-spacing: 0.1em; color: var(--text); text-decoration: none; }
+  .nav-logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 40px; list-style: none; }
+  nav ul a { text-decoration: none; color: var(--muted); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  nav ul a:hover { color: var(--text); }
+
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 0 52px 88px; position: relative; overflow: hidden;
+  }
+  .hero-glow { position: absolute; top: 10%; right: 5%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(78,255,197,0.07) 0%, transparent 70%); pointer-events: none; }
+  .hero-glow2 { position: absolute; bottom: 15%; left: -5%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(78,255,197,0.04) 0%, transparent 70%); pointer-events: none; }
+  .hero-bg-word {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -52%);
+    font-family: var(--font-d); font-size: clamp(160px, 26vw, 460px);
+    color: transparent; -webkit-text-stroke: 1px rgba(78,255,197,0.05);
+    white-space: nowrap; pointer-events: none; user-select: none; letter-spacing: 0.05em;
+  }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.6s 0.2s forwards;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+  .hero-title {
+    font-family: var(--font-d); font-size: clamp(64px, 10vw, 148px);
+    line-height: 0.9; letter-spacing: 0.025em; color: var(--text); max-width: 960px;
+    opacity: 0; animation: fadeUp 0.6s 0.35s forwards;
+  }
+  .hero-title .accent { color: var(--accent); }
+  .hero-sub {
+    margin-top: 32px; font-size: 18px; font-weight: 300;
+    color: var(--muted); max-width: 520px; line-height: 1.7;
+    opacity: 0; animation: fadeUp 0.6s 0.5s forwards;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+  .hero-actions {
+    display: flex; gap: 18px; align-items: center; margin-top: 48px;
+    opacity: 0; animation: fadeUp 0.6s 0.65s forwards;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: var(--ink);
+    font-family: var(--font-b); font-size: 13px; font-weight: 700;
+    padding: 16px 34px; border-radius: 3px; text-decoration: none;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s; border: none; cursor: none;
+  }
+  .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    color: var(--muted); font-size: 12px; font-weight: 500;
+    text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.2s, border-color 0.2s; cursor: none;
+    border: 1px solid var(--border); padding: 15px 24px; border-radius: 3px;
+  }
+  .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
+  .btn-ghost svg { transition: transform 0.2s; }
+  .btn-ghost:hover svg { transform: translateX(3px); }
+  .hero-scroll {
+    position: absolute; bottom: 36px; right: 52px;
+    display: flex; align-items: center; gap: 12px;
+    color: var(--muted); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    opacity: 0; animation: fadeIn 1s 1.3s forwards;
+  }
+  .scroll-line { width: 36px; height: 1px; background: var(--accent); opacity: 0.4; }
+
+  .stats-band {
+    border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    background: var(--ink2); padding: 44px 52px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+  }
+  .stat-item { padding: 0 36px; border-right: 1px solid var(--border); }
+  .stat-item:first-child { padding-left: 0; }
+  .stat-item:last-child { border-right: none; }
+  .stat-number { font-family: var(--font-d); font-size: 56px; color: var(--accent); letter-spacing: 0.02em; line-height: 1; }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; margin-top: 6px; }
+
+  section { padding: 120px 52px; }
+  .section-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  .section-title { font-family: var(--font-d); font-size: clamp(44px, 6.5vw, 96px); line-height: 0.93; letter-spacing: 0.02em; max-width: 720px; }
+  .section-title .accent { color: var(--accent); }
+
+  /* 6 cards, no badges */
+  .features-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    margin-top: 72px; border: 1px solid var(--border);
+  }
+  .feature-card {
+    background: var(--ink2); padding: 44px 40px;
+    border-right: 1px solid var(--border);
+    position: relative; overflow: hidden; transition: background 0.3s;
+  }
+  .feature-card:nth-child(3),
+  .feature-card:nth-child(6) { border-right: none; }
+  .feature-card:nth-child(4),
+  .feature-card:nth-child(5),
+  .feature-card:nth-child(6) { border-top: 1px solid var(--border); }
+  .feature-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 100%; height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+  }
+  .feature-card:hover::after { transform: scaleX(1); }
+  .feature-card:hover { background: #161A23; }
+  .feature-number { font-family: var(--font-d); font-size: 72px; line-height: 1; color: rgba(78,255,197,0.06); position: absolute; top: 16px; right: 24px; letter-spacing: 0.02em; }
+  .feature-icon-wrap { width: 42px; height: 42px; margin-bottom: 24px; color: var(--accent); }
+  .feature-icon-wrap svg { width: 100%; height: 100%; }
+  .feature-name { font-size: 17px; font-weight: 600; margin-bottom: 12px; line-height: 1.3; }
+  .feature-desc { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.7; }
+
+  /* modalities */
+  .modalities-section { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+  .modality-list { margin-top: 52px; }
+  .modality-item { display: flex; align-items: flex-start; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--border); transition: padding-left 0.3s; }
+  .modality-item:hover { padding-left: 8px; }
+  .modality-item:last-child { border-bottom: none; }
+  .modality-icon-wrap { width: 26px; height: 26px; flex-shrink: 0; color: var(--accent); margin-top: 3px; }
+  .modality-icon-wrap svg { width: 100%; height: 100%; }
+  .modality-info h3 { font-size: 15px; font-weight: 600; margin-bottom: 3px; }
+  .modality-info p { font-size: 13px; color: var(--muted); font-weight: 300; }
+
+  .modalities-visual { position: relative; height: 520px; border: 1px solid var(--border); background: var(--ink2); overflow: hidden; border-radius: 2px; }
+  .modalities-visual::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 40%, rgba(78,255,197,0.07) 0%, transparent 65%); pointer-events: none; }
+  .mockup-inner { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 36px; }
+  .mockup-header { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; opacity: 0.6; }
+  .ring-wrap { position: relative; width: 148px; height: 148px; margin: 0 auto; }
+  .ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+  .ring-bg { fill: none; stroke: rgba(78,255,197,0.1); stroke-width: 8; }
+  .ring-fill { fill: none; stroke: var(--accent); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 390; stroke-dashoffset: 98; animation: ringFill 1.6s 0.9s both ease-out; }
+  @keyframes ringFill { from { stroke-dashoffset: 390; } to { stroke-dashoffset: 98; } }
+  .ring-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+  .ring-number { font-family: var(--font-d); font-size: 44px; line-height: 1; color: var(--text); }
+  .ring-sub { font-size: 10px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px; }
+  .readiness-label { font-size: 10px; color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; text-align: center; margin-top: 14px; }
+  .mockup-bars { margin-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+  .bar-row { display: flex; align-items: center; gap: 14px; }
+  .bar-label { font-size: 10px; color: var(--muted); width: 52px; letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 3px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 2px; animation: barFill 1s both ease-out; }
+  .bar-fill.hrv  { background: var(--accent); width: 82%; animation-delay: 1s; }
+  .bar-fill.sleep{ background: #818CF8; width: 68%; animation-delay: 1.1s; }
+  .bar-fill.load { background: #34D399; width: 55%; animation-delay: 1.2s; }
+  @keyframes barFill { from { width: 0; } }
+  .bar-val { font-size: 11px; color: var(--text); font-weight: 500; width: 28px; text-align: right; }
+
+  /* pricing */
+  .pricing-section { background: var(--ink2); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 64px; border: 1px solid var(--border); }
+  .plan-card { padding: 52px 40px; background: var(--ink); border-right: 1px solid var(--border); position: relative; }
+  .plan-card:last-child { border-right: none; }
+  .plan-card.featured { background: var(--ink3); }
+  .plan-card.featured::before { content: 'MOST POPULAR'; position: absolute; top: 0; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--ink); font-size: 9px; font-weight: 700; letter-spacing: 0.2em; padding: 4px 14px; border-radius: 0 0 4px 4px; }
+  .plan-name { font-family: var(--font-d); font-size: 34px; letter-spacing: 0.04em; margin-bottom: 8px; }
+  .plan-tagline { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+  .plan-price { font-family: var(--font-d); font-size: 60px; letter-spacing: 0.02em; line-height: 1; }
+  .plan-price sup { font-size: 24px; vertical-align: super; color: var(--muted); }
+  .plan-price small { font-family: var(--font-b); font-size: 14px; color: var(--muted); }
+  .plan-period { font-size: 12px; color: var(--muted); margin-top: 4px; margin-bottom: 32px; }
+  .plan-cta { display: block; width: 100%; padding: 14px; background: transparent; border: 1px solid var(--border); color: var(--muted); font-family: var(--font-b); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; text-decoration: none; border-radius: 3px; cursor: none; transition: all 0.2s; margin-bottom: 32px; }
+  .plan-cta:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
+  .plan-cta.primary { background: var(--accent); border-color: var(--accent); color: var(--ink); font-weight: 700; }
+  .plan-cta.primary:hover { background: var(--accent2); border-color: var(--accent2); }
+  .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .plan-features li { font-size: 13px; font-weight: 300; color: var(--muted); display: flex; align-items: flex-start; gap: 10px; }
+  .plan-features li .tick { color: var(--accent); flex-shrink: 0; font-size: 14px; }
+  .plan-features li.dim { opacity: 0.28; }
+
+  .quote-section { text-align: center; padding: 96px 52px; position: relative; overflow: hidden; }
+  .quote-section::before { content: '"'; font-family: var(--font-d); font-size: 420px; line-height: 1; position: absolute; top: -80px; left: 50%; transform: translateX(-50%); color: rgba(78,255,197,0.03); pointer-events: none; user-select: none; }
+  blockquote { font-family: var(--font-d); font-size: clamp(36px, 5.5vw, 72px); letter-spacing: 0.025em; line-height: 1.1; max-width: 860px; margin: 0 auto; }
+  blockquote em { color: var(--accent); font-style: normal; }
+  cite { display: block; margin-top: 20px; font-size: 11px; color: var(--muted); letter-spacing: 0.16em; text-transform: uppercase; }
+
+  .cta-section { background: var(--ink2); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; padding: 128px 52px; position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); opacity: 0.3; }
+  .cta-title { font-family: var(--font-d); font-size: clamp(52px, 9vw, 120px); line-height: 0.9; letter-spacing: 0.02em; }
+  .cta-title .accent { color: var(--accent); }
+  .cta-sub { font-size: 16px; color: var(--muted); max-width: 460px; font-weight: 300; line-height: 1.65; }
+  .app-store-btn { display: inline-flex; align-items: center; gap: 14px; background: #fff; color: #000; padding: 14px 28px; border-radius: 12px; text-decoration: none; transition: opacity 0.2s, transform 0.2s; font-family: var(--font-b); cursor: none; }
+  .app-store-btn:hover { opacity: 0.92; transform: scale(1.02); }
+  .app-store-btn svg { width: 24px; height: 24px; }
+  .app-store-text small { display: block; font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: #666; }
+  .app-store-text strong { display: block; font-size: 18px; font-weight: 600; }
+  .free-badge { font-size: 11px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; border: 1px solid var(--border); padding: 6px 16px; border-radius: 100px; margin-top: -8px; }
+
+  footer { padding: 44px 52px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: var(--font-d); font-size: 22px; color: var(--text); letter-spacing: 0.1em; }
+  .footer-logo span { color: var(--accent); }
+  .footer-links { display: flex; gap: 28px; }
+  .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-copy { font-size: 11px; color: #2a2e38; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    nav ul { display: none; }
+    .hero { padding: 0 24px 64px; }
+    section { padding: 80px 24px; }
+    .stats-band { grid-template-columns: repeat(2,1fr); padding: 32px 24px; row-gap: 32px; }
+    .stat-item:nth-child(2) { border-right: none; }
+    .stat-item:nth-child(3) { padding-left: 0; border-right: 1px solid var(--border); }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card { border-right: none !important; }
+    .feature-card:nth-child(n+2) { border-top: 1px solid var(--border); }
+    .modalities-section { grid-template-columns: 1fr; gap: 48px; }
+    .modalities-visual { height: 380px; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .plan-card { border-right: none; border-bottom: 1px solid var(--border); }
+    footer { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    body { cursor: auto; }
+    .cursor, .cursor-ring { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<nav id="mainNav">
+  <a href="#" class="nav-logo">VERSUS<span>.</span></a>
+  <ul>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#training">Training</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-bg-word">VERSUS</div>
+  <p class="hero-eyebrow">Available now on iOS</p>
+  <h1 class="hero-title">Train Like<br/>A <span class="accent">Fighter.</span></h1>
+  <p class="hero-sub">
+    Whether you compete or just want to <strong>look and move like someone who does</strong> — Versus handles combat, strength, conditioning, and body composition in one unified system.
+  </p>
+  <div class="hero-actions">
+    <a href="#" class="btn-primary">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download for iOS
+    </a>
+    <a href="#features" class="btn-ghost">
+      See features
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll"><div class="scroll-line"></div>Scroll</div>
+</section>
+
+<div class="stats-band">
+  <div class="stat-item reveal"><div class="stat-number">5</div><div class="stat-label">Training Modalities</div></div>
+  <div class="stat-item reveal"><div class="stat-number">14</div><div class="stat-label">Martial Arts Curricula</div></div>
+  <div class="stat-item reveal"><div class="stat-number">1,000+</div><div class="stat-label">Techniques Mapped</div></div>
+  <div class="stat-item reveal"><div class="stat-number">1</div><div class="stat-label">App for All of It</div></div>
+</div>
+
+<section id="features">
+  <p class="section-label reveal">What makes Versus different</p>
+  <h2 class="section-title reveal">Built for the<br/><span class="accent">hybrid athlete.</span></h2>
+
+  <div class="features-grid">
+
+    <!-- 1: Skill Tree - FREE -->
+    <div class="feature-card reveal">
+      <span class="feature-number">01</span>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="8" r="3.5"/><circle cx="10" cy="28" r="3.5"/><circle cx="34" cy="28" r="3.5"/><circle cx="22" cy="38" r="3.5"/>
+          <line x1="22" y1="11.5" x2="10" y2="24.5"/><line x1="22" y1="11.5" x2="34" y2="24.5"/>
+          <line x1="10" y1="31.5" x2="22" y2="34.5"/><line x1="34" y1="31.5" x2="22" y2="34.5"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">Technique Skill Tree</h3>
+      <p class="feature-desc">Map your progress through 14 martial arts curricula — BJJ, Muay Thai, Boxing, Wrestling, Judo, Sambo, Karate, Lethwei, Capoeira and more. Techniques unlock as you train them, with a visual dependency graph showing what opens next.</p>
+    </div>
+
+    <!-- 2: Readiness - FREE -->
+    <div class="feature-card reveal">
+      <span class="feature-number">02</span>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M10 34 A16 16 0 1 1 34 34" stroke-opacity="0.25"/>
+          <path d="M10 34 A16 16 0 0 1 29 11"/>
+          <circle cx="22" cy="22" r="3" fill="currentColor" stroke="none"/>
+          <line x1="22" y1="22" x2="22" y2="14" stroke-width="2"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">Daily Readiness Score</h3>
+      <p class="feature-desc">A single number every morning telling you whether to push or recover. Calculated from your HRV, sleep quality, and training load — calibrated to your own baseline, not a population average. Free for every user, every day.</p>
+    </div>
+
+    <!-- 3: Gym Feed / Community - FREE -->
+    <div class="feature-card reveal">
+      <span class="feature-number">03</span>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="14" cy="16" r="5"/>
+          <circle cx="30" cy="16" r="5"/>
+          <path d="M4 36 C4 28 10 24 14 24"/>
+          <path d="M40 36 C40 28 34 24 30 24"/>
+          <path d="M14 24 C14 20 30 20 30 24 C34 26 36 30 36 36 L8 36 C8 30 10 26 14 24Z"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">Gym Feed</h3>
+      <p class="feature-desc">Join your gym with a code and see who trained today, react to sessions, and stay accountable together. Training is more consistent when the people around you can see the work you're putting in.</p>
+    </div>
+
+    <!-- 4: AI Coach - MAX -->
+    <div class="feature-card reveal">
+      <span class="feature-number">04</span>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 8 C14 8 8 14 8 22 C8 30 14 36 22 36 C30 36 36 30 36 22"/>
+          <path d="M30 8 L36 8 L36 14"/><path d="M36 8 L26 18"/>
+          <circle cx="22" cy="22" r="4"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">AI Coach — Sensei</h3>
+      <p class="feature-desc">A coach that actually knows your history. Sensei reads your recent sessions, active training camp, fight record, and readiness before giving advice — so the guidance fits your actual situation, not a generic template.</p>
+    </div>
+
+    <!-- 5: Fight Camp + Fight Week merged -->
+    <div class="feature-card reveal">
+      <span class="feature-number">05</span>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="10" width="32" height="28" rx="2"/>
+          <line x1="6" y1="18" x2="38" y2="18"/>
+          <line x1="15" y1="6" x2="15" y2="14"/><line x1="29" y1="6" x2="29" y2="14"/>
+          <rect x="12" y="23" width="6" height="4" rx="1" fill="currentColor" stroke="none" opacity="0.5"/>
+          <rect x="22" y="23" width="9" height="4" rx="1" fill="currentColor" stroke="none" opacity="0.25"/>
+          <rect x="12" y="30" width="4" height="4" rx="1" fill="currentColor" stroke="none" opacity="0.25"/>
+          <rect x="28" y="28" width="6" height="6" rx="1" stroke-width="1.5" fill="none" opacity="0.8"/>
+          <line x1="28" y1="31" x2="34" y2="31" stroke-width="1"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">Training Camps and Fight Week</h3>
+      <p class="feature-desc">Build a periodised training block with auto-generated deload, taper, and peak weeks — then when competition approaches, switch into Fight Week mode for daily weight tracking, water intake, sauna logging, and a countdown to weigh-in.</p>
+    </div>
+
+    <!-- 6: Vanity Vault -->
+    <div class="feature-card reveal">
+      <span class="feature-number">06</span>
+      <div class="feature-icon-wrap">
+        <svg viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="22" cy="10" r="5"/>
+          <path d="M14 22 C10 22 8 30 10 38"/>
+          <path d="M30 22 C34 22 36 30 34 38"/>
+          <path d="M14 22 C14 18 30 18 30 22 L28 34 L16 34 Z"/>
+          <line x1="8" y1="30" x2="36" y2="30"/>
+          <line x1="8" y1="30" x2="8" y2="34"/><line x1="36" y1="30" x2="36" y2="34"/>
+        </svg>
+      </div>
+      <h3 class="feature-name">Vanity Vault</h3>
+      <p class="feature-desc">Track the physique side of training. Progress photos, 12 body measurements, automatic body fat estimation via the Navy Method, and a before/after comparison view. Because looking the part is part of the goal too.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- MODALITIES -->
+<section id="training" style="background: var(--ink2);">
+  <div class="modalities-section">
+    <div>
+      <p class="section-label reveal">Every way you train</p>
+      <h2 class="section-title reveal">One app.<br/><span class="accent">Every session.</span></h2>
+      <p class="reveal" style="margin-top:24px; color:var(--muted); font-weight:300; font-size:15px; max-width:440px; line-height:1.7;">
+        Fighters, lifters, runners, grapplers. Versus handles every modality with one unified load model — so your readiness score understands the full cost of your week.
+      </p>
+      <div class="modality-list">
+        <div class="modality-item reveal">
+          <div class="modality-icon-wrap">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="14" cy="5" r="2.5"/><path d="M10 10 L6 22 M18 10 L22 22"/>
+              <line x1="10" y1="10" x2="18" y2="10"/><path d="M9 18 L19 18"/>
+            </svg>
+          </div>
+          <div class="modality-info"><h3>Combat</h3><p>Sparring rounds, technique tags, session type. 14 martial arts, all tracked with the same depth.</p></div>
+        </div>
+        <div class="modality-item reveal">
+          <div class="modality-icon-wrap">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="4" y1="14" x2="24" y2="14"/>
+              <line x1="4" y1="14" x2="4" y2="11"/><line x1="24" y1="14" x2="24" y2="11"/>
+              <rect x="6" y="9" width="4" height="5" rx="2"/>
+              <rect x="18" y="9" width="4" height="5" rx="2"/>
+              <line x1="10" y1="11.5" x2="18" y2="11.5"/>
+            </svg>
+          </div>
+          <div class="modality-info"><h3>Resistance</h3><p>Sets, reps, weight — with PR detection, advanced set types, and full exercise history.</p></div>
+        </div>
+        <div class="modality-item reveal">
+          <div class="modality-icon-wrap">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+              <path d="M4 20 Q8 8 14 13 Q20 18 24 4"/>
+              <circle cx="24" cy="4" r="1.8" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="modality-info"><h3>Endurance</h3><p>20+ activity types with pace, HR zones, power data, and Bluetooth machine sync.</p></div>
+        </div>
+        <div class="modality-item reveal">
+          <div class="modality-icon-wrap">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 20 Q6 13 11 9 Q14 7 17 9 Q22 13 20 20"/>
+              <path d="M8 20 Q14 24 20 20"/>
+              <line x1="14" y1="9" x2="14" y2="5"/>
+              <line x1="10" y1="11" x2="7" y2="8"/><line x1="18" y1="11" x2="21" y2="8"/>
+            </svg>
+          </div>
+          <div class="modality-info"><h3>Mobility</h3><p>Named drills, hold times, and a pain scale — treated as a training stimulus, not an afterthought.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modalities-visual reveal">
+      <div class="mockup-inner">
+        <div class="mockup-header">Today's Readiness</div>
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="ring-wrap">
+            <svg viewBox="0 0 148 148">
+              <circle class="ring-bg" cx="74" cy="74" r="62"/>
+              <circle class="ring-fill" cx="74" cy="74" r="62"/>
+            </svg>
+            <div class="ring-label"><div class="ring-number">76</div><div class="ring-sub">/ 100</div></div>
+          </div>
+          <div class="readiness-label">Good to train</div>
+        </div>
+        <div class="mockup-bars">
+          <div class="bar-row"><span class="bar-label">HRV</span><div class="bar-track"><div class="bar-fill hrv"></div></div><span class="bar-val">82</span></div>
+          <div class="bar-row"><span class="bar-label">Sleep</span><div class="bar-track"><div class="bar-fill sleep"></div></div><span class="bar-val">68</span></div>
+          <div class="bar-row"><span class="bar-label">Load</span><div class="bar-track"><div class="bar-fill load"></div></div><span class="bar-val">55</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section">
+  <blockquote class="reveal">"Train like a fighter.<br/><em>Look like one too.</em>"</blockquote>
+  <cite class="reveal">Versus</cite>
+</section>
+
+<section id="pricing" class="pricing-section">
+  <p class="section-label reveal">Simple, honest pricing</p>
+  <h2 class="section-title reveal">Start free.<br/><span class="accent">Grow with it.</span></h2>
+  <div class="pricing-grid">
+    <div class="plan-card reveal">
+      <div class="plan-name">Free</div>
+      <div class="plan-tagline">No card. No catch.</div>
+      <div class="plan-price">0</div>
+      <div class="plan-period">Free forever</div>
+      <a href="#" class="plan-cta">Download Free</a>
+      <ul class="plan-features">
+        <li><span class="tick">+</span> All 5 training loggers</li>
+        <li><span class="tick">+</span> 14-discipline skill tree</li>
+        <li><span class="tick">+</span> Daily readiness score</li>
+        <li><span class="tick">+</span> Morning check-in</li>
+        <li><span class="tick">+</span> Gym feed and partner hub</li>
+        <li><span class="tick">+</span> Training calendar and streaks</li>
+        <li><span class="tick">+</span> 3 Vanity Vault check-ins</li>
+        <li class="dim"><span class="tick">+</span> ACWR load analytics</li>
+        <li class="dim"><span class="tick">+</span> Training camps</li>
+      </ul>
+    </div>
+    <div class="plan-card featured reveal">
+      <div class="plan-name">PRO</div>
+      <div class="plan-tagline">For the serious trainee</div>
+      <div class="plan-price"><sup>$</sup>12<small>.99/mo</small></div>
+      <div class="plan-period">or $99.99/yr &middot; $299.99 lifetime</div>
+      <a href="#" class="plan-cta primary">Get PRO</a>
+      <ul class="plan-features">
+        <li><span class="tick">+</span> Everything in Free</li>
+        <li><span class="tick">+</span> ACWR injury risk tracking</li>
+        <li><span class="tick">+</span> Plateau detector</li>
+        <li><span class="tick">+</span> Training camps and periodisation</li>
+        <li><span class="tick">+</span> Fight week weight cut protocol</li>
+        <li><span class="tick">+</span> Unlimited Vanity Vault</li>
+        <li><span class="tick">+</span> Partner challenges</li>
+      </ul>
+    </div>
+    <div class="plan-card reveal">
+      <div class="plan-name">MAX</div>
+      <div class="plan-tagline">Full AI coaching layer</div>
+      <div class="plan-price"><sup>$</sup>19<small>.99/mo</small></div>
+      <div class="plan-period">Everything, unlocked</div>
+      <a href="#" class="plan-cta">Get MAX</a>
+      <ul class="plan-features">
+        <li><span class="tick">+</span> Everything in PRO</li>
+        <li><span class="tick">+</span> Sensei AI coach, unlimited</li>
+        <li><span class="tick">+</span> AI sparring debrief</li>
+        <li><span class="tick">+</span> Opponent scouting and gameplan</li>
+        <li><span class="tick">+</span> AI daily session builder</li>
+        <li><span class="tick">+</span> Voice input in all loggers</li>
+        <li><span class="tick">+</span> Situation drill simulator</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <p class="section-label reveal">Available now on iOS</p>
+  <h2 class="cta-title reveal">Start training<br/><span class="accent">smarter.</span></h2>
+  <p class="cta-sub reveal">Download free. No credit card. No setup. Open the app and log your first session in under two minutes.</p>
+  <a href="#" class="app-store-btn reveal">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+    <div class="app-store-text"><small>Download on the</small><strong>App Store</strong></div>
+  </a>
+  <span class="free-badge reveal">Free to download &middot; iOS 17+</span>
+</section>
+
+<footer>
+  <div class="footer-logo">VERSUS<span>.</span></div>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Support</a><a href="#">Contact</a>
+  </div>
+  <div class="footer-copy">2026 Versus. All rights reserved.</div>
+</footer>
+
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
+  (function tick(){
+    cursor.style.left=mx+'px';cursor.style.top=my+'px';
+    rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;
+    ring.style.left=rx+'px';ring.style.top=ry+'px';
+    requestAnimationFrame(tick);
+  })();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cursor.style.transform='translate(-50%,-50%) scale(2.2)');
+    el.addEventListener('mouseleave',()=>cursor.style.transform='translate(-50%,-50%) scale(1)');
+  });
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  window.addEventListener('scroll',()=>{
+    document.getElementById('mainNav').style.background=
+      window.scrollY>50?'rgba(11,13,17,0.97)':'rgba(11,13,17,0.65)';
+  });
+</script>
+</body>
+</html>
