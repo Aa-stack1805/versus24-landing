@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terms &amp; Conditions — Versus</title>
+  <style>
+    :root {
+      --ink:    #0B0D11;
+      --ink2:   #13161C;
+      --border: rgba(255,255,255,0.07);
+      --text:   #E8EAF0;
+      --muted:  #6B7280;
+      --accent: #4EFFC5;
+      --font-d: 'Bebas Neue', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    nav {
+      position: sticky; top: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(11,13,17,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; letter-spacing: 0.1em;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .page-header {
+      padding: 72px 52px 48px;
+      border-bottom: 1px solid var(--border);
+      background: var(--ink2);
+    }
+    .page-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .page-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+    .page-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 7vw, 80px);
+      letter-spacing: 0.02em; line-height: 0.95;
+    }
+    .page-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 52px 96px;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 0.05em;
+      color: var(--text); margin-top: 52px; margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2:first-child { margin-top: 0; }
+
+    p { color: var(--muted); margin-bottom: 16px; }
+    p strong { color: var(--text); font-weight: 500; }
+    p a { color: var(--accent); text-decoration: none; }
+    p a:hover { text-decoration: underline; }
+
+    ul {
+      list-style: none; margin: 16px 0 20px; padding: 0;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    ul li {
+      color: var(--muted); font-size: 15px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    ul li::before {
+      content: '+'; color: var(--accent);
+      font-weight: 600; flex-shrink: 0; margin-top: 1px;
+    }
+    ul li a { color: var(--accent); text-decoration: none; }
+    ul li a:hover { text-decoration: underline; }
+
+    .highlight-box {
+      background: var(--ink2);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 2px;
+      margin: 20px 0;
+    }
+    .highlight-box p { margin-bottom: 0; }
+
+    .warning-box {
+      background: rgba(78,255,197,0.04);
+      border: 1px solid rgba(78,255,197,0.15);
+      border-left: 2px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 2px;
+      margin: 20px 0;
+    }
+    .warning-box p { margin-bottom: 0; }
+
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; margin: 20px 0;
+      border: 1px solid var(--border);
+    }
+    .pricing-cell {
+      padding: 20px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .pricing-cell:last-child { border-right: none; }
+    .pricing-cell .plan { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.05em; color: var(--text); margin-bottom: 4px; }
+    .pricing-cell .price { font-size: 13px; color: var(--accent); font-weight: 500; }
+    .pricing-cell .desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    .effective-date {
+      display: inline-block;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(78,255,197,0.08);
+      border: 1px solid rgba(78,255,197,0.2);
+      padding: 4px 12px; border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    footer {
+      padding: 32px 52px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--ink2);
+    }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text); letter-spacing: 0.1em; }
+    .footer-logo span { color: var(--accent); }
+    .footer-note { font-size: 11px; color: var(--muted); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .page-header { padding: 48px 20px 32px; }
+      .content { padding: 40px 20px 64px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .pricing-cell:last-child { border-bottom: none; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">VERSUS<span>.</span></a>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
+    Back to home
+  </a>
+</nav>
+
+<div class="page-header">
+  <div class="page-label">Legal</div>
+  <h1 class="page-title">Terms &amp;<br/>Conditions</h1>
+  <p class="page-meta">Applies to the Versus iOS application</p>
+</div>
+
+<div class="content">
+
+  <div class="effective-date">Effective date: March 12, 2026</div>
+
+  <p>These terms and conditions apply to the Versus app (referred to as the "Application") for mobile devices, developed by Aadit Singal (referred to as the "Service Provider") as a freemium service.</p>
+
+  <p>By downloading or using the Application, you automatically agree to these terms. Please read them carefully before using the Application.</p>
+
+  <h2>Intellectual Property</h2>
+  <p>Unauthorised copying or modification of the Application, any part of the Application, or our trademarks is strictly prohibited. Any attempts to extract the source code of the Application, translate the Application into other languages, or create derivative versions are not permitted. All trademarks, copyrights, database rights, and other intellectual property rights related to the Application remain the property of the Service Provider.</p>
+
+  <h2>Subscriptions and Payments</h2>
+  <p>The Application is offered as a freemium service with the following subscription tiers:</p>
+
+  <div class="pricing-grid">
+    <div class="pricing-cell">
+      <div class="plan">Free</div>
+      <div class="price">No cost</div>
+      <div class="desc">Core features, forever free</div>
+    </div>
+    <div class="pricing-cell">
+      <div class="plan">PRO</div>
+      <div class="price">$12.99/mo &middot; $99.99/yr</div>
+      <div class="desc">$299.99 lifetime option available</div>
+    </div>
+    <div class="pricing-cell">
+      <div class="plan">MAX</div>
+      <div class="price">$19.99/mo</div>
+      <div class="desc">Full AI coaching layer</div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p><strong>Important billing information:</strong> Subscriptions automatically renew at the end of each billing period unless cancelled at least 24 hours before the renewal date. All subscription management, cancellation, and refund requests must be handled through your Apple App Store account settings — the Service Provider cannot process cancellations or refunds directly. Lifetime purchases are non-refundable and are tied to your account. Prices are subject to change with notice.</p>
+  </div>
+
+  <h2>Health and Fitness Disclaimer</h2>
+  <div class="warning-box">
+    <p>The readiness score, training load calculations, HRV analysis, and all related metrics provided by the Application are for <strong>informational and motivational purposes only</strong>. They do not constitute medical advice, diagnosis, or treatment. The Application reads data from Apple HealthKit to generate these metrics but is not a medical device and has not been evaluated by any regulatory health authority. Always consult a qualified medical professional before beginning or modifying a training programme, particularly if you have a pre-existing health condition.</p>
+  </div>
+
+  <h2>AI Coaching Disclaimer</h2>
+  <p>The Application includes an AI coaching feature called Sensei. By using Sensei, you acknowledge and agree that:</p>
+  <ul>
+    <li>Sensei's responses are generated by an AI system and do not constitute professional coaching, medical, nutritional, or psychological advice</li>
+    <li>You act on any recommendations provided by Sensei entirely at your own discretion and risk</li>
+    <li>The Service Provider is not liable for any injury, loss, or adverse outcome resulting from following AI-generated advice</li>
+    <li>AI outputs may occasionally be inaccurate, incomplete, or unsuitable for your specific circumstances</li>
+  </ul>
+  <p>The Service Provider ensures that all AI usage complies with applicable laws and is designed to benefit the user experience.</p>
+
+  <h2>User Content</h2>
+  <p>The Application allows users to upload progress photos and record body measurements through the Vanity Vault feature. You retain full ownership of all content you submit. The Service Provider does not claim any intellectual property rights over your photos or personal data. You are solely responsible for the content you upload and warrant that you have the right to submit it. The Service Provider reserves the right to remove any content that violates these terms or applicable law.</p>
+
+  <h2>Third Party Services</h2>
+  <p>The Application uses the following third-party services, each governed by their own terms and conditions:</p>
+  <ul>
+    <li><a href="https://supabase.com/terms" target="_blank" rel="noopener noreferrer">Supabase</a> — authentication, database, and cloud storage</li>
+    <li><a href="https://www.revenuecat.com/terms" target="_blank" rel="noopener noreferrer">RevenueCat</a> — subscription and payment management</li>
+    <li><a href="https://sentry.io/terms/" target="_blank" rel="noopener noreferrer">Sentry</a> — error tracking and analytics</li>
+    <li><a href="https://posthog.com/terms" target="_blank" rel="noopener noreferrer">PostHog</a> — product analytics</li>
+    <li><a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Apple Standard EULA</a> — governs your use of the Application on Apple platforms</li>
+  </ul>
+
+  <h2>Internet Connection and Device Responsibility</h2>
+  <p>Some features of the Application require an active internet connection. The Service Provider cannot be held responsible if the Application does not function at full capacity due to lack of Wi-Fi access or if you have exhausted your data allowance.</p>
+  <p>If you use the Application outside of a Wi-Fi area, your mobile network provider's terms still apply and you may incur data charges, including roaming charges if used outside your home territory. The Service Provider is not responsible for any such charges.</p>
+  <p>It is your responsibility to keep your device charged and maintained. The Service Provider cannot be held responsible if you are unable to access the Application due to a dead battery or device failure.</p>
+
+  <h2>Security and Device Integrity</h2>
+  <p>The Service Provider strongly advises against jailbreaking or rooting your device. Such actions remove software restrictions imposed by the official operating system, may expose your device to security vulnerabilities, and may result in the Application not functioning correctly or at all. The Service Provider accepts no responsibility for issues arising from use of the Application on a jailbroken or rooted device.</p>
+
+  <h2>Limitation of Liability</h2>
+  <p>The Service Provider strives to ensure the Application is accurate and up to date at all times. However, the Application may rely on third-party data and services. The Service Provider accepts no liability for any loss, direct or indirect, that you experience as a result of relying on information or functionality provided by the Application.</p>
+  <p>To the maximum extent permitted by applicable law, the Service Provider shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the Application.</p>
+
+  <h2>Updates and Termination</h2>
+  <p>The Service Provider may update the Application at any time. Updates may be required to continue using the Application. The Service Provider does not guarantee that the Application will always be compatible with your device's operating system version.</p>
+  <p>The Service Provider reserves the right to cease providing the Application and terminate its use at any time without prior notice. Upon termination, all rights and licences granted to you under these terms will end and you must cease using and delete the Application from your device.</p>
+
+  <h2>Changes to These Terms</h2>
+  <p>The Service Provider may update these Terms and Conditions from time to time. You are advised to review this page regularly. Changes are effective immediately upon posting. Continued use of the Application after changes are posted constitutes your acceptance of the updated terms.</p>
+
+  <h2>Governing Law</h2>
+  <p>These terms and conditions are governed by and construed in accordance with applicable law. Any disputes arising from your use of the Application shall be subject to the exclusive jurisdiction of the relevant courts.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have any questions or suggestions about these Terms and Conditions, please contact us:</p>
+  <p><strong>Email:</strong> <a href="mailto:aadit@versus24.net">aadit@versus24.net</a><br/>
+  <strong>Website:</strong> <a href="https://versus24.net">versus24.net</a></p>
+
+</div>
+
+<footer>
+  <div class="footer-logo">VERSUS<span>.</span></div>
+  <div class="footer-links">
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:aadit@versus24.net">Contact</a>
+  </div>
+  <div class="footer-note">2026 Versus. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
