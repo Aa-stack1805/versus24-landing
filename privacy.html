@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Versus</title>
+  <style>
+    :root {
+      --ink:    #0B0D11;
+      --ink2:   #13161C;
+      --border: rgba(255,255,255,0.07);
+      --text:   #E8EAF0;
+      --muted:  #6B7280;
+      --accent: #4EFFC5;
+      --font-d: 'Bebas Neue', sans-serif;
+      --font-b: 'DM Sans', sans-serif;
+    }
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    nav {
+      position: sticky; top: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 52px;
+      background: rgba(11,13,17,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 24px; letter-spacing: 0.1em;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-back {
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      text-decoration: none; transition: color 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .nav-back:hover { color: var(--text); }
+
+    .page-header {
+      padding: 72px 52px 48px;
+      border-bottom: 1px solid var(--border);
+      background: var(--ink2);
+    }
+    .page-label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--accent);
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px;
+    }
+    .page-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+    .page-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 7vw, 80px);
+      letter-spacing: 0.02em; line-height: 0.95;
+    }
+    .page-meta {
+      margin-top: 20px; font-size: 13px; color: var(--muted);
+    }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 64px 52px 96px;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px; letter-spacing: 0.05em;
+      color: var(--text); margin-top: 52px; margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    h2:first-child { margin-top: 0; }
+
+    p { color: var(--muted); margin-bottom: 16px; }
+    p strong { color: var(--text); font-weight: 500; }
+
+    ul {
+      list-style: none; margin: 16px 0 20px; padding: 0;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    ul li {
+      color: var(--muted); font-size: 15px;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    ul li::before {
+      content: '+'; color: var(--accent);
+      font-weight: 600; flex-shrink: 0; margin-top: 1px;
+    }
+    ul li a { color: var(--accent); text-decoration: none; }
+    ul li a:hover { text-decoration: underline; }
+
+    .highlight-box {
+      background: var(--ink2);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--accent);
+      padding: 20px 24px;
+      border-radius: 2px;
+      margin: 20px 0;
+    }
+    .highlight-box p { margin-bottom: 0; }
+
+    .effective-date {
+      display: inline-block;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent);
+      background: rgba(78,255,197,0.08);
+      border: 1px solid rgba(78,255,197,0.2);
+      padding: 4px 12px; border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    footer {
+      padding: 32px 52px;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--ink2);
+    }
+    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text); letter-spacing: 0.1em; }
+    .footer-logo span { color: var(--accent); }
+    .footer-note { font-size: 11px; color: var(--muted); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 700px) {
+      nav { padding: 16px 20px; }
+      .page-header { padding: 48px 20px 32px; }
+      .content { padding: 40px 20px 64px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">VERSUS<span>.</span></a>
+  <a href="/" class="nav-back">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
+    Back to home
+  </a>
+</nav>
+
+<div class="page-header">
+  <div class="page-label">Legal</div>
+  <h1 class="page-title">Privacy<br/>Policy</h1>
+  <p class="page-meta">Applies to the Versus iOS application</p>
+</div>
+
+<div class="content">
+
+  <div class="effective-date">Effective date: March 12, 2026</div>
+
+  <p>This privacy policy applies to the Versus app (referred to as the "Application") for mobile devices, developed by Aadit Singal (referred to as the "Service Provider") as a freemium service. This service is provided "AS IS".</p>
+
+  <h2>Information We Collect</h2>
+  <p>The Application collects information you provide when you register and use it. This includes:</p>
+  <ul>
+    <li>Email address</li>
+    <li>First and last name</li>
+    <li>Age (stored as approximate date of birth)</li>
+    <li>Gender</li>
+  </ul>
+  <p>The Application also collects certain information automatically, including the type of mobile device you use, your device's unique ID, IP address, mobile operating system, browser type, and information about how you use the Application.</p>
+
+  <h2>Health and Fitness Data</h2>
+  <div class="highlight-box">
+    <p>The Application reads health and fitness data from Apple HealthKit, including heart rate variability (HRV) and sleep data. This data is used solely to calculate your daily readiness score. <strong>Health data is never sold, shared with advertisers, or used for any purpose other than delivering the readiness features within the Application.</strong> All health data processing is performed in accordance with Apple's HealthKit guidelines and applicable privacy laws.</p>
+  </div>
+
+  <h2>User-Generated Content</h2>
+  <p>The Application allows users to submit progress photos and record body measurements through the Vanity Vault feature. This content is stored securely in the Service Provider's cloud infrastructure and is used solely to display your own progress within the Application. Progress photos and body measurements are never shared with third parties, sold, or used for advertising purposes.</p>
+
+  <h2>Artificial Intelligence</h2>
+  <p>The Application uses AI technologies to enhance user experience through the Sensei coaching feature. AI components may process your training history, readiness data, session logs, and fight records to generate personalised coaching advice, session plans, and sparring analysis. Specifically:</p>
+  <ul>
+    <li>Personalised coaching responses based on your logged sessions and readiness score</li>
+    <li>AI-generated daily session recommendations based on your training history</li>
+    <li>Sparring debrief analysis based on post-session input</li>
+    <li>Opponent scouting and gameplan suggestions based on structured profile data</li>
+  </ul>
+  <p>All AI outputs are recommendations the user acts on voluntarily. No automated decisions with legal or significant personal effect are made by the Application. All AI processing is performed in accordance with this privacy policy and applicable laws.</p>
+
+  <h2>Location Data</h2>
+  <p>The Application does not collect precise or approximate location information from your device. The Application does not request location permissions.</p>
+
+  <h2>Third Party Access</h2>
+  <p>Only aggregated, anonymised data is periodically transmitted to external services to help improve the Application. The Service Provider may share your information with third parties as described in this policy.</p>
+  <p>The Application uses the following third-party services, each with their own privacy policies:</p>
+  <ul>
+    <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase</a> — authentication, database, and cloud storage</li>
+    <li><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat</a> — subscription and payment management</li>
+    <li><a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Sentry</a> — error tracking and analytics</li>
+    <li><a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer">PostHog</a> — product analytics</li>
+    <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple HealthKit</a> — health and fitness data</li>
+  </ul>
+  <p>The Service Provider may disclose your information:</p>
+  <ul>
+    <li>As required by law, such as to comply with a subpoena or similar legal process</li>
+    <li>When disclosure is necessary to protect our rights, your safety, or the safety of others, or to investigate fraud</li>
+    <li>With trusted service providers who work on our behalf, who have no independent use of the information disclosed to them, and who have agreed to adhere to this privacy policy</li>
+  </ul>
+
+  <h2>Opt-Out Rights</h2>
+  <p>You can stop all collection of information by the Application by uninstalling it using the standard uninstall processes available on your device or via the App Store.</p>
+
+  <h2>Data Retention</h2>
+  <p>The Service Provider will retain user-provided data for as long as you use the Application and for a reasonable time thereafter. Automatically collected information is retained for up to 24 months and may thereafter be stored in aggregate form. If you would like your user data deleted, please contact us at <a href="mailto:aadit@versus24.net" style="color: var(--accent);">aadit@versus24.net</a> and we will respond within a reasonable time. Note that some data may be required for the Application to function properly.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>The Application does not address anyone under the age of 13. The Service Provider does not knowingly collect personally identifiable information from children under 13. If we discover that a child under 13 has provided personal information, it will be immediately deleted from our servers. If you are a parent or guardian and believe your child has provided us with personal information, please contact us at <a href="mailto:aadit@versus24.net" style="color: var(--accent);">aadit@versus24.net</a>.</p>
+
+  <h2>Security</h2>
+  <p>The Service Provider takes the confidentiality of your information seriously and provides physical, electronic, and procedural safeguards to protect the information we process and maintain. Access to your information is limited to authorised employees and contractors who need it to operate, develop, or improve the Application. Please be aware that no security system can prevent all potential breaches.</p>
+
+  <h2>GDPR Rights</h2>
+  <p>If you are located in the European Economic Area, you have the following rights regarding your personal data:</p>
+  <ul>
+    <li>The right to access the personal data we hold about you</li>
+    <li>The right to request correction of inaccurate data</li>
+    <li>The right to request deletion of your data</li>
+    <li>The right to object to or restrict processing of your data</li>
+    <li>The right to data portability</li>
+  </ul>
+  <p>To exercise any of these rights, contact us at <a href="mailto:aadit@versus24.net" style="color: var(--accent);">aadit@versus24.net</a>.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>This Privacy Policy may be updated from time to time. The Service Provider will notify you of any changes by updating this page. You are advised to review this policy regularly. Continued use of the Application after changes are posted constitutes your acceptance of the updated policy.</p>
+
+  <h2>Your Consent</h2>
+  <p>By using the Application, you consent to the processing of your information as described in this Privacy Policy, including any amendments made by us.</p>
+
+  <h2>Contact Us</h2>
+  <p>If you have any questions about this Privacy Policy or our privacy practices, please contact us:</p>
+  <p><strong>Email:</strong> <a href="mailto:aadit@versus24.net" style="color: var(--accent);">aadit@versus24.net</a><br/>
+  <strong>Website:</strong> <a href="https://versus24.net" style="color: var(--accent);">versus24.net</a></p>
+
+</div>
+
+<footer>
+  <div class="footer-logo">VERSUS<span>.</span></div>
+  <div class="footer-links">
+    <a href="/privacy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="mailto:aadit@versus24.net">Contact</a>
+  </div>
+  <div class="footer-note">2026 Versus. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
