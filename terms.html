@@ -4,28 +4,44 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms &amp; Conditions — Versus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --ink:    #0B0D11;
-      --ink2:   #13161C;
+      --ink2:   #0F1219;
+      --ink3:   #141820;
       --border: rgba(255,255,255,0.07);
       --text:   #E8EAF0;
       --muted:  #6B7280;
-      --accent: #4EFFC5;
+      --accent: #60A5FA;
+      --accent2:#3B82F6;
+      --accent-dim: rgba(96,165,250,0.10);
+      --accent-border: rgba(96,165,250,0.22);
       --font-d: 'Bebas Neue', sans-serif;
       --font-b: 'DM Sans', sans-serif;
     }
-    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       background: var(--ink);
       color: var(--text);
-      font-family: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: var(--font-b);
       font-size: 16px;
       line-height: 1.7;
       font-weight: 300;
+    }
+
+    /* grain */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      opacity: 0.022;
+      pointer-events: none;
+      z-index: 1000;
     }
 
     nav {
@@ -38,7 +54,7 @@
       z-index: 10;
     }
     .nav-logo {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: var(--font-d);
       font-size: 24px; letter-spacing: 0.1em;
       color: var(--text); text-decoration: none;
     }
@@ -55,6 +71,14 @@
       padding: 72px 52px 48px;
       border-bottom: 1px solid var(--border);
       background: var(--ink2);
+      position: relative; overflow: hidden;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent 60%);
+      opacity: 0.4;
     }
     .page-label {
       font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
@@ -64,7 +88,7 @@
     }
     .page-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
     .page-title {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: var(--font-d);
       font-size: clamp(44px, 7vw, 80px);
       letter-spacing: 0.02em; line-height: 0.95;
     }
@@ -77,7 +101,7 @@
     }
 
     h2 {
-      font-family: 'Bebas Neue', sans-serif;
+      font-family: var(--font-d);
       font-size: 28px; letter-spacing: 0.05em;
       color: var(--text); margin-top: 52px; margin-bottom: 16px;
       padding-bottom: 10px;
@@ -116,8 +140,8 @@
     .highlight-box p { margin-bottom: 0; }
 
     .warning-box {
-      background: rgba(78,255,197,0.04);
-      border: 1px solid rgba(78,255,197,0.15);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
       border-left: 2px solid var(--accent);
       padding: 20px 24px;
       border-radius: 2px;
@@ -133,9 +157,15 @@
     .pricing-cell {
       padding: 20px 24px;
       border-right: 1px solid var(--border);
+      background: var(--ink2);
+      transition: background 0.2s;
     }
     .pricing-cell:last-child { border-right: none; }
-    .pricing-cell .plan { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 0.05em; color: var(--text); margin-bottom: 4px; }
+    .pricing-cell:hover { background: var(--ink3); }
+    .pricing-cell .plan {
+      font-family: var(--font-d); font-size: 20px;
+      letter-spacing: 0.05em; color: var(--text); margin-bottom: 4px;
+    }
     .pricing-cell .price { font-size: 13px; color: var(--accent); font-weight: 500; }
     .pricing-cell .desc { font-size: 12px; color: var(--muted); margin-top: 4px; }
 
@@ -143,8 +173,8 @@
       display: inline-block;
       font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
       text-transform: uppercase; color: var(--accent);
-      background: rgba(78,255,197,0.08);
-      border: 1px solid rgba(78,255,197,0.2);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
       padding: 4px 12px; border-radius: 2px;
       margin-bottom: 32px;
     }
@@ -155,11 +185,14 @@
       display: flex; align-items: center; justify-content: space-between;
       background: var(--ink2);
     }
-    .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: var(--text); letter-spacing: 0.1em; }
+    .footer-logo { font-family: var(--font-d); font-size: 20px; color: var(--text); letter-spacing: 0.1em; }
     .footer-logo span { color: var(--accent); }
     .footer-note { font-size: 11px; color: var(--muted); }
     .footer-links { display: flex; gap: 24px; }
-    .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-links a {
+      font-size: 11px; color: var(--muted); text-decoration: none;
+      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
+    }
     .footer-links a:hover { color: var(--text); }
 
     @media (max-width: 700px) {
@@ -177,8 +210,8 @@
 <body>
 
 <nav>
-  <a href="/" class="nav-logo">VERSUS<span>.</span></a>
-  <a href="/" class="nav-back">
+  <a href="index.html" class="nav-logo">VERSUS<span>.</span></a>
+  <a href="index.html" class="nav-back">
     <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
     Back to home
   </a>
@@ -286,8 +319,8 @@
 <footer>
   <div class="footer-logo">VERSUS<span>.</span></div>
   <div class="footer-links">
-    <a href="/privacy.html">Privacy Policy</a>
-    <a href="/terms.html">Terms</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms</a>
     <a href="mailto:aadit@versus24.net">Contact</a>
   </div>
   <div class="footer-note">2026 Versus. All rights reserved.</div>
