@@ -6,10 +6,10 @@ from PIL import Image, ImageDraw, ImageFont
 from pathlib import Path
 
 W, H = 1200, 630
-BG = (10, 10, 11)           # --bg
-INK = (245, 245, 247)       # --ink
-MUTED = (138, 139, 145)     # --muted
-ACCENT = (232, 163, 61)     # --accent
+BG = (0, 0, 0)              # --bg, pure black per design system
+INK = (255, 255, 255)       # --text
+MUTED = (168, 168, 174)     # --text-subtle
+ACCENT = (212, 168, 67)     # --gold (D4A843)
 
 FONT_DIR = "/usr/share/fonts/truetype/dejavu"
 F_BOLD = f"{FONT_DIR}/DejaVuSans-Bold.ttf"
@@ -29,7 +29,7 @@ draw.rectangle((0, 0), fill=ACCENT) if False else draw.rectangle((0, 0, 8, H), f
 
 # Eyebrow chip
 chip_font = ImageFont.truetype(F_BOLD, 22)
-chip_text = "TRAIN LIKE A FIGHTER"
+chip_text = "THE ATHLETE'S OPERATING SYSTEM"
 cw, ch, ctop = text_size(chip_text, chip_font)
 chip_pad_x, chip_pad_y = 18, 10
 chip_x, chip_y = PAD_X, 120
@@ -39,7 +39,7 @@ draw.text((chip_x + chip_pad_x, chip_y + chip_pad_y - ctop), chip_text, font=chi
 
 # Headline — two lines, second amber. Pick a size that fits in the column.
 MAX_LINE_W = W - PAD_X * 2
-line1, line2 = "Train like a fighter.", "Look like one too."
+line1, line2 = "Train like the", "sport demands."
 # Auto-fit: shrink font until the longer of the two lines fits.
 size = 110
 while size > 60:
@@ -60,8 +60,8 @@ draw.text((PAD_X, y - t2), line2, font=headline_font, fill=ACCENT)
 y += h2 + 36
 
 # Subline
-sub_font = ImageFont.truetype(F_REG, 28)
-sub_text = "Train. Recover. Track. Look the part."
+sub_font = ImageFont.truetype(F_REG, 26)
+sub_text = "Combat · Strength · Endurance · Sport · Recovery"
 sw, sh, st = text_size(sub_text, sub_font)
 draw.text((PAD_X, y - st), sub_text, font=sub_font, fill=MUTED)
 

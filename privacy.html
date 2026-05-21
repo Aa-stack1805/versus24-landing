@@ -1,205 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="theme-color" content="#0B0D11"/>
-  <title>Privacy Policy — Versus</title>
-  <link rel="canonical" href="https://versus24.net/privacy.html"/>
-  <link rel="icon" href="/assets/favicon.ico" sizes="any"/>
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png"/>
-  <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --ink:    #0B0D11;
-      --ink2:   #0F1219;
-      --ink3:   #141820;
-      --border: rgba(255,255,255,0.07);
-      --text:   #E8EAF0;
-      --muted:  #8A8B91;
-      --accent: #E8A33D;
-      --accent2:#C8862A;
-      --accent-dim: rgba(232,163,61,0.10);
-      --accent-border: rgba(232,163,61,0.28);
-      --font-d: 'Bebas Neue', sans-serif;
-      --font-b: 'DM Sans', sans-serif;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      background: var(--ink);
-      color: var(--text);
-      font-family: var(--font-b);
-      font-size: 16px;
-      line-height: 1.7;
-      font-weight: 300;
-    }
-
-    /* grain */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
-      opacity: 0.022;
-      pointer-events: none;
-      z-index: 1000;
-    }
-
-    nav {
-      position: sticky; top: 0;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 18px 52px;
-      background: rgba(11,13,17,0.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      z-index: 10;
-    }
-    .nav-logo {
-      font-family: var(--font-d);
-      font-size: 24px; letter-spacing: 0.1em;
-      color: var(--text); text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-back {
-      font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--muted);
-      text-decoration: none; transition: color 0.2s;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .nav-back:hover { color: var(--text); }
-
-    .page-header {
-      padding: 72px 52px 48px;
-      border-bottom: 1px solid var(--border);
-      background: var(--ink2);
-      position: relative; overflow: hidden;
-    }
-    .page-header::after {
-      content: '';
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), transparent 60%);
-      opacity: 0.4;
-    }
-    .page-label {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--accent);
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 16px;
-    }
-    .page-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
-    .page-title {
-      font-family: var(--font-d);
-      font-size: clamp(44px, 7vw, 80px);
-      letter-spacing: 0.02em; line-height: 0.95;
-    }
-    .page-meta { margin-top: 20px; font-size: 13px; color: var(--muted); }
-
-    .content {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 64px 52px 96px;
-    }
-
-    h2 {
-      font-family: var(--font-d);
-      font-size: 28px; letter-spacing: 0.05em;
-      color: var(--text); margin-top: 52px; margin-bottom: 16px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid var(--border);
-    }
-    h2:first-child { margin-top: 0; }
-
-    p { color: var(--muted); margin-bottom: 16px; }
-    p strong { color: var(--text); font-weight: 500; }
-    p a { color: var(--accent); text-decoration: none; }
-    p a:hover { text-decoration: underline; }
-
-    ul {
-      list-style: none; margin: 16px 0 20px; padding: 0;
-      display: flex; flex-direction: column; gap: 10px;
-    }
-    ul li {
-      color: var(--muted); font-size: 15px;
-      display: flex; align-items: flex-start; gap: 10px;
-    }
-    ul li::before {
-      content: '+'; color: var(--accent);
-      font-weight: 600; flex-shrink: 0; margin-top: 1px;
-    }
-    ul li a { color: var(--accent); text-decoration: none; }
-    ul li a:hover { text-decoration: underline; }
-
-    .highlight-box {
-      background: var(--ink2);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--accent);
-      padding: 20px 24px;
-      border-radius: 2px;
-      margin: 20px 0;
-    }
-    .highlight-box p { margin-bottom: 0; }
-
-    .effective-date {
-      display: inline-block;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--accent);
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-border);
-      padding: 4px 12px; border-radius: 2px;
-      margin-bottom: 32px;
-    }
-
-    footer {
-      padding: 32px 52px;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      background: var(--ink2);
-    }
-    .footer-logo { font-family: var(--font-d); font-size: 20px; color: var(--text); letter-spacing: 0.1em; }
-    .footer-logo span { color: var(--accent); }
-    .footer-note { font-size: 11px; color: var(--muted); }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a {
-      font-size: 11px; color: var(--muted); text-decoration: none;
-      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--text); }
-
-    @media (max-width: 700px) {
-      nav { padding: 16px 20px; }
-      .page-header { padding: 48px 20px 32px; }
-      .content { padding: 40px 20px 64px; }
-      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 20px; }
-      .footer-links { flex-wrap: wrap; justify-content: center; }
-    }
-  </style>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#000000"/>
+<title>Privacy Policy — Versus</title>
+<meta name="description" content="Versus privacy policy. How we collect, use, and protect your data. GDPR + CCPA rights, third-party processors, AI disclosures."/>
+<link rel="canonical" href="https://versus24.net/privacy.html"/>
+<link rel="icon" href="/assets/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png"/>
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/assets/style.css"/>
 </head>
 <body>
 
-<nav>
-  <a href="index.html" class="nav-logo">VERSUS<span>.</span></a>
-  <a href="index.html" class="nav-back">
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8H3M7 4l-4 4 4 4"/></svg>
-    Back to home
-  </a>
-</nav>
+<a href="#main" class="skip-link">Skip to content</a>
 
-<div class="page-header">
-  <div class="page-label">Legal</div>
-  <h1 class="page-title">Privacy<br/>Policy</h1>
-  <p class="page-meta">Applies to the Versus iOS application</p>
-</div>
+<header class="nav" role="banner">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">Versus<span class="nav-logo-dot"></span></a>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+    <nav class="nav-links" aria-label="Primary">
+      <a class="nav-link" href="/#features">Features</a>
+      <a class="nav-link" href="/#audiences">Audiences</a>
+      <a class="nav-link" href="/pricing.html">Pricing</a>
+      <a class="nav-link" href="/faq.html">FAQ</a>
+      <a class="nav-link" href="/about.html">About</a>
+      <a class="btn btn-ghost nav-cta" href="/#waitlist">Join the waitlist</a>
+    </nav>
+  </div>
+</header>
 
-<div class="content">
+<main id="main">
+<article class="legal-page">
 
-  <div class="effective-date">Effective date: May 21, 2026</div>
+  <p class="eyebrow">Legal</p>
+  <h1>Privacy Policy</h1>
+  <p class="effective-date">Effective date: May 21, 2026 · Applies to the Versus iOS application</p>
 
   <p>This privacy policy applies to the Versus app (referred to as the "Application") for mobile devices, developed by Aadit Singal (referred to as the "Service Provider") as a freemium service. This service is provided "AS IS".</p>
 
@@ -214,9 +56,7 @@
   <p>The Application also collects certain information automatically, including the type of mobile device you use, your device's unique ID, IP address, mobile operating system, browser type, and information about how you use the Application.</p>
 
   <h2>Health and Fitness Data</h2>
-  <div class="highlight-box">
-    <p>The Application reads health and fitness data from Apple HealthKit, including heart rate variability (HRV) and sleep data. This data is used solely to calculate your daily readiness score. <strong>Health data is never sold, shared with advertisers, or used for any purpose other than delivering the readiness features within the Application.</strong> All health data processing is performed in accordance with Apple's HealthKit guidelines and applicable privacy laws.</p>
-  </div>
+  <p>The Application reads health and fitness data from Apple HealthKit, including heart rate variability (HRV) and sleep data. This data is used solely to calculate your daily readiness score. <strong>Health data is never sold, shared with advertisers, or used for any purpose other than delivering the readiness features within the Application.</strong> All health data processing is performed in accordance with Apple's HealthKit guidelines and applicable privacy laws.</p>
 
   <h2>How We Share Your Data with Other Users</h2>
   <p>The Application includes social features that share certain information with other users in your gym network and with users you have accepted as training partners. The following information may be visible to other users depending on your settings:</p>
@@ -324,17 +164,28 @@
   <p><strong>Email:</strong> <a href="mailto:aadit@versus24.net">aadit@versus24.net</a><br/>
   <strong>Website:</strong> <a href="https://versus24.net">versus24.net</a></p>
 
-</div>
+</article>
+</main>
 
-<footer>
-  <div class="footer-logo">VERSUS<span>.</span></div>
-  <div class="footer-links">
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="terms.html">Terms</a>
-    <a href="mailto:aadit@versus24.net">Contact</a>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo">Versus<span class="nav-logo-dot"></span></a>
+        <p class="footer-tagline">The athlete's operating system. Built for combat, strength, endurance, sport.</p>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/faq.html">FAQ</a></li></ul></div>
+      <div><h4>Audiences</h4><ul><li><a href="/fighters.html">Fighters</a></li><li><a href="/lifters.html">Lifters</a></li><li><a href="/runners.html">Runners</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="/support.html">Support</a></li><li><a href="mailto:aadit@versus24.net">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="mailto:dmca@versus24.net">DMCA</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Versus. Built with care in India.</span>
+      <span>iOS + Apple Watch · Launching soon</span>
+    </div>
   </div>
-  <div class="footer-note">2026 Versus. All rights reserved.</div>
 </footer>
 
+<script src="/assets/script.js" defer></script>
 </body>
 </html>
