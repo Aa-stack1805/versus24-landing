@@ -192,7 +192,7 @@
 
 <div class="content">
 
-  <div class="effective-date">Effective date: March 12, 2026</div>
+  <div class="effective-date">Effective date: May 21, 2026</div>
 
   <p>This privacy policy applies to the Versus app (referred to as the "Application") for mobile devices, developed by Aadit Singal (referred to as the "Service Provider") as a freemium service. This service is provided "AS IS".</p>
 
@@ -211,17 +211,42 @@
     <p>The Application reads health and fitness data from Apple HealthKit, including heart rate variability (HRV) and sleep data. This data is used solely to calculate your daily readiness score. <strong>Health data is never sold, shared with advertisers, or used for any purpose other than delivering the readiness features within the Application.</strong> All health data processing is performed in accordance with Apple's HealthKit guidelines and applicable privacy laws.</p>
   </div>
 
+  <h2>How We Share Your Data with Other Users</h2>
+  <p>The Application includes social features that share certain information with other users in your gym network and with users you have accepted as training partners. The following information may be visible to other users depending on your settings:</p>
+  <ul>
+    <li><strong>Gym feed (when enabled):</strong> Your workouts (modality, duration, sRPE, training load, notes, and feed caption), personal records (exercise name, weight, reps), photos attached to feed posts, comments, and reactions are visible to members of the gyms you join.</li>
+    <li><strong>Training partners (when accepted):</strong> Your daily readiness score, latest session summary, and weekly training load (in arbitrary units) are visible to users you have accepted as training partners. During an active partner challenge, weekly training load is also visible to your opponent.</li>
+    <li><strong>Profile identity:</strong> Your display name (first name), profile photo, and gym membership are shown alongside any content visible to other users.</li>
+  </ul>
+  <p>You control what is shared through the privacy settings in the Application, including the <strong>"Share to gym feed"</strong> and <strong>"Share PRs"</strong> toggles and per-partner acceptance. Turning a setting off prevents future sharing; it does not retroactively remove content already posted (you can delete individual posts and PRs at any time).</p>
+  <p>Information shared via these social features is shared only with the other Versus users you have a relationship with through the Application (gym co-members or accepted partners). It is never sold or shared with advertisers.</p>
+
   <h2>User-Generated Content</h2>
-  <p>The Application allows users to submit progress photos and record body measurements through the Vanity Vault feature. This content is stored securely in the Service Provider's cloud infrastructure and is used solely to display your own progress within the Application. Progress photos and body measurements are never shared with third parties, sold, or used for advertising purposes.</p>
+  <p>The Application allows users to submit progress photos and record body measurements through the Vanity Vault feature, and to share workouts, photos, captions, comments, and reactions through the gym feed. Vanity Vault content is private to you and stored securely in the Service Provider's cloud infrastructure; it is not shown to other users. Gym feed content is shared with other users as described in the section above. None of this content is sold to third parties or used for advertising purposes.</p>
+  <p>You can delete any individual post, comment, photo, or measurement from within the Application at any time. You can also report or block other users from the same interface; see the "Content Moderation and Safety" section below.</p>
+
+  <h2>Content Moderation and Safety</h2>
+  <p>To keep the gym feed safe, the Application provides in-app tools to <strong>report</strong> any post or comment you find objectionable and to <strong>block</strong> any other user. Reports are reviewed by the Service Provider within 24 hours. When you block a user, you no longer see their posts, comments, or reactions, and they no longer see yours. The Service Provider may also remove content or suspend accounts that violate the Terms &amp; Conditions. We retain a record of reports, blocks, and moderation actions for safety and abuse-prevention purposes for as long as is reasonably necessary.</p>
+
+  <h2>Push Notifications</h2>
+  <p>If you grant permission, the Application sends push notifications through the Apple Push Notification Service (APNs). Notifications may be triggered by events such as a training partner logging a workout, a partner-challenge result, a new reaction or comment on your feed posts, or a partner invite. We store an opaque device token in our infrastructure so notifications can be routed to your device, and we log delivery metadata for rate-limiting and reliability purposes. You can disable push notifications at any time from iOS Settings → Notifications → Versus.</p>
+
+  <h2>Account Discoverability</h2>
+  <p>Other Versus users may look up your account by your email address in order to send you a training-partner invite. Lookups are rate-limited (currently 20 per user per day) and return only your public profile (display name and profile photo). You cannot currently opt out of email lookup; deleting your account removes you from this index.</p>
 
   <h2>Artificial Intelligence</h2>
-  <p>The Application uses AI technologies to enhance user experience through the Sensei coaching feature. AI components may process your training history, readiness data, session logs, and fight records to generate personalised coaching advice, session plans, and sparring analysis. Specifically:</p>
+  <p>The Application uses AI technologies to enhance user experience through the Sensei coaching feature. AI components may process your training history, readiness data, session logs, fight records, voice transcripts, and (where you opt in) progress photos to generate personalised coaching advice, session plans, sparring analysis, and body-composition estimates. Specifically:</p>
   <ul>
     <li>Personalised coaching responses based on your logged sessions and readiness score</li>
     <li>AI-generated daily session recommendations based on your training history</li>
     <li>Sparring debrief analysis based on post-session input</li>
     <li>Opponent scouting and gameplan suggestions based on structured profile data</li>
+    <li>Structured session extraction from voice logging (see below)</li>
+    <li>Body-composition estimates from progress photos you explicitly submit for analysis (see below)</li>
   </ul>
+  <p>Sensei is powered by the Claude API operated by <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">Anthropic</a>. When you interact with Sensei, the relevant session context, chat messages, and (for voice features) text transcripts are transmitted to Anthropic for processing and returned to the Application. Anthropic acts as a data processor on the Service Provider's behalf.</p>
+  <p><strong>Voice Logging.</strong> When you use the voice-logging feature, your speech is transcribed on-device by Apple's Speech framework. The resulting text transcript (not the original audio) is then sent to Anthropic's Claude API to extract structured session data such as exercise, duration, or perceived effort. The audio recording itself is not transmitted off-device and is not retained after on-device transcription.</p>
+  <p><strong>AI Body-Composition Analysis.</strong> If you choose to use the optional body-composition estimate feature, the progress photo you submit is sent to an AI image-analysis service to produce an estimated body-fat percentage and related metrics. This is opt-in and only performed on photos you explicitly submit for analysis; photos you upload solely to the Vanity Vault are not analysed by AI. Estimates are approximate and are not a medical assessment.</p>
   <p>All AI outputs are recommendations the user acts on voluntarily. No automated decisions with legal or significant personal effect are made by the Application. All AI processing is performed in accordance with this privacy policy and applicable laws.</p>
 
   <h2>Location Data</h2>
@@ -231,11 +256,13 @@
   <p>Only aggregated, anonymised data is periodically transmitted to external services to help improve the Application. The Service Provider may share your information with third parties as described in this policy.</p>
   <p>The Application uses the following third-party services, each with their own privacy policies:</p>
   <ul>
-    <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase</a> — authentication, database, and cloud storage</li>
+    <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase</a> — authentication, database, cloud storage (including photo storage), and serverless functions</li>
     <li><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat</a> — subscription and payment management</li>
-    <li><a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Sentry</a> — error tracking and analytics</li>
+    <li><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">Anthropic</a> — operator of the Claude AI used by Sensei; receives session context, chat messages, and voice transcripts in order to generate coaching responses and structured session data</li>
+    <li><a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Sentry</a> — error tracking and diagnostics</li>
     <li><a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer">PostHog</a> — product analytics</li>
     <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple HealthKit</a> — health and fitness data</li>
+    <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple Push Notification Service (APNs)</a> — delivery of push notifications to your device</li>
   </ul>
   <p>The Service Provider may disclose your information:</p>
   <ul>
@@ -266,6 +293,18 @@
     <li>The right to data portability</li>
   </ul>
   <p>To exercise any of these rights, contact us at <a href="mailto:aadit@versus24.net">aadit@versus24.net</a>.</p>
+
+  <h2>California Privacy Rights</h2>
+  <p>If you are a California resident, the California Consumer Privacy Act (CCPA) and the California Privacy Rights Act (CPRA) give you the following rights regarding your personal information:</p>
+  <ul>
+    <li>The right to know what personal information we collect, use, disclose, and share, and the categories of sources and recipients</li>
+    <li>The right to request deletion of your personal information</li>
+    <li>The right to correct inaccurate personal information</li>
+    <li>The right to opt out of the sale or sharing of your personal information for cross-context behavioural advertising</li>
+    <li>The right to limit the use and disclosure of sensitive personal information</li>
+    <li>The right to non-discrimination for exercising any of these rights</li>
+  </ul>
+  <p>The Service Provider does not sell your personal information and does not share it for cross-context behavioural advertising. To exercise any of these rights, contact us at <a href="mailto:aadit@versus24.net">aadit@versus24.net</a>.</p>
 
   <h2>Changes to This Policy</h2>
   <p>This Privacy Policy may be updated from time to time. The Service Provider will notify you of any changes by updating this page. You are advised to review this policy regularly. Continued use of the Application after changes are posted constitutes your acceptance of the updated policy.</p>
