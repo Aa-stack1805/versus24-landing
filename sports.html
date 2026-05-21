@@ -69,15 +69,29 @@
         <div class="phone-screen">
           <div class="phone-notch"></div>
           <p class="eyebrow" style="text-align:center;margin-top:8px;color:var(--sport)">In-Season · Week 11</p>
-          <div class="readiness-ring" style="margin:8px auto;background:conic-gradient(var(--sport) 0% 82%, rgba(255,255,255,0.07) 82% 100%)">
-            <div class="readiness-ring-content">
-              <div class="score">82</div>
-              <div class="label" style="color:var(--sport)">Peak ready</div>
+          <div class="readiness-rings">
+            <svg viewBox="0 0 200 200" aria-hidden="true">
+              <circle cx="100" cy="100" r="85" stroke="rgba(76,175,80,0.10)" stroke-width="13" fill="none"/>
+              <circle cx="100" cy="100" r="85" stroke="#4CAF50" stroke-width="13"
+                      pathLength="100" stroke-dasharray="87 100" stroke-linecap="round"
+                      fill="none" transform="rotate(-90 100 100)"/>
+              <circle cx="100" cy="100" r="66" stroke="rgba(255,167,38,0.10)" stroke-width="13" fill="none"/>
+              <circle cx="100" cy="100" r="66" stroke="#FFA726" stroke-width="13"
+                      pathLength="100" stroke-dasharray="78 100" stroke-linecap="round"
+                      fill="none" transform="rotate(-90 100 100)"/>
+              <circle cx="100" cy="100" r="47" stroke="rgba(79,163,240,0.10)" stroke-width="13" fill="none"/>
+              <circle cx="100" cy="100" r="47" stroke="#4FA3F0" stroke-width="13"
+                      pathLength="100" stroke-dasharray="65 100" stroke-linecap="round"
+                      fill="none" transform="rotate(-90 100 100)"/>
+            </svg>
+            <div class="readiness-center">
+              <div class="readiness-score">87</div>
+              <span class="readiness-pill">Optimal</span>
             </div>
           </div>
-          <div style="background:var(--card-elevated);border-radius:12px;padding:12px;border:1px solid var(--border);margin-top:auto">
+          <div style="background:var(--card-elevated);border-radius:12px;padding:10px;border:1px solid var(--border);margin-top:auto">
             <div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--text-muted)">Next game</span><span style="color:var(--sport);font-weight:600">Sat 7pm · 2 days</span></div>
-            <div style="display:flex;justify-content:space-between;font-size:12px;margin-top:6px"><span style="color:var(--text-muted)">ACWR (chronic)</span><span>1.04 · safe</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;margin-top:6px"><span style="color:var(--text-muted)">Load · ACWR</span><span>1797 · 1.04</span></div>
           </div>
         </div>
       </div>

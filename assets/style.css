@@ -344,28 +344,86 @@ p { margin: 0; }
 .phone-screen .eyebrow { font-size: 10px; color: var(--gold); }
 .phone-screen h4 { font-size: 18px; }
 
-.readiness-ring {
-  width: 168px; height: 168px;
-  margin: 6px auto 8px;
-  border-radius: 50%;
-  background: conic-gradient(var(--gold) 0% 76%, rgba(255,255,255,0.07) 76% 100%);
+/* Readiness card — matches the app's home-screen UI:
+   three concentric rings (Score green, Load orange, ACWR blue) +
+   center score + OPTIMAL pill + three stat badges below. */
+.readiness-rings {
   position: relative;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 0 60px rgba(212, 168, 67, 0.25);
+  width: 100%;
+  max-width: 220px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  container-type: inline-size;
 }
-.readiness-ring::before {
-  content: '';
-  position: absolute;
-  inset: 14px;
+.readiness-rings svg { width: 100%; height: 100%; display: block; }
+.readiness-center {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 5cqw;
+}
+.readiness-score {
+  font-size: 28cqw;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-feature-settings: 'tnum';
+}
+.readiness-pill {
+  background: rgba(76, 175, 80, 0.18);
+  color: #4CAF50;
+  font-size: 5cqw;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 1.8cqw 4cqw;
+  border-radius: 999px;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+.readiness-desc {
+  text-align: center;
+  color: var(--text-subtle);
+  font-size: 13px;
+  line-height: 1.4;
+  margin: 14px auto 0;
+  max-width: 30ch;
+}
+.readiness-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+.readiness-stat {
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 50%;
-  background: var(--bg);
+  aspect-ratio: 1;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 2px;
+  padding: 4px;
 }
-.readiness-ring-content { position: relative; text-align: center; }
-.readiness-ring-content .score {
-  font-size: 52px; font-weight: 800; line-height: 1; letter-spacing: -0.04em;
+.readiness-stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
-.readiness-ring-content .label {
-  font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.16em; margin-top: 4px;
+.readiness-stat-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1;
+  font-feature-settings: 'tnum';
+}
+.readiness-stat-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin-top: 2px;
 }
 
 .bar-row { display: grid; grid-template-columns: 60px 1fr 32px; align-items: center; gap: 8px; font-size: 11px; color: var(--text-subtle); margin-top: 4px; }
@@ -530,10 +588,12 @@ p { margin: 0; }
   position: relative;
   box-shadow: 0 0 100px rgba(212, 168, 67, 0.12);
 }
-.readiness-hero-card .readiness-ring {
-  width: 220px; height: 220px;
-}
-.readiness-hero-card .readiness-ring-content .score { font-size: 68px; }
+.readiness-hero-card .readiness-rings { max-width: 320px; }
+.readiness-hero-card .readiness-desc { font-size: 15px; max-width: 36ch; margin-top: 18px; }
+.readiness-hero-card .readiness-stats { max-width: 320px; margin-left: auto; margin-right: auto; gap: 10px; }
+.readiness-hero-card .readiness-stat-label { font-size: 10px; }
+.readiness-hero-card .readiness-stat-value { font-size: 20px; }
+.readiness-hero-card .readiness-stat-dot { width: 6px; height: 6px; }
 .readiness-floating-chips {
   display: flex;
   flex-wrap: wrap;
