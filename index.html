@@ -3,14 +3,36 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#0B0D11"/>
 <title>Versus — Train Like a Fighter</title>
 <meta name="description" content="14 martial arts. Strength, conditioning, readiness. One unified training system for the hybrid combat athlete."/>
+<link rel="canonical" href="https://versus24.net/"/>
 <meta property="og:title" content="Versus — Train Like a Fighter"/>
 <meta property="og:description" content="Train like a fighter, look like one too."/>
 <meta property="og:type" content="website"/>
+<meta property="og:url" content="https://versus24.net/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Versus — Train Like a Fighter"/>
+<meta name="twitter:description" content="Train like a fighter, look like one too."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Versus",
+  "operatingSystem": "iOS",
+  "applicationCategory": "HealthApplication",
+  "description": "Combat-sports training app for the hybrid athlete. 14 martial arts, strength, conditioning, readiness, and AI coaching in one unified system.",
+  "url": "https://versus24.net/",
+  "offers": [
+    { "@type": "Offer", "name": "Free",    "price": "0",      "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "PRO",     "price": "12.99",  "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "MAX",     "price": "19.99",  "priceCurrency": "USD" }
+  ]
+}
+</script>
 
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,11 +43,11 @@
     --ink3:   #141820;
     --border: rgba(255,255,255,0.07);
     --text:   #E8EAF0;
-    --muted:  #6B7280;
-    --accent: #60A5FA;
-    --accent2:#3B82F6;
-    --accent-dim: rgba(96,165,250,0.12);
-    --accent-border: rgba(96,165,250,0.22);
+    --muted:  #8A8B91;
+    --accent: #E8A33D;
+    --accent2:#C8862A;
+    --accent-dim: rgba(232,163,61,0.12);
+    --accent-border: rgba(232,163,61,0.28);
     --font-d: 'Bebas Neue', sans-serif;
     --font-b: 'DM Sans', sans-serif;
   }
@@ -74,6 +96,18 @@
     transition: color 0.2s;
   }
   nav ul a:hover { color: var(--text); }
+  .nav-toggle {
+    display: none; background: transparent;
+    border: 1px solid var(--border); border-radius: 3px;
+    padding: 8px 10px; cursor: pointer; color: var(--text);
+    align-items: center; justify-content: center;
+    transition: border-color 0.2s;
+  }
+  .nav-toggle:hover { border-color: rgba(255,255,255,0.18); }
+  .nav-toggle svg { display: block; width: 20px; height: 20px; }
+  .nav-toggle .nav-toggle-close { display: none; }
+  body.menu-open .nav-toggle .nav-toggle-open { display: none; }
+  body.menu-open .nav-toggle .nav-toggle-close { display: block; }
 
   /* ── HERO ── */
   .hero {
@@ -89,13 +123,13 @@
   .hero-glow {
     position: absolute; top: 20%; right: 0;
     width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(96,165,250,0.07) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(232,163,61,0.07) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-glow2 {
     position: absolute; bottom: 10%; left: -10%;
     width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(96,165,250,0.04) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(232,163,61,0.04) 0%, transparent 70%);
     pointer-events: none;
   }
   .hero-bg-word {
@@ -104,7 +138,7 @@
     font-family: var(--font-d);
     font-size: clamp(140px, 22vw, 400px);
     color: transparent;
-    -webkit-text-stroke: 1px rgba(96,165,250,0.04);
+    -webkit-text-stroke: 1px rgba(232,163,61,0.04);
     white-space: nowrap; pointer-events: none;
     user-select: none; letter-spacing: 0.05em;
   }
@@ -171,13 +205,13 @@
   .phone-frame {
     width: 280px; height: 560px;
     background: #0F1219;
-    border: 1.5px solid rgba(96,165,250,0.2);
+    border: 1.5px solid rgba(232,163,61,0.2);
     border-radius: 40px;
     overflow: hidden;
     box-shadow:
       0 0 0 1px rgba(0,0,0,0.6),
       0 40px 80px rgba(0,0,0,0.6),
-      0 0 60px rgba(96,165,250,0.06);
+      0 0 60px rgba(232,163,61,0.06);
     position: relative;
   }
   .phone-notch {
@@ -210,7 +244,7 @@
     width: 100%; height: 100%;
     transform: rotate(-90deg);
   }
-  .ring-bg { fill: none; stroke: rgba(96,165,250,0.1); stroke-width: 9; }
+  .ring-bg { fill: none; stroke: rgba(232,163,61,0.1); stroke-width: 9; }
   .ring-fill {
     fill: none; stroke: var(--accent); stroke-width: 9;
     stroke-linecap: round;
@@ -280,8 +314,8 @@
     width: 6px; height: 6px; border-radius: 50%;
     flex-shrink: 0;
   }
-  .session-dot.blue  { background: var(--accent); }
-  .session-dot.green { background: #34D399; }
+  .session-dot.accent { background: var(--accent); }
+  .session-dot.green  { background: #34D399; }
   .session-dot.purple { background: #818CF8; }
   .session-text { flex: 1; }
   .session-name { font-size: 10px; color: var(--text); font-weight: 500; }
@@ -292,7 +326,7 @@
     position: absolute; bottom: -60px; left: 50%;
     transform: translateX(-50%);
     width: 200px; height: 120px;
-    background: radial-gradient(ellipse, rgba(96,165,250,0.18) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(232,163,61,0.18) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -363,7 +397,7 @@
   .how-step:hover { background: var(--ink3); }
   .how-step-num {
     font-family: var(--font-d); font-size: 80px;
-    color: rgba(96,165,250,0.06); line-height: 1;
+    color: rgba(232,163,61,0.06); line-height: 1;
     margin-bottom: 24px;
   }
   .how-step-icon {
@@ -416,7 +450,7 @@
   .feature-card:hover { background: #10141D; }
   .feature-number {
     font-family: var(--font-d); font-size: 72px; line-height: 1;
-    color: rgba(96,165,250,0.05);
+    color: rgba(232,163,61,0.05);
     position: absolute; top: 16px; right: 24px;
     letter-spacing: 0.02em;
   }
@@ -459,14 +493,14 @@
   }
   .modalities-visual::after {
     content: ''; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 60% 40%, rgba(96,165,250,0.07) 0%, transparent 65%);
+    background: radial-gradient(ellipse at 60% 40%, rgba(232,163,61,0.07) 0%, transparent 65%);
     pointer-events: none;
   }
   .mockup-inner { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 36px; }
   .mockup-header { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; opacity: 0.6; }
   .ring-wrap { position: relative; width: 148px; height: 148px; margin: 0 auto; }
   .ring-wrap svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-  .ring-wrap .ring-bg { fill: none; stroke: rgba(96,165,250,0.1); stroke-width: 8; }
+  .ring-wrap .ring-bg { fill: none; stroke: rgba(232,163,61,0.1); stroke-width: 8; }
   .ring-wrap .ring-fill {
     fill: none; stroke: var(--accent); stroke-width: 8; stroke-linecap: round;
     stroke-dasharray: 390; stroke-dashoffset: 98;
@@ -587,7 +621,7 @@
     content: '"'; font-family: var(--font-d); font-size: 420px;
     line-height: 1; position: absolute; top: -80px;
     left: 50%; transform: translateX(-50%);
-    color: rgba(96,165,250,0.03);
+    color: rgba(232,163,61,0.03);
     pointer-events: none; user-select: none;
   }
   blockquote {
@@ -640,7 +674,7 @@
   .app-store-placeholder::before {
     content: '';
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(96,165,250,0.06) 0%, transparent 60%);
+    background: linear-gradient(135deg, rgba(232,163,61,0.06) 0%, transparent 60%);
   }
   .app-store-placeholder svg { width: 24px; height: 24px; color: var(--accent); position: relative; }
   .app-store-placeholder-text { position: relative; }
@@ -702,7 +736,28 @@
   }
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
-    nav ul { display: none; }
+    .nav-toggle { display: inline-flex; }
+    nav ul {
+      position: fixed; top: 56px; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      padding: 8px 0;
+      background: rgba(11,13,17,0.98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transform: translateY(-110%);
+      opacity: 0; pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.2s ease;
+    }
+    nav ul li { width: 100%; }
+    nav ul a {
+      display: block; padding: 16px 24px; font-size: 13px;
+      border-bottom: 1px solid var(--border);
+    }
+    nav ul li:last-child a { border-bottom: none; }
+    body.menu-open nav ul {
+      transform: translateY(0); opacity: 1; pointer-events: auto;
+    }
+    body.menu-open { overflow: hidden; }
     section { padding: 80px 24px; }
     .stats-band { grid-template-columns: repeat(2,1fr); padding: 32px 24px; row-gap: 32px; }
     .stat-item:nth-child(2) { border-right: none; }
@@ -741,6 +796,10 @@
     <li><a href="#training">Training</a></li>
     <li><a href="#pricing">Pricing</a></li>
   </ul>
+  <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+    <svg class="nav-toggle-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    <svg class="nav-toggle-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6l-6 12"/></svg>
+  </button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -806,7 +865,7 @@
           </div>
           <div class="phone-sessions-label">Recent Sessions</div>
           <div class="phone-session-row">
-            <div class="session-dot blue"></div>
+            <div class="session-dot accent"></div>
             <div class="session-text">
               <div class="session-name">Muay Thai · Sparring</div>
               <div class="session-sub">Yesterday · 75 min</div>
@@ -1224,6 +1283,19 @@
   window.addEventListener('scroll', () => {
     document.getElementById('mainNav').style.background =
       window.scrollY > 50 ? 'rgba(11,13,17,0.97)' : 'rgba(11,13,17,0.65)';
+  });
+
+  // Mobile menu toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  navToggle.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('nav ul a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.body.classList.remove('menu-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
   });
 </script>
 </body>
