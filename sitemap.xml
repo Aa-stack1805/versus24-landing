@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://versus24.net/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://versus24.net/fighters.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://versus24.net/lifters.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://versus24.net/runners.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://versus24.net/sports.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://versus24.net/hybrid.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://versus24.net/grapplers.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://versus24.net/features.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://versus24.net/pricing.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://versus24.net/faq.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://versus24.net/about.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://versus24.net/support.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://versus24.net/press.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://versus24.net/changelog.html</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://versus24.net/privacy.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://versus24.net/terms.html</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://versus24.net/dmca.html</loc><changefreq>yearly</changefreq><priority>0.2</priority></url>
+</urlset>

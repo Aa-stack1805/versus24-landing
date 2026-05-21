@@ -4,15 +4,15 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#000000"/>
-<title>Versus — The Athlete's Operating System</title>
-<meta name="description" content="Versus is the first training app built for athletes who train across modalities — combat, strength, endurance, sport. Readiness, programming, recovery, and an AI coach that actually understands your training. iPhone + Apple Watch."/>
+<title>Versus Training — The Athlete's Operating System</title>
+<meta name="description" content="Versus Training is the first training app built for athletes who train across modalities — combat, strength, endurance, sport. Readiness, programming, recovery, and an AI coach that actually understands your training. iPhone + Apple Watch."/>
 <link rel="canonical" href="https://versus24.net/"/>
 <link rel="icon" href="/assets/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
-<meta property="og:title" content="Versus — The Athlete's Operating System"/>
+<meta property="og:title" content="Versus Training — The Athlete's Operating System"/>
 <meta property="og:description" content="Combat, strength, endurance, sport. One unified training system. Readiness, AI coaching, voice logging — built for the hybrid athlete."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://versus24.net/"/>
@@ -21,7 +21,7 @@
 <meta property="og:image:height" content="630"/>
 <meta property="og:image:alt" content="Versus — train like the sport demands."/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Versus — The Athlete's Operating System"/>
+<meta name="twitter:title" content="Versus Training — The Athlete's Operating System"/>
 <meta name="twitter:description" content="Combat, strength, endurance, sport. One unified training system."/>
 <meta name="twitter:image" content="https://versus24.net/assets/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -32,7 +32,8 @@
 {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
-  "name": "Versus",
+  "name": "Versus Training",
+  "alternateName": "Versus",
   "operatingSystem": "iOS",
   "applicationCategory": "HealthApplication",
   "description": "Combat-sports and hybrid-athlete training app. 14 martial arts, strength, conditioning, readiness, and AI coaching in one unified system.",
@@ -144,26 +145,26 @@
       <a href="/lifters.html" class="audience-card reveal" style="--audience-color:var(--strength);--audience-color-dim:var(--strength-dim)">
         <div class="audience-card-icon">02</div>
         <h3>I lift.</h3>
-        <p>Hypertrophy, strength, recomp. PRs, plateau detection, ACWR, imports from Hevy and Strong.</p>
+        <p>Hypertrophy, strength, recomp. PR auto-detection, plateau detection, ACWR injury risk, imports from Hevy / Strong / Fitbod.</p>
         <span class="audience-card-cta">Built for lifters →</span>
       </a>
       <a href="/runners.html" class="audience-card reveal" style="--audience-color:var(--endurance);--audience-color-dim:var(--endurance-dim)">
         <div class="audience-card-icon">03</div>
-        <h3>I run, ride, swim.</h3>
-        <p>Zones, taper, race weeks. Imports from Strava and Garmin. Effective load that respects your watch.</p>
+        <h3>I run, ride, or swim.</h3>
+        <p>Zones, taper, race weeks. Strava + Garmin import. Effective load that respects what your watch already measured.</p>
         <span class="audience-card-cta">Built for endurance →</span>
       </a>
-      <a href="#features" class="audience-card reveal">
+      <a href="/sports.html" class="audience-card reveal" style="--audience-color:var(--sport);--audience-color-dim:var(--sport-dim)">
         <div class="audience-card-icon">04</div>
-        <h3>I do all of it.</h3>
-        <p>Lift in the morning, roll at night. Versus is the only app that doesn't make you pick one.</p>
-        <span class="audience-card-cta">Hybrid athletes →</span>
+        <h3>My sport is the training.</h3>
+        <p>Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket — any sport. Off-field lifting periodised around your season. ACWR for in-season injury risk. Skill marks per discipline. Readiness so you peak on game day, not on a Tuesday.</p>
+        <span class="audience-card-cta">Built for sport athletes →</span>
       </a>
-      <a href="#features" class="audience-card reveal" style="--audience-color:var(--sport);--audience-color-dim:var(--sport-dim)">
+      <a href="/hybrid.html" class="audience-card reveal" style="--audience-color:var(--gold);--audience-color-dim:var(--gold-dim)">
         <div class="audience-card-icon">05</div>
-        <h3>My sport is the sport.</h3>
-        <p>Court, pitch, ice, mat. Off-field tracking and readiness so you peak on game day.</p>
-        <span class="audience-card-cta">Team sport athletes →</span>
+        <h3>I do more than one of those.</h3>
+        <p>Lift in the morning, sport at night. Two seasons stacked. Versus Training is the only app that doesn't make you pick which one to track properly.</p>
+        <span class="audience-card-cta">Hybrid athletes →</span>
       </a>
     </div>
   </div>
@@ -258,11 +259,12 @@
             <p class="eyebrow">Combat</p>
             <h3>The first app combat athletes don't have to hack.</h3>
             <ul class="feature-list">
-              <li>Skill tree across 14 disciplines — BJJ, MMA, Muay Thai, boxing, wrestling, more</li>
+              <li>Skill tree across 14 martial arts disciplines — BJJ, MMA, Muay Thai, boxing, wrestling, more</li>
               <li>sRPE + round + rest timer, native Apple Watch</li>
-              <li>Sparring debrief that knows the difference between a setup and a finish</li>
+              <li>Sparring debrief that knows the difference between a setup and a finish (MAX)</li>
               <li>Fight week + weight cut protocol with water, sodium, sauna logging</li>
               <li>Opponent scouting and gameplan (MAX)</li>
+              <li>Belt + competition record tracking</li>
             </ul>
           </div>
           <div class="modality-card-visual">
@@ -289,11 +291,12 @@
             <p class="eyebrow">Strength</p>
             <h3>Hevy's logger. FitBod's intelligence. Without leaving the app you actually use.</h3>
             <ul class="feature-list">
-              <li>PR auto-detection on every set</li>
+              <li>PR auto-detection with E1RM calc on every set</li>
               <li>ACWR injury-risk score (PRO)</li>
               <li>Plateau detector + Sensei intervention</li>
               <li>Workout templates, supersets, drop sets, RPE/RIR</li>
               <li>Imports from Hevy, Strong, Fitbod</li>
+              <li>Body composition tracking (Vault)</li>
             </ul>
           </div>
           <div class="modality-card-visual">
@@ -325,6 +328,7 @@
               <li>ACWR for endurance load</li>
               <li>Strava + Garmin import</li>
               <li>watchOS live HR + interval timer</li>
+              <li>Race week taper logic</li>
             </ul>
           </div>
           <div class="modality-card-visual">
@@ -334,6 +338,36 @@
               <svg viewBox="0 0 200 40" style="margin-top:14px;width:200px;height:40px">
                 <polyline points="0,30 20,28 40,22 60,18 80,16 100,15 120,14 140,16 160,18 180,20 200,22" stroke="var(--endurance)" stroke-width="2" fill="none"/>
               </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SPORT -->
+      <div class="modality-card reveal" style="--modality-color:var(--sport);--modality-color-dim:var(--sport-dim)">
+        <div class="modality-card-grid">
+          <div>
+            <p class="eyebrow">Sport</p>
+            <h3>For athletes whose sport is the training.</h3>
+            <ul class="feature-list">
+              <li>Logger covers basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket, lacrosse, football, golf, climbing, and more</li>
+              <li>Per-sport skill marks across 14 sport disciplines</li>
+              <li>Readiness model that peaks for game day</li>
+              <li>ACWR for in-season injury risk (where it matters most)</li>
+              <li>Periodised lifting around your season (pre / in / post)</li>
+              <li>sRPE + duration logged in under 20 seconds</li>
+              <li>Apple Watch session capture</li>
+            </ul>
+          </div>
+          <div class="modality-card-visual">
+            <div style="text-align:center;width:100%">
+              <div style="font-family:var(--font-mono);font-size:36px;font-weight:700;color:var(--sport)">Game Day</div>
+              <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.14em;margin-top:6px">2 days · readiness 82</div>
+              <div style="display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap;max-width:200px">
+                <span class="pill" style="color:var(--sport);background:var(--sport-dim);border-color:rgba(169,116,199,0.3);font-size:10px">Basketball</span>
+                <span class="pill" style="color:var(--sport);background:var(--sport-dim);border-color:rgba(169,116,199,0.3);font-size:10px">Soccer</span>
+                <span class="pill" style="color:var(--sport);background:var(--sport-dim);border-color:rgba(169,116,199,0.3);font-size:10px">Tennis</span>
+              </div>
             </div>
           </div>
         </div>
@@ -350,6 +384,7 @@
               <li>HRV + sleep + RHR rolling baseline</li>
               <li>Mobility logger with movement library</li>
               <li>Apple Health two-way sync</li>
+              <li>Injury log tied to load history</li>
             </ul>
           </div>
           <div class="modality-card-visual">
@@ -370,31 +405,6 @@
         </div>
       </div>
 
-      <!-- SPORT -->
-      <div class="modality-card reveal" style="--modality-color:var(--sport);--modality-color-dim:var(--sport-dim)">
-        <div class="modality-card-grid">
-          <div>
-            <p class="eyebrow">Sport</p>
-            <h3>Built for athletes whose sport isn't lifting.</h3>
-            <ul class="feature-list">
-              <li>Sport sessions logged in 20 seconds — basketball, soccer, hockey, rugby</li>
-              <li>Skill marks per discipline</li>
-              <li>Readiness for game day</li>
-              <li>Team mode — post-launch</li>
-            </ul>
-          </div>
-          <div class="modality-card-visual">
-            <div style="text-align:center">
-              <div style="display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;max-width:200px">
-                <span class="pill" style="color:var(--sport);border-color:rgba(169,116,199,0.3);background:var(--sport-dim);font-size:11px">Basketball</span>
-                <span class="pill" style="color:var(--sport);border-color:rgba(169,116,199,0.3);background:var(--sport-dim);font-size:11px">Soccer</span>
-                <span class="pill" style="color:var(--sport);border-color:rgba(169,116,199,0.3);background:var(--sport-dim);font-size:11px">Hockey</span>
-                <span class="pill" style="color:var(--sport);border-color:rgba(169,116,199,0.3);background:var(--sport-dim);font-size:11px">Rugby</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -607,7 +617,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="/" class="nav-logo">Versus<span class="nav-logo-dot"></span></a>
-        <p class="footer-tagline">The athlete's operating system. Built for combat, strength, endurance, sport.</p>
+        <p class="footer-tagline">Versus Training — the athlete's operating system. Combat, strength, endurance, sport.</p>
       </div>
       <div>
         <h4>Product</h4>
@@ -623,6 +633,8 @@
           <li><a href="/fighters.html">Fighters</a></li>
           <li><a href="/lifters.html">Lifters</a></li>
           <li><a href="/runners.html">Runners</a></li>
+          <li><a href="/sports.html">Sport athletes</a></li>
+          <li><a href="/hybrid.html">Hybrid</a></li>
         </ul>
       </div>
       <div>
@@ -643,7 +655,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Versus. Built with care in India.</span>
+      <span>© 2026 Versus Training. Built with care in India.</span>
       <span>iOS + Apple Watch · Launching soon</span>
     </div>
   </div>

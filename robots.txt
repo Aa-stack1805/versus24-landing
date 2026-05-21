@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://versus24.net/sitemap.xml

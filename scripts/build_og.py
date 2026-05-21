@@ -65,17 +65,25 @@ sub_text = "Combat · Strength · Endurance · Sport · Recovery"
 sw, sh, st = text_size(sub_text, sub_font)
 draw.text((PAD_X, y - st), sub_text, font=sub_font, fill=MUTED)
 
-# Wordmark bottom-right: VERSUS + amber dot
-mark_font = ImageFont.truetype(F_BOLD, 40)
+# Wordmark bottom-right: VERSUS TRAINING + amber dot
+mark_font = ImageFont.truetype(F_BOLD, 38)
+sub_mark_font = ImageFont.truetype(F_REG, 16)
 mark = "VERSUS"
+sub_mark = "TRAINING"
 mw, mh, mt = text_size(mark, mark_font)
-mx = W - PAD_X - mw - 24  # leave room for dot
-my = H - PAD_X - mh
+sw2, sh2, st2 = text_size(sub_mark, sub_mark_font)
+dot_r = 7
+gap_for_dot = 22
+total_w = mw + gap_for_dot
+mx = W - PAD_X - total_w
+my = H - PAD_X - mh - sh2 - 6
 draw.text((mx, my - mt), mark, font=mark_font, fill=INK)
-dot_r = 8
-dot_cx = mx + mw + 16
+# Amber dot after VERSUS
+dot_cx = mx + mw + 12
 dot_cy = my + mh // 2 + 2
 draw.ellipse((dot_cx - dot_r, dot_cy - dot_r, dot_cx + dot_r, dot_cy + dot_r), fill=ACCENT)
+# TRAINING subtitle under wordmark, letter-spaced
+draw.text((mx, my + mh + 4 - st2), sub_mark, font=sub_mark_font, fill=MUTED)
 
 # URL bottom-left
 url_font = ImageFont.truetype(F_REG, 24)
