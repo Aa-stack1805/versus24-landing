@@ -38,22 +38,72 @@
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('shown'));
   }
 
-  // Waitlist form — captures locally for now. TODO wire to Beehiiv/Resend.
+  // Waitlist form — POSTs to Supabase Edge Function which adds to Resend Audience.
+  const WAITLIST_ENDPOINT = 'https://fuoylucdxtrnbolxkqjz.supabase.co/functions/v1/waitlist-signup';
+
   document.querySelectorAll('form[data-waitlist]').forEach(form => {
-    form.addEventListener('submit', e => {
+    // Inject honeypot once
+    if (!form.querySelector('input[name="website"]')) {
+      const hp = document.createElement('input');
+      hp.type = 'text';
+      hp.name = 'website';
+      hp.tabIndex = -1;
+      hp.autocomplete = 'off';
+      hp.setAttribute('aria-hidden', 'true');
+      hp.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;';
+      form.insertBefore(hp, form.firstChild);
+    }
+
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const email = (new FormData(form).get('email') || '').toString().trim();
+      const data = new FormData(form);
+      const email = (data.get('email') || '').toString().trim();
+      const website = (data.get('website') || '').toString();
+
       if (!email || !email.includes('@')) {
         showFormMessage(form, 'Please enter a valid email.', false);
         return;
       }
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.textContent : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Adding…';
+      }
+
       try {
-        const stored = JSON.parse(localStorage.getItem('versus_waitlist') || '[]');
-        if (!stored.includes(email)) stored.push(email);
-        localStorage.setItem('versus_waitlist', JSON.stringify(stored));
-      } catch {}
-      showFormMessage(form, "You're on the list. We'll email you the moment Versus is live.", true);
-      form.reset();
+        const params = new URLSearchParams(window.location.search);
+        const res = await fetch(WAITLIST_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            website,
+            source_page: window.location.pathname,
+            utm_source: params.get('utm_source') || '',
+            utm_medium: params.get('utm_medium') || '',
+            utm_campaign: params.get('utm_campaign') || '',
+          }),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          showFormMessage(form, json.error || "Couldn't add you to the list. Try again in a moment.", false);
+          return;
+        }
+        const msg = json.duplicate
+          ? "You're already on the list — we'll email you at launch."
+          : "You're on the list. We'll email you the moment Versus is live.";
+        showFormMessage(form, msg, true);
+        form.reset();
+      } catch {
+        showFormMessage(form, 'Network error. Try again in a moment.', false);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      }
     });
   });
 
