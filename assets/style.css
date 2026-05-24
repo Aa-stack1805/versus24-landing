@@ -137,8 +137,11 @@ p { margin: 0; }
 
 .section { padding: var(--s-12) 0; }
 .section-tight { padding: var(--s-6) 0; }
-.section-title-block { margin-bottom: var(--s-6); max-width: 32ch; }
-.section-title-block .subhead { margin-top: var(--s-2); }
+.section-title-block { margin-bottom: var(--s-6); }
+.section-title-block h2 { max-width: 22ch; }
+.section-title-block .subhead { margin-top: var(--s-2); max-width: 60ch; }
+.section-title-block.text-center h2,
+.section-title-block.text-center .subhead { margin-left: auto; margin-right: auto; }
 @media (max-width: 768px) {
   .section { padding: var(--s-8) 0; }
 }
