@@ -344,6 +344,17 @@ p { margin: 0; }
 .phone-screen .eyebrow { font-size: 10px; color: var(--gold); }
 .phone-screen h4 { font-size: 18px; }
 
+/* Real screenshot inside the phone bezel */
+.phone-screen.has-img { padding: 0; }
+.phone-screen.has-img .phone-notch { display: none; }
+.phone-shot {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+}
+
 /* Readiness card — matches the app's home-screen UI:
    three concentric rings (Score green, Load orange, ACWR blue) +
    center score + OPTIMAL pill + three stat badges below. */
