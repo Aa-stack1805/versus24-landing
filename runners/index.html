@@ -4,17 +4,17 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#000000"/>
-<title>Versus Training for Sport Athletes — Basketball, Soccer, Hockey, Rugby</title>
-<meta name="description" content="Versus Training is the off-field training app for athletes whose sport is the training. Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket — and 8 more. In-season ACWR, periodised lifting, readiness for game day."/>
-<link rel="canonical" href="https://versus24.net/sports.html"/>
+<title>Versus Training for Runners — Strava Logs Runs. Versus Reads Them.</title>
+<meta name="description" content="HR zones, threshold and Z2 splits, readiness, taper logic, full Strava and Garmin import — and an AI coach that adjusts for sleep."/>
+<link rel="canonical" href="https://versus24.net/runners/"/>
 <link rel="icon" href="/assets/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
-<meta property="og:title" content="Versus Training for Sport Athletes — Basketball, Soccer, Hockey, Rugby"/>
-<meta property="og:description" content="Off-field training that respects on-field demands. Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket — and 8 more."/>
+<meta property="og:title" content="Versus Training for Runners — Strava Logs Runs. Versus Reads Them."/>
+<meta property="og:description" content="HR zones, taper logic, readiness. Full Strava + Garmin import."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://versus24.net/sports.html"/>
+<meta property="og:url" content="https://versus24.net/runners/"/>
 <meta property="og:image" content="https://versus24.net/assets/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
@@ -25,10 +25,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/style.css"/>
 <style>
-  :root { --segment: var(--sport); --segment-dim: var(--sport-dim); }
+  :root { --segment: var(--endurance); --segment-dim: var(--endurance-dim); }
   .segment-hero h1 .accent-segment { color: var(--segment); }
   .segment-hero .eyebrow { color: var(--segment); }
-  .segment-hero { background: radial-gradient(ellipse at top, rgba(169,116,199,0.10), transparent 60%); }
+  .segment-hero { background: radial-gradient(ellipse at top, rgba(79,163,240,0.08), transparent 60%); }
 </style>
 </head>
 <body>
@@ -42,9 +42,9 @@
     <nav class="nav-links" aria-label="Primary">
       <a class="nav-link" href="/#features">Features</a>
       <a class="nav-link" href="/#audiences">Audiences</a>
-      <a class="nav-link" href="/pricing.html">Pricing</a>
-      <a class="nav-link" href="/faq.html">FAQ</a>
-      <a class="nav-link" href="/about.html">About</a>
+      <a class="nav-link" href="/pricing/">Pricing</a>
+      <a class="nav-link" href="/faq/">FAQ</a>
+      <a class="nav-link" href="/about/">About</a>
       <a class="btn btn-ghost nav-cta" href="#waitlist">Join the waitlist</a>
     </nav>
   </div>
@@ -54,9 +54,9 @@
 
 <section class="hero segment-hero">
   <div class="container container-narrow">
-    <p class="eyebrow reveal">For sport athletes</p>
-    <h1 class="reveal">The training app for athletes whose <span class="accent-segment">sport isn't lifting.</span></h1>
-    <p class="subhead reveal">Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket — and 8 more. Readiness, in-season ACWR, off-field lifting periodised around your season, and a skill tree built for your sport.</p>
+    <p class="eyebrow reveal">For runners, cyclists, swimmers</p>
+    <h1 class="reveal">Strava logs your runs. <span class="accent-segment">Versus reads them.</span></h1>
+    <p class="subhead reveal">HR zones, threshold and Z2 splits, readiness, taper logic, full Strava + Garmin import — and an AI coach that adjusts for sleep.</p>
     <div class="hero-ctas reveal">
       <a href="#waitlist" class="btn btn-primary btn-lg">Join the waitlist</a>
       <a href="#features" class="btn btn-ghost btn-lg">See the features</a>
@@ -65,9 +65,21 @@
 
   <div class="container">
     <div class="hero-visual reveal">
-      <div class="phone">
-        <div class="phone-screen has-img">
-          <img class="phone-shot" src="/assets/screens/readiness.jpeg" alt="Versus Training Daily Readiness card — score 87 marked Optimal, surrounded by three concentric rings tracking Score, Load and ACWR. Description: High readiness. Cleared for heavy loading and intensity work. Below: Score 87, Load 1797, ACWR 1.04."/>
+      <div class="phone" aria-hidden="true">
+        <div class="phone-screen">
+          <div class="phone-notch"></div>
+          <p class="eyebrow" style="text-align:center;margin-top:8px;color:var(--endurance)">Z2 Run · 38:42</p>
+          <div style="text-align:center;margin-top:8px">
+            <div style="font-family:var(--font-mono);font-size:42px;font-weight:800;color:var(--endurance);letter-spacing:-0.04em">142 bpm</div>
+            <div style="font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.16em;margin-top:4px">Avg HR · in zone 96%</div>
+          </div>
+          <svg viewBox="0 0 240 60" style="margin-top:8px;width:100%">
+            <polyline points="0,40 30,36 60,30 90,28 120,26 150,28 180,30 210,32 240,34" stroke="var(--endurance)" stroke-width="2" fill="none"/>
+          </svg>
+          <div style="background:var(--card-elevated);border-radius:12px;padding:12px;border:1px solid var(--border);margin-top:auto">
+            <div style="display:flex;justify-content:space-between;font-size:13px"><span style="color:var(--text-muted)">Pace</span><span>5:32 /km</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-top:6px"><span style="color:var(--text-muted)">Load (AU)</span><span style="color:var(--endurance);font-weight:600">+38</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -78,12 +90,12 @@
   <div class="container container-narrow">
     <div class="section-title-block reveal">
       <p class="eyebrow">You came here because</p>
-      <h2>Your sport is the training. <span class="accent-gold">Other apps ignore that.</span></h2>
+      <h2>Strava is a log. You want a coach.</h2>
     </div>
     <ul class="feature-list reveal" style="font-size:18px">
-      <li>Strava is built for runners. Hevy is built for lifters. Neither maps a 90-minute basketball practice to weekly training load.</li>
-      <li>You're in-season. Your lifting should periodise around games, not the other way around — and no lifting app does that.</li>
-      <li>You need a single number that says "you're peaking for Saturday" or "you're cooked, take Wednesday off". Readiness does that. Nothing else you've tried does.</li>
+      <li>You run. You strength-train. You want one app that doesn't make you pick which one matters more.</li>
+      <li>Your watch gives you data. Nobody connects it to next week's plan.</li>
+      <li>You have a race in 8 weeks and no idea if your taper makes sense.</li>
     </ul>
   </div>
 </section>
@@ -92,32 +104,32 @@
   <div class="container">
     <div class="section-title-block reveal">
       <p class="eyebrow">The features that matter to you</p>
-      <h2>Built for the season, not the workout.</h2>
+      <h2>Strava's data. Whoop's recovery. One app.</h2>
     </div>
     <div class="built-grid">
       <div class="built-cell reveal">
-        <h4>Logger for your sport</h4>
-        <p>Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket, lacrosse, football, golf, climbing — and more. sRPE + duration in under 20 seconds.</p>
+        <h4>HR zone targeting</h4>
+        <p>Z1 through Z5 set from lab tests or HRmax estimate. watchOS gives you live HR + zone during the workout.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Per-sport skill tree</h4>
-        <p>14 sport disciplines mapped to actual training elements. Tag what you drilled — sprints, set pieces, court time — see where your work is concentrated.</p>
+        <h4>Threshold + Z2 splits</h4>
+        <p>Time in zone per session, weekly distribution, polarized vs pyramidal training balance.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Peak for game day</h4>
-        <p>Readiness model knows your game date and adjusts the week's recommendations. Two readiness scores under 60? Sensei flags it before you blow Saturday.</p>
+        <h4>Strava + Garmin import</h4>
+        <p>Five years in one tap. Activity → effective load. Your history becomes a baseline, not just memory.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>In-season ACWR</h4>
-        <p>Acute:Chronic Workload Ratio across your sport + lifting. The single best in-season injury-risk indicator. Core tier.</p>
+        <h4>ACWR for endurance</h4>
+        <p>Acute:Chronic Workload Ratio tuned for running and cycling. Flag overreach 2 weeks before it becomes injury.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Periodised lifting</h4>
-        <p>Pre-season, in-season, post-season — three different lifting modes. Volume and intensity adjusted to where you are in the season, not where Strong thinks you are.</p>
+        <h4>Taper + race week</h4>
+        <p>Tell Sensei your race date. It backs out the taper, the peak block, and adjusts as readiness shifts.</p>
       </div>
       <div class="built-cell reveal">
         <h4>Apple Watch native</h4>
-        <p>Start a session from the watch during practice. Live HR, session save when you reconnect. Works standalone if your phone's in the locker.</p>
+        <p>Live HR, lap splits, interval prompts. Saves back to phone, syncs to Strava if you keep both.</p>
       </div>
     </div>
   </div>
@@ -132,31 +144,31 @@
     <div class="pricing-grid">
       <div class="plan reveal">
         <div class="plan-name">Free</div>
-        <div class="plan-tagline">Play forever, free.</div>
+        <div class="plan-tagline">Run forever, free.</div>
         <div class="plan-price">0</div>
         <div class="plan-period">No card. No catch.</div>
         <a href="#waitlist" class="btn btn-ghost plan-cta btn-block">Get started</a>
         <ul>
-          <li>Sport logger + skill tree (starter belt)</li>
-          <li>Gym feed + partner hub + challenges</li>
+          <li>Endurance logger + HR zones</li>
+          <li>Strava + Garmin import</li>
           <li>Daily readiness + 90-day history</li>
-          <li>Training calendar + streaks</li>
+          <li>Gym feed + partner challenges</li>
           <li>1 voice log per day</li>
         </ul>
       </div>
       <div class="plan plan-featured reveal">
         <span class="plan-badge">Recommended</span>
         <div class="plan-name">Core</div>
-        <div class="plan-tagline">For the season.</div>
+        <div class="plan-tagline">For the race.</div>
         <div class="plan-price"><sup>$</sup>12<small>.99/mo</small></div>
         <div class="plan-period">or $99.99/yr</div>
         <a href="#waitlist" class="btn btn-primary plan-cta btn-block">Get Core</a>
         <ul>
-          <li>In-season ACWR + plateau detection</li>
-          <li>Training Camp (season periodisation)</li>
+          <li>Taper + race week protocol</li>
+          <li>ACWR for endurance + load trends</li>
           <li>AI Daily Stack — sessions prescribed</li>
           <li>AI Mobility Protocol</li>
-          <li>Full skill tree + 365-day history</li>
+          <li>365-day history + full skill tree</li>
         </ul>
       </div>
       <div class="plan reveal">
@@ -166,7 +178,7 @@
         <div class="plan-period">or $149.99/yr</div>
         <a href="#waitlist" class="btn btn-ghost plan-cta btn-block">Get Elite</a>
         <ul>
-          <li>Sensei AI Coach — game-week aware</li>
+          <li>Sensei AI Coach — sleep-adjusted recommendations</li>
           <li>AI Sparring Debrief</li>
           <li>Situation Drill + Opponent Scouting</li>
           <li>Unlimited voice logging</li>
@@ -180,8 +192,8 @@
 <section class="final-cta" id="waitlist">
   <div class="container container-narrow">
     <p class="eyebrow reveal">Launching on iOS</p>
-    <h2 class="reveal">Peak on game day. <span class="accent-gold">Not on Tuesday.</span></h2>
-    <p class="reveal">Drop your email and we'll send the download link the moment Versus Training is live — plus a 30-day free trial of Elite.</p>
+    <h2 class="reveal">Train smarter. <span class="accent-gold">Race ready.</span></h2>
+    <p class="reveal">Drop your email and we'll send the download link the moment Versus is live — plus a 30-day free trial of Elite.</p>
     <form class="waitlist-form reveal" data-waitlist novalidate>
       <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"/>
       <button type="submit" class="btn btn-primary">Notify me</button>
@@ -199,10 +211,10 @@
         <a href="/" class="nav-logo">Versus<span class="nav-logo-dot"></span></a>
         <p class="footer-tagline">Versus Training — the athlete's operating system. Combat, strength, endurance, sport.</p>
       </div>
-      <div><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/pricing.html">Pricing</a></li><li><a href="/faq.html">FAQ</a></li></ul></div>
-      <div><h4>Audiences</h4><ul><li><a href="/fighters.html">Fighters</a></li><li><a href="/lifters.html">Lifters</a></li><li><a href="/runners.html">Runners</a></li><li><a href="/sports.html">Sport athletes</a></li><li><a href="/hybrid.html">Hybrid</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="/about.html">About</a></li><li><a href="/support.html">Support</a></li><li><a href="mailto:aadit@versus24.net">Contact</a></li></ul></div>
-      <div><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="mailto:dmca@versus24.net">DMCA</a></li></ul></div>
+      <div><h4>Product</h4><ul><li><a href="/#features">Features</a></li><li><a href="/pricing/">Pricing</a></li><li><a href="/faq/">FAQ</a></li></ul></div>
+      <div><h4>Audiences</h4><ul><li><a href="/fighters/">Fighters</a></li><li><a href="/lifters/">Lifters</a></li><li><a href="/runners/">Runners</a></li><li><a href="/sports/">Sport athletes</a></li><li><a href="/hybrid/">Hybrid</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/support/">Support</a></li><li><a href="mailto:aadit@versus24.net">Contact</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li><li><a href="mailto:dmca@versus24.net">DMCA</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Versus Training. Built with care in India.</span>
