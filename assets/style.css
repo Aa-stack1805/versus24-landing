@@ -665,15 +665,6 @@ p { margin: 0; }
   border-radius: var(--radius-md);
   padding: var(--s-3);
 }
-.built-cell-icon {
-  width: 40px; height: 40px;
-  border-radius: 10px;
-  background: var(--gold-dim);
-  color: var(--gold);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 18px;
-  margin-bottom: var(--s-2);
-}
 .built-cell h4 { font-size: 18px; margin-bottom: 8px; }
 .built-cell p { color: var(--text-subtle); font-size: 14px; line-height: 1.5; }
 
