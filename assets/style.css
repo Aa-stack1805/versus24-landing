@@ -645,6 +645,10 @@ p { margin: 0; }
 .chat-msg-ai { align-self: flex-start; background: var(--card-elevated); color: var(--text); border: 1px solid var(--border); }
 .chat-msg-ai strong { color: var(--gold); }
 
+/* Real Sensei chat screenshot inside the chat-mockup card */
+.chat-mockup--img { padding: 0; min-height: 0; overflow: hidden; }
+.chat-shot { display: block; width: 100%; height: auto; border-radius: var(--radius-md); }
+
 /* Built-for-real-athletes grid (6 cells) */
 .built-grid {
   display: grid;
