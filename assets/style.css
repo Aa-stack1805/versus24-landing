@@ -605,6 +605,8 @@ p { margin: 0; }
 .readiness-hero-card .readiness-stat-label { font-size: 10px; }
 .readiness-hero-card .readiness-stat-value { font-size: 20px; }
 .readiness-hero-card .readiness-stat-dot { width: 6px; height: 6px; }
+.readiness-hero-card--img { padding: 0; overflow: hidden; }
+.readiness-hero-shot { display: block; width: 100%; height: auto; border-radius: var(--radius-lg); }
 .readiness-floating-chips {
   display: flex;
   flex-wrap: wrap;
