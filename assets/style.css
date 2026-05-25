@@ -358,6 +358,21 @@ p { margin: 0; }
   display: block;
 }
 
+/* Standalone card screenshot — for app components that aren't full-screen */
+.card-shot-wrap {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: block;
+}
+.card-shot {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 /* Apple Watch frame — smaller, square-ish to match watchOS aspect */
 .watch-pair {
   display: flex;
