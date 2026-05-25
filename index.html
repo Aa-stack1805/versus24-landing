@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#000000"/>
 <title>Versus Training — The Athlete's Operating System</title>
-<meta name="description" content="Versus Training is the first training app built for athletes who train across modalities — combat, strength, endurance, sport. Readiness, programming, recovery, and an AI coach that actually understands your training. iPhone + Apple Watch."/>
+<meta name="description" content="Training app for combat, strength, endurance, and sport athletes. Readiness score, AI coaching, voice logging, watchOS. Built for hybrid athletes."/>
 <link rel="canonical" href="https://versus24.net/"/>
 <link rel="icon" href="/assets/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
@@ -31,19 +31,42 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MobileApplication",
-  "name": "Versus Training",
-  "alternateName": "Versus",
-  "operatingSystem": "iOS",
-  "applicationCategory": "HealthApplication",
-  "description": "Combat-sports and hybrid-athlete training app. 14 martial arts, strength, conditioning, readiness, and AI coaching in one unified system.",
-  "url": "https://versus24.net/",
-  "offers": [
-    { "@type": "Offer", "name": "Free",         "price": "0",      "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Monthly",  "price": "12.99",  "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Yearly",   "price": "99.99",  "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Monthly",  "price": "19.99",  "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Yearly",   "price": "149.99", "priceCurrency": "USD" }
+  "@graph": [
+    {
+      "@type": "MobileApplication",
+      "name": "Versus Training",
+      "alternateName": "Versus",
+      "operatingSystem": "iOS, watchOS",
+      "applicationCategory": "HealthApplication",
+      "description": "Combat-sports and hybrid-athlete training app. 14 martial arts, strength, conditioning, readiness, and AI coaching in one unified system.",
+      "url": "https://versus24.net/",
+      "offers": [
+        { "@type": "Offer", "name": "Free",          "price": "0",      "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Core Monthly",  "price": "12.99",  "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Core Yearly",   "price": "99.99",  "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Elite Monthly", "price": "19.99",  "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Elite Yearly",  "price": "149.99", "priceCurrency": "USD" }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "Versus Training",
+      "url": "https://versus24.net/",
+      "logo": "https://versus24.net/assets/icon-512.png",
+      "foundingDate": "2026",
+      "founder": { "@type": "Person", "name": "Aadit Singal" },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "aadit@versus24.net",
+        "contactType": "customer support"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "name": "Versus Training",
+      "url": "https://versus24.net/",
+      "publisher": { "@type": "Organization", "name": "Versus Training" }
+    }
   ]
 }
 </script>

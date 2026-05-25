@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="theme-color" content="#000000"/>
 <title>FAQ — Versus Training</title>
-<meta name="description" content="Frequently asked questions about Versus — pricing, AI privacy, imports, Apple Watch, Android, cancellation."/>
+<meta name="description" content="Frequently asked questions about Versus Training — pricing, AI privacy, imports (Strava, Hevy, Garmin), Apple Watch, Android, cancellation."/>
 <link rel="canonical" href="https://versus24.net/faq/"/>
 <link rel="icon" href="/assets/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
@@ -22,6 +22,114 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/style.css"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to be a fighter to use this?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Nope. The fighter branding is because that's what I train and combat sports have the worst app coverage of any modality. But the resistance, endurance, sport, and mobility loggers all hold their own. If you only lift, Versus is basically Hevy with a proper recovery layer. If you only run, it's Strava with the analysis Strava doesn't do." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work for lifters?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The resistance logger does supersets, drop sets, RPE/RIR, percentage-of-1RM auto-loading, PR detection on every set. You can pull five years of history from Hevy, Strong, or Fitbod in a single import. Core adds the analytics layer (ACWR for injury risk, plateau detection, full load trends)." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work for runners and cyclists?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The endurance logger uses HR zones, either from a lab test you punch in or an HRmax estimate. Strava and Garmin pull in your existing history. The watch app gives you live HR and lap splits during the run. Core adds ACWR tuned for endurance plus race-week taper logic if you actually compete." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it sync with Apple Health, Strava, Hevy, Garmin?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Apple Health: yes, two-way. Versus reads HRV, sleep, RHR, and workouts. It also writes Versus sessions back into Health so the rest of your iOS ecosystem sees them. Strava and Garmin: one-tap import of your full history. Hevy, Strong, and Fitbod: import only." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an Apple Watch app?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, native. Combat round timer, live HR, lap splits for endurance, sRPE prompt at the end. Sessions sync back to the phone before you finish toweling off." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there an Android app?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not yet. I built iOS first because shipping cross-platform from day one would have taken three more years and I'm one person. Android comes in 2027 if iOS goes well. Drop your email on the waitlist and I'll ping you when it's live." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does voice work for lifting?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Combat and endurance work at launch. Resistance voice is the most-requested v1.1 item; it ships inside the first 30 days post-launch. The tap-through resistance logger is fast in the meantime. Usage cap: one voice log per day on Free and Core, unlimited on Elite." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel anytime?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, via the App Store. Same as every iOS subscription. Apple handles the cancellation and the refund window. After cancellation you keep your data and drop to the Free tier." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the free tier really free forever?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All 5 loggers, daily readiness, morning check-in, 90 days of history, gym feed and partner hub, 14-discipline skill tree (starter belt), 3 workout templates, 8 Vault check-ins, imports, Apple Watch, plus one voice log per day. No ads, no card." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between Core and Elite?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Core ($12.99/mo or $99.99/yr) is the analytics layer and the AI programming layer: ACWR injury chart, plateau detection, full load trends, 365-day history, the full skill tree across all 17 disciplines, unlimited Vault, unlimited templates, AI Daily Stack and AI Mobility Protocol. Elite ($19.99/mo or $149.99/yr) adds Sensei (the conversational AI coach), AI Sparring Debrief, Situation Drill, Opponent Scouting, AI Body Fat Estimate, and unlimited voice logging." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I'm on the waitlist?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You get a 30-day Elite trial in your inbox on launch day. No card required to start it. At the end of 30 days you pick Free, Core, or Elite. Nothing auto-charges." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does my data live?",
+      "acceptedAnswer": { "@type": "Answer", "text": "On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). HRV and sleep stay on-device in HealthKit; Versus reads them for the readiness score but never stores them on the server." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I export my data?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Settings → Account → Export. You get a CSV and JSON archive of every session, every set, every PR. Take it with you if you ever leave." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I delete my account?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Settings → Account → Delete Account. Your profile, workouts, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does Sensei run?",
+      "acceptedAnswer": { "@type": "Answer", "text": "On Anthropic's Claude. When you chat with Sensei, the relevant session context and your message go to Anthropic to generate the response. For voice logging, your phone transcribes the audio on-device first using Apple's Speech framework; only the text transcript goes to Anthropic, never the audio." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Anthropic train on my data?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Versus uses Anthropic's API tier, which doesn't train on customer data." }
+    },
+    {
+      "@type": "Question",
+      "name": "What languages does voice work in?",
+      "acceptedAnswer": { "@type": "Answer", "text": "English at launch. I've tested US and UK accents. Spanish and Portuguese in v1.2." }
+    },
+    {
+      "@type": "Question",
+      "name": "Who built this?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Aadit Singal, solo. iOS app, backend, watchOS app, the website, the privacy policy. Story's on the about page." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I report a bug?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Email aadit@versus24.net. Steps to reproduce and your iOS version help a lot. There's also an in-app feedback form (Settings → Send feedback). Usually reply within a few hours." }
+    },
+    {
+      "@type": "Question",
+      "name": "When will [feature X] ship?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Check the changelog. The top three v1.1 requests right now: resistance voice parsing, shareable workout cards, team mode for sport athletes. The first one is already queued for the first 30 days after launch." }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
