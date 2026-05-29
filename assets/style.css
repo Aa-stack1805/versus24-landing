@@ -965,6 +965,14 @@ p { margin: 0; }
 }
 .skip-link:focus { top: 16px; }
 
+/* Utilities — extracted from repeated inline styles. Defined last so that,
+   on the bare elements they're applied to, they win any equal-specificity tie. */
+.body-copy { color: var(--text-subtle); font-size: 17px; line-height: 1.7; }
+.text-gold { color: var(--gold); }
+.text-fine { font-size: 13px; color: var(--text-muted); }
+.mt-2 { margin-top: var(--s-2); }
+.mt-3 { margin-top: var(--s-3); }
+
 /* Visually hidden but available to screen readers */
 .sr-only {
   position: absolute;
