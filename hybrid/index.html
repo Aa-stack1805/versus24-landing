@@ -9,6 +9,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png"/>
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
+<link rel="manifest" href="/assets/site.webmanifest"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -202,7 +203,8 @@
     <h2 class="reveal">Train two sports. <span class="accent-gold">Track them properly.</span></h2>
     <p class="reveal">Drop your email — we'll send the download link the moment Versus Training is live, plus a 30-day Elite trial.</p>
     <form class="waitlist-form reveal" data-waitlist novalidate>
-      <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"/>
+      <label class="sr-only" for="waitlist-email">Email address</label>
+      <input id="waitlist-email" type="email" name="email" required placeholder="you@email.com"/>
       <button type="submit" class="btn btn-primary">Notify me</button>
     </form>
     <p class="waitlist-microcopy reveal">No marketing emails. One at launch, one at v1.1.</p>
