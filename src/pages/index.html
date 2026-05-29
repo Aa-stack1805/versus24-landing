@@ -1,18 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="theme-color" content="#000000"/>
-<link rel="icon" href="/assets/favicon.ico" sizes="any"/>
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png"/>
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="/assets/style.css"/>
+{{HEAD_COMMON}}
 <title>Versus Training — The Athlete's Operating System</title>
 <meta name="description" content="Training app for combat, strength, endurance, and sport athletes. Readiness score, AI coaching, voice logging, watchOS. Built for hybrid athletes."/>
 <link rel="canonical" href="https://versus24.net/"/>
@@ -75,22 +64,7 @@
 
 <a href="#main" class="skip-link">Skip to content</a>
 
-<header class="nav" role="banner">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">Versus<span class="nav-logo-dot"></span></a>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="nav-links" aria-label="Primary">
-      <a class="nav-link" href="/features/">Features</a>
-      <a class="nav-link" href="#audiences">Audiences</a>
-      <a class="nav-link" href="/pricing/">Pricing</a>
-      <a class="nav-link" href="/faq/">FAQ</a>
-      <a class="nav-link" href="/about/">About</a>
-      <a class="btn btn-ghost nav-cta" href="#waitlist">Join the waitlist</a>
-    </nav>
-  </div>
-</header>
+{{NAV}}
 
 <main id="main">
 
@@ -565,65 +539,15 @@
     <p class="eyebrow reveal">Launching on iOS</p>
     <h2 class="reveal">Be the first to train with Versus.</h2>
     <p class="reveal">The App Store launch is days away. Drop your email and we'll send you the download link the moment it goes live — plus a 30-day free trial of Elite for everyone on the waitlist.</p>
-    <form class="waitlist-form reveal" data-waitlist novalidate>
-      <input type="email" name="email" required placeholder="you@email.com" aria-label="Email address"/>
-      <button type="submit" class="btn btn-primary">Notify me</button>
-    </form>
+    {{WAITLIST_FORM}}
     <p class="waitlist-microcopy reveal">No marketing emails. One email at launch, one at v1.1, that's it.</p>
   </div>
 </section>
 
 </main>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="/" class="nav-logo">Versus<span class="nav-logo-dot"></span></a>
-        <p class="footer-tagline">Versus Training — the athlete's operating system. Combat, strength, endurance, sport.</p>
-      </div>
-      <div>
-        <h4>Product</h4>
-        <ul>
-          <li><a href="/features/">Features</a></li>
-          <li><a href="/pricing/">Pricing</a></li>
-          <li><a href="/faq/">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Audiences</h4>
-        <ul>
-          <li><a href="/fighters/">Fighters</a></li>
-          <li><a href="/lifters/">Lifters</a></li>
-          <li><a href="/runners/">Runners</a></li>
-          <li><a href="/sports/">Sport athletes</a></li>
-          <li><a href="/hybrid/">Hybrid</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/support/">Support</a></li>
-          <li><a href="mailto:aadit@versus24.net">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="/privacy/">Privacy</a></li>
-          <li><a href="/terms/">Terms</a></li>
-          <li><a href="/dmca/">DMCA</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2026 Versus Training. Built with care in India.</span>
-      <span>iOS + Apple Watch · Launching soon</span>
-    </div>
-  </div>
-</footer>
+{{FOOTER}}
 
-<script src="/assets/script.js" defer></script>
+{{SCRIPT}}
 </body>
 </html>
