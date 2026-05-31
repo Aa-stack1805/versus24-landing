@@ -831,6 +831,8 @@ p { margin: 0; }
 @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
 .footer-brand .nav-logo { font-size: 22px; }
 .footer-tagline { color: var(--text-muted); font-size: 14px; margin-top: 12px; max-width: 32ch; line-height: 1.55; }
+.footer-badge { display: inline-block; margin-top: var(--s-3); }
+.footer-badge img { display: block; }
 .footer h4 {
   font-size: 12px;
   letter-spacing: 0.18em;
