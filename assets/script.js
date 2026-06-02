@@ -92,7 +92,7 @@
           return;
         }
         const msg = json.duplicate
-          ? "You're already on the list — we'll email you at launch."
+          ? "You're already on the list. We'll email you at launch."
           : "You're on the list. We'll email you the moment Versus is live.";
         showFormMessage(form, msg, true);
         form.reset();
