@@ -38,6 +38,27 @@
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('shown'));
   }
 
+  // Analytics — App Store click attribution (PostHog). Fires on every link to
+  // the App Store: nav Download, hero badge, pricing CTAs, final-CTA badge, footer.
+  document.querySelectorAll('a[href*="apps.apple.com"]').forEach(a => {
+    a.addEventListener('click', () => {
+      if (!window.posthog || typeof window.posthog.capture !== 'function') return;
+      let location = 'other';
+      if (a.closest('.nav')) location = 'nav';
+      else if (a.closest('.hero, .hero-ctas')) location = 'hero';
+      else if (a.closest('.pricing-grid, .plan')) location = 'pricing';
+      else if (a.closest('.final-cta')) location = 'final_cta';
+      else if (a.closest('.footer')) location = 'footer';
+      try {
+        window.posthog.capture('app_store_click', {
+          location,
+          page: window.location.pathname,
+          link_text: (a.textContent || '').trim().slice(0, 40) || 'app_store_badge',
+        });
+      } catch (e) {}
+    });
+  });
+
   // Waitlist form — POSTs to Supabase Edge Function which adds to Resend Audience.
   const WAITLIST_ENDPOINT = 'https://fuoylucdxtrnbolxkqjz.supabase.co/functions/v1/waitlist-signup';
 
