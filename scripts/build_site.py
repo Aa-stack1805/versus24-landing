@@ -38,6 +38,7 @@ SITE = {
     "runners":   ("runners/index.html",    None,       False),
     "sports":    ("sports/index.html",     None,       False),
     "hybrid":    ("hybrid/index.html",     None,       False),
+    "android":   ("android/index.html",    None,       False),
     "changelog": ("changelog/index.html",  None,       False),
     "dmca":      ("dmca/index.html",       None,       False),
     "press":     ("press/index.html",      None,       False),

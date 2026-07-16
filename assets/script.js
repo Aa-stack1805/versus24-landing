@@ -80,6 +80,7 @@
       const data = new FormData(form);
       const email = (data.get('email') || '').toString().trim();
       const website = (data.get('website') || '').toString();
+      const list = form.getAttribute('data-list') || '';
 
       if (!email || !email.includes('@')) {
         showFormMessage(form, 'Please enter a valid email.', false);
@@ -101,6 +102,7 @@
           body: JSON.stringify({
             email,
             website,
+            list,
             source_page: window.location.pathname,
             utm_source: params.get('utm_source') || '',
             utm_medium: params.get('utm_medium') || '',
@@ -112,9 +114,12 @@
           showFormMessage(form, json.error || "Couldn't add you to the list. Try again in a moment.", false);
           return;
         }
+        const android = list === 'android';
         const msg = json.duplicate
-          ? "You're already on the list. We'll email you at launch."
-          : "You're on the list. We'll email you the moment Versus is live.";
+          ? (android ? "You're already on the Android list. We'll email you at launch."
+                     : "You're already on the list. We'll email you at launch.")
+          : (android ? "You're on the list. We'll email you the moment Versus lands on Android."
+                     : "You're on the list. We'll email you the moment Versus is live.");
         showFormMessage(form, msg, true);
         form.reset();
       } catch {
