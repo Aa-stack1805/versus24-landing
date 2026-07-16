@@ -1,7 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 
 const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const AUDIENCE_ID = "72f0ab07-8949-4772-ad75-a30c77975f91";
+const AUDIENCE_ID = "72f0ab07-8949-4772-ad75-a30c77975f91";          // iOS launch list
+const ANDROID_AUDIENCE_ID = "79d18c17-675b-4d25-88df-67837a739640";  // Android Waitlist
 
 const ALLOWED_ORIGINS = new Set([
   "https://versus24.net",
@@ -74,8 +75,12 @@ Deno.serve(async (req) => {
   const utm_medium = clip(body.utm_medium, 100);
   const utm_campaign = clip(body.utm_campaign, 100);
 
+  // Route to the right Resend audience by list.
+  const list = clip(body.list, 20).toLowerCase();
+  const audienceId = list === "android" ? ANDROID_AUDIENCE_ID : AUDIENCE_ID;
+
   const resendRes = await fetch(
-    `https://api.resend.com/audiences/${AUDIENCE_ID}/contacts`,
+    `https://api.resend.com/audiences/${audienceId}/contacts`,
     {
       method: "POST",
       headers: {
@@ -101,7 +106,7 @@ Deno.serve(async (req) => {
   }
 
   // Log non-PII attribution only
-  console.log("waitlist signup", { source_page, utm_source, utm_medium, utm_campaign });
+  console.log("waitlist signup", { list: list || "ios", source_page, utm_source, utm_medium, utm_campaign });
 
   return jsonResponse({ ok: true }, 200, cors);
 });
