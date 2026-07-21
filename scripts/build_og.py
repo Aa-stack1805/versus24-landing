@@ -110,7 +110,7 @@ PAGES = [
     ("og-sports.png",      "FOR SPORT ATHLETES",          "Peak on game day.", "Not on Tuesday.",  "Basketball · Soccer · Hockey · Rugby · +12 more",   SPORT),
     ("og-hybrid.png",      "FOR HYBRID ATHLETES",         "Two sports.",      "Tracked properly.", "Cross-modality ACWR · Multi-modal programming",     GOLD),
     ("og-features.png",    "FEATURES",                    "Every feature.",   "Explained.",        "Sensei AI · Voice logging · Readiness · Apple Watch", GOLD),
-    ("og-pricing.png",     "PRICING",                     "Free. Core. Elite.", "Honest pricing.", "Free forever · Core $12.99 · Elite $19.99 /mo",     GOLD),
+    ("og-pricing.png",     "PRICING",                     "Free. Plus. Max.", "Honest pricing.", "Free forever · Plus $9.99 · Max $14.99 /mo",     GOLD),
 ]
 
 if __name__ == "__main__":
