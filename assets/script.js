@@ -143,8 +143,14 @@
   }
 
   if (document.querySelector('[data-price]')) {
+    const { region, source } = detectRegion();
     const grid = document.querySelector('.pricing-grid');
-    if (grid) {
+    // The toggle is an escape hatch for misdetection, not a feature for
+    // everyone: a default-US visitor can't choose to pay INR (Apple charges
+    // their storefront regardless), so they get no toggle at all. It renders
+    // only for detected-IN visitors and anyone who has manually switched —
+    // both need the way back.
+    if (grid && (region !== 'US' || source === 'manual')) {
       const toggle = document.createElement('div');
       toggle.className = 'currency-toggle';
       toggle.setAttribute('role', 'group');
@@ -164,7 +170,6 @@
       });
       grid.parentElement.insertBefore(toggle, grid);
     }
-    const { region, source } = detectRegion();
     applyRegion(region);
     captureEvent('pricing_region_shown', { region, source, page: window.location.pathname });
   }
