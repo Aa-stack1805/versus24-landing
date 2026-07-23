@@ -87,6 +87,88 @@
     });
   });
 
+  // Regional pricing — billing runs through the App Store, which charges
+  // per-storefront prices; the cards should show the visitor's storefront.
+  // USD is baked into the HTML as the default; detection is local-only
+  // (timezone/locale, no network) and a manual toggle always wins.
+  const PRICING = {
+    US: { label: '$ USD', symbol: '$',
+          core:  { mo: 9.99,  yr: 79.99  },
+          elite: { mo: 14.99, yr: 119.99 } },
+    IN: { label: '₹ INR', symbol: '₹',
+          core:  { mo: 250, yr: 2000 },
+          elite: { mo: 500, yr: 4000 } },
+  };
+
+  const fmtPrice = n => n.toLocaleString('en-US', {
+    minimumFractionDigits: Number.isInteger(n) ? 0 : 2,
+    maximumFractionDigits: 2,
+  });
+
+  function detectRegion() {
+    let stored = null;
+    try { stored = localStorage.getItem('versus_region'); } catch (e) {}
+    if (stored && PRICING[stored]) return { region: stored, source: 'manual' };
+    try {
+      const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (tz === 'Asia/Kolkata' || tz === 'Asia/Calcutta') return { region: 'IN', source: 'detected' };
+    } catch (e) {}
+    const langs = navigator.languages || [navigator.language || ''];
+    if ([...langs].some(l => /-in$/i.test(l))) return { region: 'IN', source: 'detected' };
+    return { region: 'US', source: 'default' };
+  }
+
+  function applyRegion(region) {
+    const p = PRICING[region];
+    document.querySelectorAll('[data-price]').forEach(el => {
+      const tier = p[el.getAttribute('data-price')];
+      if (!tier) return;
+      const [int, dec] = fmtPrice(tier.mo).split('.');
+      el.innerHTML = '<sup>' + p.symbol + '</sup>' + int + '<small>' + (dec ? '.' + dec : '') + '/mo</small>';
+    });
+    document.querySelectorAll('[data-period]').forEach(el => {
+      const tier = p[el.getAttribute('data-period')];
+      if (!tier) return;
+      const save = Math.round((1 - tier.yr / (tier.mo * 12)) * 100);
+      el.textContent = 'or ' + p.symbol + fmtPrice(tier.yr) + '/yr (save ' + save + '%)';
+    });
+    document.querySelectorAll('.currency-toggle button').forEach(btn => {
+      btn.setAttribute('aria-pressed', String(btn.dataset.region === region));
+    });
+  }
+
+  function captureEvent(name, props) {
+    if (!window.posthog || typeof window.posthog.capture !== 'function') return;
+    try { window.posthog.capture(name, props); } catch (e) {}
+  }
+
+  if (document.querySelector('[data-price]')) {
+    const grid = document.querySelector('.pricing-grid');
+    if (grid) {
+      const toggle = document.createElement('div');
+      toggle.className = 'currency-toggle';
+      toggle.setAttribute('role', 'group');
+      toggle.setAttribute('aria-label', 'Currency');
+      Object.keys(PRICING).forEach(code => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.region = code;
+        btn.textContent = PRICING[code].label;
+        btn.setAttribute('aria-pressed', 'false');
+        btn.addEventListener('click', () => {
+          try { localStorage.setItem('versus_region', code); } catch (e) {}
+          applyRegion(code);
+          captureEvent('pricing_currency_toggled', { region: code, page: window.location.pathname });
+        });
+        toggle.appendChild(btn);
+      });
+      grid.parentElement.insertBefore(toggle, grid);
+    }
+    const { region, source } = detectRegion();
+    applyRegion(region);
+    captureEvent('pricing_region_shown', { region, source, page: window.location.pathname });
+  }
+
   // Waitlist form — POSTs to Supabase Edge Function which adds to Resend Audience.
   const WAITLIST_ENDPOINT = 'https://fuoylucdxtrnbolxkqjz.supabase.co/functions/v1/waitlist-signup';
 
