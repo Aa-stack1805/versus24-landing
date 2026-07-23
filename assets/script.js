@@ -23,7 +23,16 @@
     window.addEventListener('scroll', updateNav, { passive: true });
   }
 
-  // Reveal-on-scroll
+  // Reveal-on-scroll, staggered per container: siblings that reveal together
+  // cascade in at 70ms intervals instead of landing as one block.
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(el => {
+    const siblings = el.parentElement
+      ? [...el.parentElement.children].filter(c => c.classList.contains('reveal'))
+      : [el];
+    const i = siblings.indexOf(el);
+    if (i > 0) el.style.setProperty('--reveal-delay', Math.min(i * 70, 420) + 'ms');
+  });
   if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -33,9 +42,28 @@
         }
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    reveals.forEach(el => io.observe(el));
   } else {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('shown'));
+    reveals.forEach(el => el.classList.add('shown'));
+  }
+
+  // Scroll progress hairline under the nav (skipped for reduced motion — the
+  // bar is display:none there anyway, so don't pay for the scroll listener).
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const bar = document.createElement('div');
+    bar.className = 'scroll-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+    let ticking = false;
+    const updateBar = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ')';
+      ticking = false;
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateBar); }
+    }, { passive: true });
+    updateBar();
   }
 
   // Analytics — App Store click attribution (PostHog). Fires on every link to
