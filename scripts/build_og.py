@@ -19,7 +19,7 @@ GOLD = (212, 168, 67)       # --gold (D4A843)
 COMBAT = (224, 70, 62)      # --combat
 STRENGTH = (228, 130, 24)   # --strength
 ENDURANCE = (79, 163, 240)  # --endurance
-SPORT = (169, 116, 199)     # --sport
+SPORT = (34, 197, 94)       # --sport
 
 FONT_DIR = "/usr/share/fonts/truetype/dejavu"
 F_BOLD = f"{FONT_DIR}/DejaVuSans-Bold.ttf"

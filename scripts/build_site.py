@@ -19,6 +19,7 @@ files — re-run and commit whenever src/ changes.
     python3 scripts/build_site.py
 """
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -50,6 +51,13 @@ SITE = {
 NAV_ITEMS = ("features", "pricing", "faq", "about")
 SCRIPT_TAG = '<script src="/assets/script.js" defer></script>'
 
+# Legal pages ship without the analytics block (marked in head-common.html) —
+# no tracking on the pages where people read the privacy terms.
+NO_ANALYTICS = {"privacy", "terms", "dmca"}
+ANALYTICS_BLOCK = re.compile(r"[ \t]*<!-- analytics:start -->\n.*?<!-- analytics:end -->\n", re.S)
+ANALYTICS_MARKER = re.compile(r"[ \t]*<!-- analytics:(?:start|end) -->\n")
+LEFTOVER_TOKEN = re.compile(r"\{\{[A-Z_]+\}\}")
+
 
 def load(path):
     return path.read_text().rstrip("\n")
@@ -79,25 +87,56 @@ def substitute(text, token, content):
     return pattern.sub(repl, text)
 
 
+def render(name, active, is_home, partials):
+    head_common, footer, waitlist, nav_tmpl = partials
+    page = load(PAGES / f"{name}.html")
+    has_form = "{{WAITLIST_FORM}}" in page
+    page = substitute(page, "HEAD_COMMON", head_common)
+    page = substitute(page, "NAV", render_nav(nav_tmpl, active, is_home, has_form))
+    page = substitute(page, "WAITLIST_FORM", waitlist)
+    page = substitute(page, "FOOTER", footer)
+    page = substitute(page, "SCRIPT", SCRIPT_TAG)
+
+    if name in NO_ANALYTICS:
+        page = ANALYTICS_BLOCK.sub("", page)
+    else:
+        page = ANALYTICS_MARKER.sub("", page)
+
+    leftover = LEFTOVER_TOKEN.search(page)
+    if leftover:
+        raise SystemExit(f"error: unreplaced token {leftover.group(0)} in {name}.html "
+                         "(tokens must sit alone on their own line)")
+    return page + "\n"
+
+
 def main():
-    head_common = load(PARTIALS / "head-common.html")
-    footer = load(PARTIALS / "footer.html")
-    waitlist = load(PARTIALS / "waitlist-form.html")
-    nav_tmpl = load(PARTIALS / "nav.html")
+    check = "--check" in sys.argv[1:]
+    partials = (
+        load(PARTIALS / "head-common.html"),
+        load(PARTIALS / "footer.html"),
+        load(PARTIALS / "waitlist-form.html"),
+        load(PARTIALS / "nav.html"),
+    )
 
+    drifted = []
     for name, (out_rel, active, is_home) in SITE.items():
-        page = load(PAGES / f"{name}.html")
-        has_form = "{{WAITLIST_FORM}}" in page
-        page = substitute(page, "HEAD_COMMON", head_common)
-        page = substitute(page, "NAV", render_nav(nav_tmpl, active, is_home, has_form))
-        page = substitute(page, "WAITLIST_FORM", waitlist)
-        page = substitute(page, "FOOTER", footer)
-        page = substitute(page, "SCRIPT", SCRIPT_TAG)
-
+        page = render(name, active, is_home, partials)
         out = ROOT / out_rel
+        if check:
+            if not out.exists() or out.read_text() != page:
+                drifted.append(out_rel)
+            continue
         out.parent.mkdir(parents=True, exist_ok=True)
-        out.write_text(page + "\n")
+        out.write_text(page)
         print(f"  {out_rel}")
+
+    if check:
+        if drifted:
+            print("stale (rebuild with: python3 scripts/build_site.py):")
+            for rel in drifted:
+                print(f"  {rel}")
+            raise SystemExit(1)
+        print("built output matches src/ — no drift")
 
 
 if __name__ == "__main__":

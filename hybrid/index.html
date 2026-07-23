@@ -13,9 +13,10 @@
 <link rel="manifest" href="/assets/site.webmanifest"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/style.css"/>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin/>
 <script>
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_GlVHXxRTqO0Oo8haC0i5YI13wMxul9SMdEC8dGd7egX',{api_host:'https://us.i.posthog.com',person_profiles:'identified_only'});
@@ -44,11 +45,13 @@
   "applicationSubCategory": "Hybrid Athlete Training",
   "description": "Training app for hybrid athletes who train two modalities. Lift + sport, lift + run, combat + lift. Cross-modality ACWR, multi-modal periodisation, AI programming.",
   "url": "https://versus24.net/hybrid/",
-  "image": "https://versus24.net/assets/og-image.png",
+  "image": "https://versus24.net/assets/og-hybrid.png",
   "offers": [
     { "@type": "Offer", "name": "Free",          "price": "0",     "priceCurrency": "USD" },
     { "@type": "Offer", "name": "Core Monthly",  "price": "9.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" }
+    { "@type": "Offer", "name": "Core Yearly",   "price": "79.99", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Elite Yearly",  "price": "119.99", "priceCurrency": "USD" }
   ]
 }
 </script>
@@ -87,7 +90,7 @@
     <h1 class="reveal">You don't get to pick one. <span class="accent-segment">Your app shouldn't either.</span></h1>
     <p class="subhead reveal">Lift + sport. Lift + run. Combat + lift. Two-sport offseasons. Versus Training treats two modalities as the actual job, not a hack on top of one.</p>
     <div class="hero-ctas reveal">
-      <a class="appstore-badge" href="https://apps.apple.com/app/id6760545665" aria-label="Download Versus Training on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store"/></a>
+      <a class="appstore-badge" href="https://apps.apple.com/app/id6760545665" aria-label="Download Versus Training on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store" width="200" height="67"/></a>
       <a href="#features" class="btn btn-ghost btn-lg">See the features</a>
     </div>
   </div>
@@ -95,7 +98,7 @@
   <div class="container">
     <div class="hero-visual reveal">
       <div class="card-shot-wrap">
-        <img decoding="async" class="card-shot" src="/assets/screens/screen-hybrid-week.webp" alt="Versus Training Mix card: Last 30 days breakdown across modalities: Resistance 27% (10 sessions), Combat 13% (5), Endurance 30% (11), Mobility 25% (9), Sport 2% (1). Colour-coded stacked bar above the legend."/>
+        <img decoding="async" class="card-shot" width="900" height="447" src="/assets/screens/screen-hybrid-week.webp" alt="Versus Training Mix card: Last 30 days breakdown across modalities: Resistance 27% (10 sessions), Combat 13% (5), Endurance 30% (11), Mobility 25% (9), Sport 2% (1). Colour-coded stacked bar above the legend."/>
       </div>
     </div>
   </div>
@@ -167,7 +170,7 @@
           <li>All 5 loggers + imports across the board</li>
           <li>Gym feed + partner hub + challenges</li>
           <li>Daily readiness + 90-day history</li>
-          <li>14-discipline skill tree (starter belt)</li>
+          <li>Skill tree: 17 martial arts (beginner level)</li>
           <li>1 voice log per day</li>
         </ul>
       </div>
@@ -176,14 +179,14 @@
         <div class="plan-name">Core</div>
         <div class="plan-tagline">For the two-sport athlete.</div>
         <div class="plan-price"><sup>$</sup>9<small>.99/mo</small></div>
-        <div class="plan-period">or $79.99/yr</div>
+        <div class="plan-period">or $79.99/yr (save 33%)</div>
         <a href="https://apps.apple.com/app/id6760545665" class="btn btn-primary plan-cta btn-block">Get Core</a>
         <ul>
           <li>Cross-modality ACWR + plateau detection</li>
           <li>Training Camp (multi-modality)</li>
           <li>AI Daily Stack: sessions prescribed</li>
           <li>AI Mobility Protocol</li>
-          <li>Full skill tree (all belts, 17 disciplines)</li>
+          <li>Full skill tree (all belts, 17 martial arts)</li>
           <li>365-day history</li>
         </ul>
       </div>
@@ -191,7 +194,7 @@
         <div class="plan-name">Elite</div>
         <div class="plan-tagline">Sensei + everything.</div>
         <div class="plan-price"><sup>$</sup>14<small>.99/mo</small></div>
-        <div class="plan-period">or $119.99/yr</div>
+        <div class="plan-period">or $119.99/yr (save 33%)</div>
         <a href="https://apps.apple.com/app/id6760545665" class="btn btn-ghost plan-cta btn-block">Get Elite</a>
         <ul>
           <li>Sensei AI Coach: multi-modality programming</li>
@@ -236,6 +239,7 @@
           <li><a href="/features/">Features</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/changelog/">Changelog</a></li>
           <li><a href="/android/">Android (Jan 2027)</a></li>
         </ul>
       </div>
@@ -253,6 +257,7 @@
         <h4>Company</h4>
         <ul>
           <li><a href="/about/">About</a></li>
+          <li><a href="/press/">Press</a></li>
           <li><a href="/support/">Support</a></li>
           <li><a href="mailto:aadit@versus24.net">Contact</a></li>
         </ul>
