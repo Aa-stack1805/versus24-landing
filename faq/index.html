@@ -13,10 +13,10 @@
 <link rel="manifest" href="/assets/site.webmanifest"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="/assets/style.css"/>
 <noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+<link rel="preconnect" href="https://us-assets.i.posthog.com" crossorigin/>
 <script>
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_GlVHXxRTqO0Oo8haC0i5YI13wMxul9SMdEC8dGd7egX',{api_host:'https://us.i.posthog.com',person_profiles:'identified_only'});
@@ -69,7 +69,7 @@
     {
       "@type": "Question",
       "name": "Does voice work for lifting?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Combat and endurance work at launch. Resistance voice is the most-requested v1.1 item; it ships inside the first 30 days post-launch. The tap-through resistance logger is fast in the meantime. Usage cap: one voice log per day on Free and Core, unlimited on Elite." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Combat and endurance work at launch. Resistance voice is the most-requested v1.1 item and is in development now. The tap-through resistance logger is fast in the meantime. Usage cap: one voice log per day on Free and Core, unlimited on Elite." }
     },
     {
       "@type": "Question",
@@ -79,7 +79,7 @@
     {
       "@type": "Question",
       "name": "Is the free tier really free forever?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All 5 loggers, daily readiness, morning check-in, 90 days of history, gym feed and partner hub, 14-discipline skill tree (starter belt), 3 workout templates, 8 Vault check-ins, imports, Apple Watch, plus one voice log per day. No ads, no card." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. All 5 loggers, daily readiness, morning check-in, 90 days of history, gym feed and partner hub, 17-discipline skill tree (beginner level), 3 workout templates, 8 Vault check-ins, imports, Apple Watch, plus one voice log per day. No ads, no card." }
     },
     {
       "@type": "Question",
@@ -89,7 +89,7 @@
     {
       "@type": "Question",
       "name": "What happens if I'm on the waitlist?",
-      "acceptedAnswer": { "@type": "Answer", "text": "You get a 30-day Elite trial in your inbox on launch day. No card required to start it. At the end of 30 days you pick Free, Core, or Elite. Nothing auto-charges." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Waitlist members get a 30-day Elite trial by email. No card required to start it. At the end of 30 days you pick Free, Core, or Elite. Nothing auto-charges." }
     },
     {
       "@type": "Question",
@@ -134,7 +134,7 @@
     {
       "@type": "Question",
       "name": "When will [feature X] ship?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Check the changelog. The top three v1.1 requests right now: resistance voice parsing, shareable workout cards, team mode for sport athletes. The first one is already queued for the first 30 days after launch." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Check the changelog. The top three v1.1 requests right now: resistance voice parsing, shareable workout cards, team mode for sport athletes. The first one is already in development for v1.1." }
     }
   ]
 }
@@ -209,7 +209,7 @@
 
       <details>
         <summary>Does voice work for lifting?</summary>
-        <p>Combat and endurance work at launch. Resistance voice is the most-requested v1.1 item; it ships inside the first 30 days post-launch. The tap-through resistance logger is fast in the meantime (templates and last-session recall keep most logs under 15 seconds).</p>
+        <p>Combat and endurance work at launch. Resistance voice is the most-requested v1.1 item and is in development now. The tap-through resistance logger is fast in the meantime (templates and last-session recall keep most logs under 15 seconds).</p>
         <p>Usage cap: one voice log per day on Free and Core, unlimited on Elite. The cap is shared across modalities, not per-modality.</p>
       </details>
 
@@ -222,7 +222,7 @@
 
       <details>
         <summary>Is the free tier really free forever?</summary>
-        <p>Yes. All 5 loggers, daily readiness, morning check-in, 90 days of history, gym feed and partner hub, 14-discipline skill tree (starter belt), 3 workout templates, 8 Vault check-ins, imports, Apple Watch, plus one voice log per day. No ads, no card. The Free tier is what I want most users to actually use; the paid tiers have to earn their price.</p>
+        <p>Yes. All 5 loggers, daily readiness, morning check-in, 90 days of history, gym feed and partner hub, 17-discipline skill tree (beginner level), 3 workout templates, 8 Vault check-ins, imports, Apple Watch, plus one voice log per day. No ads, no card. The Free tier is what I want most users to actually use; the paid tiers have to earn their price.</p>
       </details>
 
       <details>
@@ -233,7 +233,7 @@
 
       <details>
         <summary>What happens if I'm on the waitlist?</summary>
-        <p>You get a 30-day Elite trial in your inbox on launch day. No card required to start it. At the end of 30 days you pick Free, Core, or Elite. Nothing auto-charges.</p>
+        <p>Waitlist members get a 30-day Elite trial by email. No card required to start it. At the end of 30 days you pick Free, Core, or Elite. Nothing auto-charges.</p>
       </details>
 
       <p class="eyebrow" style="margin-top:var(--s-5);margin-bottom:var(--s-2)">Data + privacy</p>
@@ -284,7 +284,7 @@
 
       <details>
         <summary>When will [feature X] ship?</summary>
-        <p>Check the <a href="/changelog/" class="text-gold">changelog</a>. The top three v1.1 requests right now: resistance voice parsing, shareable workout cards, team mode for sport athletes. The first one is already queued for the first 30 days after launch.</p>
+        <p>Check the <a href="/changelog/" class="text-gold">changelog</a>. The top three v1.1 requests right now: resistance voice parsing, shareable workout cards, team mode for sport athletes. The first one is already in development for v1.1.</p>
       </details>
 
     </div>
@@ -322,6 +322,7 @@
           <li><a href="/features/">Features</a></li>
           <li><a href="/pricing/">Pricing</a></li>
           <li><a href="/faq/">FAQ</a></li>
+          <li><a href="/changelog/">Changelog</a></li>
           <li><a href="/android/">Android (Jan 2027)</a></li>
         </ul>
       </div>
@@ -339,6 +340,7 @@
         <h4>Company</h4>
         <ul>
           <li><a href="/about/">About</a></li>
+          <li><a href="/press/">Press</a></li>
           <li><a href="/support/">Support</a></li>
           <li><a href="mailto:aadit@versus24.net">Contact</a></li>
         </ul>

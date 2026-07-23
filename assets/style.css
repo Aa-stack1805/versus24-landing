@@ -1018,8 +1018,10 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-light); }
   flex-shrink: 0;
   margin-top: 2px;
 }
-.plan li.dim { color: var(--text-ghost); }
-.plan li.dim::before { content: '—'; background: rgba(255, 255, 255, 0.04); color: var(--text-ghost); }
+/* Dimmed rows carry real information (what a tier excludes) — --text-muted is
+   the darkest tone that still passes WCAG AA at this size. */
+.plan li.dim { color: var(--text-muted); }
+.plan li.dim::before { content: '—'; background: rgba(255, 255, 255, 0.04); color: var(--text-muted); }
 .plan-cta { margin-top: var(--s-3); }
 
 /* Comparison table */
@@ -1055,7 +1057,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-light); }
 .compare-table tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
 .compare-table tbody tr:last-child td { border-bottom: 0; }
 .compare-check { color: var(--gold); font-weight: 700; }
-.compare-dash { color: var(--text-ghost); }
+.compare-dash { color: var(--text-muted); }
 .compare-row-header td {
   color: var(--gold);
   font-weight: 700;
@@ -1276,6 +1278,9 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-light); }
   transition-delay: var(--reveal-delay, 0ms);
 }
 .reveal.shown { opacity: 1; transform: translateY(0); }
+/* The hero headline is the LCP element — never gate it on JS. It renders
+   immediately; everything else in the hero still staggers in around it. */
+.hero h1.reveal { opacity: 1; transform: none; }
 
 /* Scroll progress — injected by script.js */
 .scroll-progress {
