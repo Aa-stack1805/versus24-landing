@@ -37,9 +37,9 @@
 }
 </script>
 <style>
+  :root { --segment: var(--gold); }
   .segment-hero h1 .accent-segment { color: var(--gold); }
-  .segment-hero .eyebrow { color: var(--gold); }
-  .segment-hero { background: radial-gradient(ellipse at top, rgba(212,168,67,0.08), transparent 60%); }
+  .segment-hero .eyebrow { color: var(--gold); border-bottom-color: var(--gold-rule); }
 </style>
 </head>
 <body>
@@ -121,7 +121,7 @@
 
 <section class="section">
   <div class="container">
-    <div class="section-title-block reveal text-center" style="margin:0 auto var(--s-4)">
+    <div class="section-title-block reveal">
       <p class="eyebrow">Simple pricing</p>
       <h2>Same product. Three tiers.</h2>
     </div>
@@ -172,7 +172,7 @@
         </ul>
       </div>
     </div>
-    <p class="pricing-note text-center reveal">Prices shown for your App Store region. The App Store always confirms your local price before purchase.</p>
+    <p class="pricing-note reveal">Prices shown for your App Store region. The App Store always confirms your local price before purchase.</p>
   </div>
 </section>
 

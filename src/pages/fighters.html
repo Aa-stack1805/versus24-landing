@@ -39,8 +39,8 @@
 <style>
   :root { --segment: var(--combat); --segment-dim: var(--combat-dim); }
   .segment-hero h1 .accent-segment { color: var(--segment); }
-  .segment-hero .eyebrow { color: var(--segment); }
-  .segment-hero { background: radial-gradient(ellipse at top, rgba(224,70,62,0.08), transparent 60%); }
+  .segment-hero .eyebrow { color: var(--segment); border-bottom-color: var(--segment); }
+  .segment-hero .accent-segment { color: var(--segment); }
 </style>
 </head>
 <body>
@@ -139,7 +139,7 @@
 
 <section class="section" id="proof">
   <div class="container">
-    <div class="section-title-block reveal text-center" style="margin:0 auto var(--s-5)">
+    <div class="section-title-block reveal">
       <p class="eyebrow">See it work</p>
       <h2>From a sparring round to a plan.</h2>
     </div>
@@ -168,7 +168,7 @@
 
 <section class="section">
   <div class="container">
-    <div class="section-title-block reveal text-center" style="margin:0 auto var(--s-4)">
+    <div class="section-title-block reveal">
       <p class="eyebrow">Simple pricing</p>
       <h2>Same product. Three tiers.</h2>
     </div>
@@ -218,8 +218,8 @@
         </ul>
       </div>
     </div>
-    <p class="pricing-note text-center reveal">Prices shown for your App Store region. The App Store always confirms your local price before purchase.</p>
-    <p class="text-center" style="margin-top:var(--s-4);color:var(--text-muted);font-size:14px">
+    <p class="pricing-note reveal">Prices shown for your App Store region. The App Store always confirms your local price before purchase.</p>
+    <p style="margin-top:var(--s-4);color:var(--text-muted);font-size:14px">
       <a href="/pricing/" class="text-gold">Full feature comparison →</a>
     </p>
   </div>
