@@ -22,7 +22,7 @@
   posthog.init('phc_GlVHXxRTqO0Oo8haC0i5YI13wMxul9SMdEC8dGd7egX',{api_host:'https://us.i.posthog.com',person_profiles:'identified_only'});
 </script>
 <title>Features · Versus Training</title>
-<meta name="description" content="Every Versus feature, explained. Sensei AI, voice logging, skill tree, daily readiness, training camp, fight week, Vanity Vault, gym feed, imports, Apple Watch."/>
+<meta name="description" content="Every Versus feature, explained. Sensei AI, voice logging, skill tree, daily readiness, training camp, fight week, nutrition + AI Meal Scan, Vanity Vault, gym feed, imports, Apple Watch."/>
 <link rel="canonical" href="https://versus24.net/features/"/>
 <meta property="og:title" content="Features · Versus Training"/>
 <meta property="og:description" content="Sensei AI, voice logging, skill tree, readiness, training camp, fight week, imports, Apple Watch."/>
@@ -74,6 +74,7 @@
       <a class="pill pill-gold" href="#daily-stack">AI Daily Stack</a>
       <a class="pill pill-gold" href="#mobility">AI Mobility Protocol</a>
       <a class="pill pill-gold" href="#fight-week">Fight Week</a>
+      <a class="pill pill-gold" href="#nutrition">Nutrition</a>
       <a class="pill pill-gold" href="#vault">Vanity Vault</a>
       <a class="pill pill-gold" href="#feed">Gym Feed</a>
       <a class="pill pill-gold" href="#imports">Imports</a>
@@ -107,7 +108,7 @@
       <h2>Speak your workout. Watch it log itself.</h2>
       <p class="body-copy mt-3">Combat and endurance sessions log themselves from voice. "Three rounds rolling, got a triangle, sRPE seven" becomes a fully-structured combat session in 8 seconds.</p>
       <p class="body-copy mt-2">Speech is transcribed on-device by Apple's Speech framework. The transcript (not the audio) is sent to Claude to extract discipline, rounds, technique attempts, intensity, and free-form notes. You review and save.</p>
-      <p class="body-copy mt-2">Resistance voice parsing is the most-requested v1.1 feature and is in development now.</p>
+      <p class="body-copy mt-2">Resistance voice parsing shipped in v1.1: say your lifting session and Versus extracts exercise, sets, reps, and RPE the same way.</p>
     </div>
     <div class="hero-visual reveal" style="margin-top:var(--s-6)">
       <div class="phone">
@@ -263,7 +264,7 @@
       <p class="eyebrow">Vanity Vault</p>
       <h2>Body composition tracking that respects your privacy.</h2>
       <p class="body-copy mt-3">12 measurements: weight, chest, waist, hips, shoulders, arms (R + L), thighs (R + L), calves (R + L), neck. Log every 2-4 weeks. See trend lines, not snapshots.</p>
-      <p class="body-copy mt-2">Optional progress photos stored privately. Elite-tier AI body-fat estimate analyzes the photo to return an estimated body-fat percentage, opt-in only.</p>
+      <p class="body-copy mt-2">FFMI and skeletal frame insights put those measurements in context: how much of your mass is lean relative to your height, and what your frame supports. Optional progress photos stored privately. Elite-tier AI body-fat estimate analyzes the photo to return an estimated body-fat percentage, opt-in only.</p>
       <p class="body-copy mt-2">8 check-ins free, unlimited on Core.</p>
     </div>
     <div class="hero-visual reveal" style="margin-top:var(--s-6)">
@@ -275,6 +276,27 @@
       <div class="phone">
         <div class="phone-screen has-img">
           <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/screen-vanity-vault-metrics.webp" alt="Versus Training Vanity Vault scale + body metrics view: Scale Weight 77.0 kg, last change -1.0 kg, 3-month change -2.0 kg, with a 3-month trend line. Below: Body Metrics including Body Fat 16.5% (down 0.7%), Neck 39.0 cm with a small trend chart, and a Shoulders card prompting to add a check-in."/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="nutrition">
+  <div class="container container-narrow">
+    <div class="reveal">
+      <p class="eyebrow">Nutrition</p>
+      <h2>Fuel the training, not a generic target.</h2>
+      <p class="body-copy mt-3">Versus sets your daily calories and macro split from your own stats — height, weight, age, activity, and whether you're cutting, maintaining, or bulking — instead of handing you a number from a chart. The target moves with your training: a hard sparring week and a deload week aren't the same fuelling problem.</p>
+      <p class="body-copy mt-2">The dashboard shows calories left, protein, carbs, and fat against target, plus fiber, sugar, and sodium against sensible caps. Water logging sits on the same screen with one-tap quick adds, and meals group into breakfast, lunch, dinner, and snacks.</p>
+      <p class="body-copy mt-2"><strong style="color:var(--text)">AI Meal Scan</strong> is the fast path: photograph the plate, say what you ate, or type it. Versus identifies the food, estimates the portion, and fills in calories and macros for you to confirm before saving. Same principle as voice session logging — describe it once, review it, done.</p>
+      <p class="body-copy mt-2">Because nutrition and training live in one app, your intake sits next to the sessions that earned it: protein against a heavy lifting block, carbs against a race week, hydration against a weight cut.</p>
+      <p style="color:var(--text-muted);margin-top:var(--s-3);font-size:14px">Nutrition tracking, water, and macro targets are free on every tier. AI Meal Scan is Elite-tier ($14.99/mo or $119.99/yr). Nutrition targets are informational estimates, not medical or dietetic advice.</p>
+    </div>
+    <div class="hero-visual reveal" style="margin-top:var(--s-6)">
+      <div class="phone">
+        <div class="phone-screen has-img">
+          <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/nutrition.webp" alt="Versus Training Nutrition screen: 1,646 kcal left of a 2,726 kcal target auto-calculated from your stats, with 1,080 eaten shown in a gold progress ring. Macro bars read protein 77g of 144g, carbs 137g of 346g, fat 18g of 85g, with fiber, sugar and sodium tiles below. An AI Meal Scan button offers photo, voice or text logging. Water shows 1,500 of 2,800 ml with +250, +500 and +750 quick adds, and breakfast lists oatmeal with blueberries at 380 kcal."/>
         </div>
       </div>
     </div>
