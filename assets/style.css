@@ -495,6 +495,26 @@ p { margin: 0; text-wrap: pretty; }
 .watch-screen { background: #000; border-radius: 33px; height: 100%; overflow: hidden; }
 .watch-shot { width: 100%; height: 100%; object-fit: cover; display: block; }
 
+/* A framed screenshot with a caption plate under it. */
+.shot-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-3);
+}
+.shot-figure figcaption {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  color: var(--ink-muted);
+  text-align: center;
+  max-width: 46ch;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
 /* Screenshot captions: small, mono, sitting under the frame like a plate. */
 .proof-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); align-items: start; }
 .proof-item { margin: 0; display: flex; flex-direction: column; align-items: center; gap: var(--s-3); }
