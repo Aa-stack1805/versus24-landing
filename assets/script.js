@@ -174,6 +174,42 @@
     captureEvent('pricing_region_shown', { region, source, page: window.location.pathname });
   }
 
+  // Units. The app and most of the world are metric, so metric is what ships
+  // in the HTML; visitors whose locale is imperial get the copy converted.
+  // Screenshot alt text is deliberately left alone: it describes what is
+  // actually on the screen, which is always metric.
+  const UNITS = {
+    cm: { to: 'in', factor: 1 / 2.54 },
+    kg: { to: 'lb', factor: 2.2046226 },
+  };
+
+  function usesImperial() {
+    const langs = navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || ''];
+    for (const tag of langs) {
+      let region = '';
+      try {
+        region = (new Intl.Locale(tag)).region || '';
+      } catch (e) {
+        const m = /[-_]([A-Za-z]{2})\b/.exec(tag);
+        region = m ? m[1] : '';
+      }
+      // Only these three still use imperial for body measurements.
+      if (region) return ['US', 'LR', 'MM'].indexOf(region.toUpperCase()) !== -1;
+    }
+    return false;
+  }
+
+  if (usesImperial()) {
+    document.querySelectorAll('[data-measure]').forEach(el => {
+      const unit = UNITS[el.getAttribute('data-unit')];
+      const value = parseFloat(el.getAttribute('data-measure'));
+      if (!unit || isNaN(value)) return;
+      el.textContent = Math.round(value * unit.factor) + ' ' + unit.to;
+    });
+  }
+
   // Waitlist form. POSTs to Supabase Edge Function which adds to Resend Audience.
   const WAITLIST_ENDPOINT = 'https://fuoylucdxtrnbolxkqjz.supabase.co/functions/v1/waitlist-signup';
 

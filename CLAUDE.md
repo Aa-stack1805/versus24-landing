@@ -14,6 +14,17 @@ the power of", "it's not just X, it's Y", and paragraphs that open with
 Numeric ranges use an en dash (`0–100`, `2–3%`) or the word "to". That is
 correct typography, not the thing being banned.
 
+## Units
+
+Body measurements in page copy ship metric and convert for imperial locales
+(US, LR, MM) at runtime. Wrap the value so `assets/script.js` can find it:
+
+    <span data-measure="38" data-unit="cm">38 cm</span>
+
+Supported units are `cm` (to inches) and `kg` (to pounds); values round to the
+nearest whole unit. Do **not** tag numbers inside screenshot `alt` text: alt
+text describes what is on the screen, and the app renders metric.
+
 ## Build
 
 Pages are assembled from `src/pages/` + `src/partials/` by
