@@ -1,6 +1,6 @@
 """Assemble the static site from src/ into the repo root.
 
-The site is plain static HTML served directly by GitHub Pages — there is no
+The site is plain static HTML served directly by GitHub Pages, so there is no
 runtime framework. To avoid hand-duplicating the <head> boilerplate, nav,
 footer, and waitlist form across 16 pages, each page lives in src/pages/ as
 its own per-page <head> meta + body, with tokens for the shared regions:
@@ -14,7 +14,7 @@ its own per-page <head> meta + body, with tokens for the shared regions:
 Shared markup lives once in src/partials/. Run this script after editing any
 partial or page; it regenerates the committed root HTML (index.html,
 features/index.html, ...). Output is committed so Pages keeps serving static
-files — re-run and commit whenever src/ changes.
+files, so re-run and commit whenever src/ changes.
 
     python3 scripts/build_site.py
 """
@@ -51,7 +51,7 @@ SITE = {
 NAV_ITEMS = ("features", "pricing", "faq", "about")
 SCRIPT_TAG = '<script src="/assets/script.js" defer></script>'
 
-# Legal pages ship without the analytics block (marked in head-common.html) —
+# Legal pages ship without the analytics block (marked in head-common.html):
 # no tracking on the pages where people read the privacy terms.
 NO_ANALYTICS = {"privacy", "terms", "dmca"}
 ANALYTICS_BLOCK = re.compile(r"[ \t]*<!-- analytics:start -->\n.*?<!-- analytics:end -->\n", re.S)
@@ -136,7 +136,7 @@ def main():
             for rel in drifted:
                 print(f"  {rel}")
             raise SystemExit(1)
-        print("built output matches src/ — no drift")
+        print("built output matches src/, no drift")
 
 
 if __name__ == "__main__":

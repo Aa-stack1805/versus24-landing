@@ -1,37 +1,37 @@
 /* ============================================================================
-   VERSUS TRAINING — versus24.net
+   VERSUS TRAINING: versus24.net
    Art direction: "the training log". A fight programme crossed with a spec
    sheet. Type does the work; effects don't. Numbers are set like data because
    the product is about numbers that mean something. Colour is a signal, never
-   decoration — gold marks structure, the five modality colours only ever
+   decoration: gold marks structure, and the five modality colours only ever
    encode a modality.
    ========================================================================= */
 
 :root {
-  /* Surfaces — near-black with a faint warm cast, so it reads as printed
+  /* Surfaces: near-black with a faint warm cast, so it reads as printed
      stock rather than a switched-off screen. */
   --paper: #0B0B0C;
   --paper-raised: #141416;
   --paper-high: #1B1B1E;
 
-  /* Ink — bone white, not #FFF. Softer on a dark ground, less clinical. */
+  /* Ink: bone white, not #FFF. Softer on a dark ground, less clinical. */
   --ink: #F2EFEA;
   --ink-body: #B6B1AA;
   --ink-muted: #8F8A83;
-  --ink-faint: #6B6660;      /* decorative / large type only — 3.2:1 */
+  --ink-faint: #6B6660;      /* decorative / large type only (3.2:1) */
 
-  /* Rules — hairlines carry the structure of the page. */
+  /* Rules: hairlines carry the structure of the page. */
   --rule: rgba(242, 239, 234, 0.13);
   --rule-strong: rgba(242, 239, 234, 0.26);
 
-  /* Gold — a marker, not a mood. */
+  /* Gold: a marker, not a mood. */
   --gold: #D4A843;
   --gold-bright: #E8C36A;
   --gold-ink: #1A1400;
   --gold-wash: rgba(212, 168, 67, 0.12);
   --gold-rule: rgba(212, 168, 67, 0.4);
 
-  /* Modality encoding — these five only ever mean their modality. */
+  /* Modality encoding: these five only ever mean their modality. */
   --combat: #E0463E;
   --combat-dim: rgba(224, 70, 62, 0.14);
   --strength: #E48218;
@@ -43,7 +43,7 @@
   --sport: #22C55E;
   --sport-dim: rgba(34, 197, 94, 0.14);
 
-  /* Legacy aliases — older markup still references these names. */
+  /* Legacy aliases: older markup still references these names. */
   --bg: var(--paper);
   --card: var(--paper-raised);
   --card-elevated: var(--paper-high);
@@ -64,7 +64,7 @@
   --error: #EF5350;
   --warning: #FFA726;
 
-  /* Type — one variable family carries display and text; its width axis is
+  /* Type: one variable family carries display and text; its width axis is
      the art direction. Mono is reserved for data and labels. */
   --font: 'Archivo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, Consolas, monospace;
@@ -81,7 +81,7 @@
   --s-12: 96px;
   --s-16: 128px;
 
-  /* Radius — small and consistent. Nothing is a pill except real pills. */
+  /* Radius: small and consistent. Nothing is a pill except real pills. */
   --radius-sm: 4px;
   --radius-md: 6px;
   --radius-lg: 10px;
@@ -157,7 +157,7 @@ h3 { font-size: clamp(20px, 2.3vw, 27px); font-weight: 700; line-height: 1.12; }
 h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.012em; line-height: 1.25; }
 p { margin: 0; text-wrap: pretty; }
 
-/* Accent words sit in gold — flat colour, no gradient fill. */
+/* Accent words sit in gold: flat colour, no gradient fill. */
 .accent-gold { color: var(--gold); }
 .accent-segment { color: var(--segment, var(--gold)); }
 
@@ -207,7 +207,7 @@ p { margin: 0; text-wrap: pretty; }
 .section-tight { padding: var(--s-6) 0; }
 
 /* Sections are separated by a hairline that runs the full container, not by
-   empty space alone — the page reads as a document with parts. */
+   empty space alone: the page reads as a document with parts. */
 .section + .section::before,
 .section-tinted::before {
   content: '';
@@ -495,7 +495,7 @@ p { margin: 0; text-wrap: pretty; }
 .watch-screen { background: #000; border-radius: 33px; height: 100%; overflow: hidden; }
 .watch-shot { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Screenshot captions — small, mono, sitting under the frame like a plate. */
+/* Screenshot captions: small, mono, sitting under the frame like a plate. */
 .proof-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-5); align-items: start; }
 .proof-item { margin: 0; display: flex; flex-direction: column; align-items: center; gap: var(--s-3); }
 .proof-item figcaption {
@@ -533,7 +533,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 
 /* ----------------------------------------------------- AUDIENCE INDEX --- */
 /* Five routes into the product, set as a numbered index. The modality colour
-   appears once, as a rule — it identifies, it doesn't decorate. */
+   appears once, as a rule: it identifies, it doesn't decorate. */
 .audience-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -693,7 +693,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .feature-list li {
   display: grid;
   grid-template-columns: 22px 1fr;
-  align-items: baseline;
+  align-items: start;
   gap: 10px;
   padding: 11px 0;
   border-bottom: 1px solid var(--rule);
@@ -703,10 +703,11 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 }
 .feature-list li:first-child { border-top: 1px solid var(--rule); }
 .feature-list li::before {
-  content: '—';
-  font-family: var(--font-mono);
-  font-size: 12px;
-  color: var(--gold);
+  content: '';
+  width: 13px;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 11px;
 }
 .feature-list.compact li { padding: 7px 0; font-size: 14px; }
 .feature-list strong { color: var(--ink); font-weight: 700; }
@@ -861,7 +862,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .plan li {
   display: grid;
   grid-template-columns: 18px 1fr;
-  align-items: baseline;
+  align-items: start;
   gap: 8px;
   padding: 8px 0;
   border-bottom: 1px solid var(--rule);
@@ -869,7 +870,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
   font-size: 13.5px;
   line-height: 1.5;
 }
-.plan li::before { content: '—'; font-family: var(--font-mono); font-size: 11px; color: var(--gold); }
+.plan li::before { content: ''; width: 11px; height: 1px; background: var(--gold); margin-top: 9px; }
 .plan li.dim { color: var(--ink-muted); }
 .plan li.dim::before { content: '·'; color: var(--ink-faint); }
 .plan-cta { margin-top: 0; }
@@ -1038,13 +1039,13 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .privacy-callout li {
   display: grid;
   grid-template-columns: 22px 1fr;
-  align-items: baseline;
+  align-items: start;
   gap: 10px;
   padding: 10px 0;
   border-bottom: 1px solid var(--rule);
   color: var(--ink-body);
 }
-.privacy-callout li::before { content: '—'; font-family: var(--font-mono); font-size: 12px; color: var(--gold); }
+.privacy-callout li::before { content: ''; width: 13px; height: 1px; background: var(--gold); margin-top: 12px; }
 
 /* ---------------------------------------------------------- LEGAL PAGES --- */
 .legal-page { max-width: var(--container); margin: 0 auto; padding: var(--s-8) var(--s-4); }
@@ -1088,7 +1089,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
   transition-delay: var(--reveal-delay, 0ms);
 }
 .reveal.shown { opacity: 1; transform: none; }
-/* The headline never waits on JS — it is the LCP element. */
+/* The headline never waits on JS: it is the LCP element. */
 .hero h1.reveal, .hero .eyebrow.reveal { opacity: 1; transform: none; }
 
 .scroll-progress {

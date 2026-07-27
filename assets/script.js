@@ -1,4 +1,4 @@
-// Versus shared site behaviors — keep this file small and dependency-free.
+// Versus shared site behaviors. Keep this file small and dependency-free.
 
 (() => {
   const nav = document.querySelector('.nav');
@@ -47,7 +47,7 @@
     reveals.forEach(el => el.classList.add('shown'));
   }
 
-  // Scroll progress hairline under the nav (skipped for reduced motion — the
+  // Scroll progress hairline under the nav (skipped for reduced motion, since the
   // bar is display:none there anyway, so don't pay for the scroll listener).
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const bar = document.createElement('div');
@@ -66,7 +66,7 @@
     updateBar();
   }
 
-  // Analytics — App Store click attribution (PostHog). Fires on every link to
+  // Analytics: App Store click attribution (PostHog). Fires on every link to
   // the App Store: nav Download, hero badge, pricing CTAs, final-CTA badge, footer.
   document.querySelectorAll('a[href*="apps.apple.com"]').forEach(a => {
     a.addEventListener('click', () => {
@@ -87,7 +87,7 @@
     });
   });
 
-  // Regional pricing — billing runs through the App Store, which charges
+  // Regional pricing. Billing runs through the App Store, which charges
   // per-storefront prices; the cards should show the visitor's storefront.
   // USD is baked into the HTML as the default; detection is local-only
   // (timezone/locale, no network) and a manual toggle always wins.
@@ -148,7 +148,7 @@
     // The toggle is an escape hatch for misdetection, not a feature for
     // everyone: a default-US visitor can't choose to pay INR (Apple charges
     // their storefront regardless), so they get no toggle at all. It renders
-    // only for detected-IN visitors and anyone who has manually switched —
+    // only for detected-IN visitors and anyone who has manually switched;
     // both need the way back.
     if (grid && (region !== 'US' || source === 'manual')) {
       const toggle = document.createElement('div');
@@ -174,7 +174,7 @@
     captureEvent('pricing_region_shown', { region, source, page: window.location.pathname });
   }
 
-  // Waitlist form — POSTs to Supabase Edge Function which adds to Resend Audience.
+  // Waitlist form. POSTs to Supabase Edge Function which adds to Resend Audience.
   const WAITLIST_ENDPOINT = 'https://fuoylucdxtrnbolxkqjz.supabase.co/functions/v1/waitlist-signup';
 
   document.querySelectorAll('form[data-waitlist]').forEach(form => {
