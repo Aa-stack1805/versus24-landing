@@ -765,6 +765,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
   transition: background 160ms ease;
 }
 .built-cell:hover { background: rgba(242, 239, 234, 0.02); }
+.built-cell:last-child { border-right: 0; }
 .built-grid > .built-cell:nth-child(3n) { border-right: 0; padding-right: 0; }
 .built-grid > .built-cell:not(:nth-child(3n)) { padding-right: var(--s-4); }
 .built-cell + .built-cell { padding-left: var(--s-4); }
