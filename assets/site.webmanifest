@@ -1,7 +1,7 @@
 {
   "name": "Versus Training",
   "short_name": "Versus",
-  "description": "The athlete's operating system — combat, strength, endurance, sport. Readiness, AI coaching, voice logging.",
+  "description": "The athlete's operating system: combat, strength, endurance, sport. Readiness, AI coaching, voice logging.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

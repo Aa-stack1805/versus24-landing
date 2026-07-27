@@ -49,7 +49,7 @@ def make_og(out_name, eyebrow, line1, line2, subline, accent):
     draw.rounded_rectangle(chip_box, radius=4, fill=(*accent, 38), outline=(*accent, 95), width=1)
     draw.text((chip_x + chip_pad_x, chip_y + chip_pad_y - ctop), eyebrow, font=chip_font, fill=accent)
 
-    # Headline — two lines, second in accent. Auto-fit so the wider line fits.
+    # Headline: two lines, second in accent. Auto-fit so the wider line fits.
     MAX_LINE_W = W - PAD_X * 2
     size = 110
     while size > 54:

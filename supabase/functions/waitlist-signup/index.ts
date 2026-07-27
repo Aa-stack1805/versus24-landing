@@ -60,7 +60,7 @@ Deno.serve(async (req) => {
     return jsonResponse({ error: "Invalid JSON." }, 400, cors);
   }
 
-  // Honeypot — silently accept and drop bots
+  // Honeypot: silently accept and drop bots
   if (typeof body.website === "string" && body.website.trim().length > 0) {
     return jsonResponse({ ok: true }, 200, cors);
   }

@@ -1,7 +1,7 @@
 """Derive favicon and Apple touch icon set from assets/appicon.png.
 
 Re-run after replacing the master app icon. The source is treated as
-authoritative — no design decisions live in this script, just
+authoritative. No design decisions live in this script, just
 high-quality downsampling.
 
 Outputs (all in assets/):
@@ -11,7 +11,7 @@ Outputs (all in assets/):
   icon-192.png, icon-512.png                      – PWA / Android
 
 Small browser favicons (≤48px) use a tight center crop so the hex mark
-fills the canvas — at 16×16 every pixel counts and the outer glow just
+fills the canvas: at 16x16 every pixel counts and the outer glow just
 becomes mud. Larger sizes keep the full-bleed design exactly as it
 appears on the App Store icon.
 """
@@ -25,7 +25,7 @@ src = Image.open(SRC).convert("RGB")  # source is opaque; flatten for portabilit
 W, H = src.size
 assert W == H, f"appicon.png must be square, got {src.size}"
 
-# Tight crop = inner 72% — keeps hex + immediate glow, trims dark padding.
+# Tight crop = inner 72%, keeps hex + immediate glow, trims dark padding.
 CROP_RATIO = 0.72
 crop_size = int(W * CROP_RATIO)
 crop_off = (W - crop_size) // 2
@@ -36,7 +36,7 @@ def resized(image: Image.Image, size: int) -> Image.Image:
     return image.resize((size, size), Image.LANCZOS)
 
 
-# Small favicons — use the tightened crop
+# Small favicons use the tightened crop
 for sz in (16, 32, 48):
     resized(src_cropped, sz).save(ASSETS / f"favicon-{sz}.png", "PNG", optimize=True)
 
