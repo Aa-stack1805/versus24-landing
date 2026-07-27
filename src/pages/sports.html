@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 {{HEAD_COMMON}}
-<title>Versus Training for Sport Athletes · Basketball, Soccer, Hockey, Rugby</title>
+<title>Training App for Sport Athletes · Versus Training</title>
 <meta name="description" content="Off-field training app for sport athletes. Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket. In-season ACWR, periodised lifting."/>
 <link rel="canonical" href="https://versus24.net/sports/"/>
-<meta property="og:title" content="Versus Training for Sport Athletes · Basketball, Soccer, Hockey, Rugby"/>
+<meta property="og:title" content="Training App for Sport Athletes · Versus Training"/>
 <meta property="og:description" content="Off-field training that respects on-field demands. Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket, and 6 more."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://versus24.net/sports/"/>
@@ -19,20 +19,66 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Versus Training",
-  "operatingSystem": "iOS, watchOS",
-  "applicationCategory": "HealthApplication",
-  "applicationSubCategory": "Sport Athlete Training",
-  "description": "Off-field training app for sport athletes. Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket. In-season ACWR, periodised lifting, game-day readiness.",
-  "url": "https://versus24.net/sports/",
-  "image": "https://versus24.net/assets/og-sports.png",
-  "offers": [
-    { "@type": "Offer", "name": "Free",          "price": "0",     "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Monthly",  "price": "9.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Yearly",   "price": "79.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Yearly",  "price": "119.99", "priceCurrency": "USD" }
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Versus Training",
+      "operatingSystem": "iOS, watchOS",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Sport Athlete Training",
+      "description": "Off-field training app for sport athletes. Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket. In-season ACWR, periodised lifting, game-day readiness.",
+      "url": "https://versus24.net/sports/",
+      "image": "https://versus24.net/assets/og-sports.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Monthly",
+          "price": "9.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Yearly",
+          "price": "79.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Monthly",
+          "price": "14.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Yearly",
+          "price": "119.99",
+          "priceCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://versus24.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sport athletes",
+          "item": "https://versus24.net/sports/"
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -95,31 +141,31 @@
     </div>
     <div class="built-grid">
       <div class="built-cell reveal">
-        <h4>Logger for your sport</h4>
+        <h3>Logger for your sport</h3>
         <p>Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket, lacrosse, American football, badminton, handball, and more. Fast sport selection, sRPE + duration in under 20 seconds.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Game results + score tracking</h4>
+        <h3>Game results + score tracking</h3>
         <p>Log the result and the score, not just the minutes. Session controls run the game live, and session recovery means a phone that dies mid-match doesn't cost you the log.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Per-sport skill tree</h4>
+        <h3>Per-sport skill tree</h3>
         <p>14 sport disciplines mapped to actual training elements. Tag what you drilled: sprints, set pieces, court time. See where your work is concentrated.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Peak for game day</h4>
+        <h3>Peak for game day</h3>
         <p>Readiness model knows your game date and adjusts the week's recommendations. Two readiness scores under 60? Sensei flags it before you blow Saturday.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>In-season ACWR</h4>
+        <h3>In-season ACWR</h3>
         <p>Acute:Chronic Workload Ratio across your sport + lifting. A widely-used in-season workload signal. Core tier.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Periodised lifting</h4>
+        <h3>Periodised lifting</h3>
         <p>Pre-season, in-season, post-season: three different lifting modes. Volume and intensity adjusted to where you are in the season, not where Strong thinks you are.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Apple Watch native</h4>
+        <h3>Apple Watch native</h3>
         <p>Start a session from the watch during practice. Live HR, session save when you reconnect. Works standalone if your phone's in the locker.</p>
       </div>
     </div>

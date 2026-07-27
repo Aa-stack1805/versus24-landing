@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 {{HEAD_COMMON}}
-<title>Versus Training for Fighters & Grapplers · MMA, BJJ, Muay Thai</title>
-<meta name="description" content="Combat training app for MMA, BJJ, Muay Thai, boxing, wrestling. Log the whole camp (sparring, lifting, conditioning) in one iPhone + Apple Watch training history."/>
+<title>MMA, BJJ &amp; Muay Thai Training App · Versus Training</title>
+<meta name="description" content="Combat training app for MMA, BJJ, Muay Thai, boxing and wrestling. Log sparring, lifting and conditioning in one iPhone and Apple Watch history."/>
 <link rel="canonical" href="https://versus24.net/fighters/"/>
-<meta property="og:title" content="Versus Training for Fighters & Grapplers · MMA, BJJ, Muay Thai"/>
+<meta property="og:title" content="MMA, BJJ &amp; Muay Thai Training App · Versus Training"/>
 <meta property="og:description" content="Log the whole camp (sparring, lifting, conditioning) in one iPhone + Apple Watch training history. Skill tree, fight week, voice logging."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://versus24.net/fighters/"/>
@@ -19,20 +19,66 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Versus Training",
-  "operatingSystem": "iOS, watchOS",
-  "applicationCategory": "HealthApplication",
-  "applicationSubCategory": "Combat Sports Training",
-  "description": "Combat training app for MMA, BJJ, Muay Thai, boxing, and wrestling. Log sparring, lifting, and conditioning in one training history. Skill tree, fight week, voice logging, watchOS round timer.",
-  "url": "https://versus24.net/fighters/",
-  "image": "https://versus24.net/assets/og-fighters.png",
-  "offers": [
-    { "@type": "Offer", "name": "Free",          "price": "0",     "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Monthly",  "price": "9.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Yearly",   "price": "79.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Yearly",  "price": "119.99", "priceCurrency": "USD" }
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Versus Training",
+      "operatingSystem": "iOS, watchOS",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Combat Sports Training",
+      "description": "Combat training app for MMA, BJJ, Muay Thai, boxing, and wrestling. Log sparring, lifting, and conditioning in one training history. Skill tree, fight week, voice logging, watchOS round timer.",
+      "url": "https://versus24.net/fighters/",
+      "image": "https://versus24.net/assets/og-fighters.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Monthly",
+          "price": "9.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Yearly",
+          "price": "79.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Monthly",
+          "price": "14.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Yearly",
+          "price": "119.99",
+          "priceCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://versus24.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Fighters",
+          "item": "https://versus24.net/fighters/"
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -96,27 +142,27 @@
     </div>
     <div class="built-grid">
       <div class="built-cell reveal">
-        <h4>Skill tree, 17 martial arts</h4>
+        <h3>Skill tree, 17 martial arts</h3>
         <p>BJJ, MMA, Muay Thai, boxing, wrestling, karate, judo, sambo, kickboxing, taekwondo, krav maga, capoeira, kali escrima, lethwei, savate, Jeet Kune Do, catch wrestling. Drill it, log it, see it.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Combat round timer</h4>
+        <h3>Combat round timer</h3>
         <p>Native Apple Watch app. Rounds, rest, sRPE prompt, live HR. Save lands on phone before you towel off.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Voice logging</h4>
+        <h3>Voice logging</h3>
         <p>"Three rounds rolling, got a triangle, sRPE seven." Parsed in seconds. No tapping through five screens.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Fight week + weight-cut tracking</h4>
+        <h3>Fight week + weight-cut tracking</h3>
         <p>Water, sodium, sauna logging. Weigh-in countdown. Sensei flags if your cut is on or off pace.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Sparring debrief (Elite)</h4>
+        <h3>Sparring debrief (Elite)</h3>
         <p>Tell Sensei what happened in your roll. It tags positions, attempts, finishes. Builds your scouting file over time.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Opponent scouting (Elite)</h4>
+        <h3>Opponent scouting (Elite)</h3>
         <p>Paste tape links or notes. Sensei builds a gameplan grounded in your skill tree and theirs.</p>
       </div>
     </div>

@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 {{HEAD_COMMON}}
-<title>Versus Training for Runners · Strava Logs Runs. Versus Reads Them.</title>
+<title>Training App for Runners &amp; Cyclists · Versus Training</title>
 <meta name="description" content="HR zones, threshold and Z2 splits, readiness, taper logic, full Strava and Garmin import, and an AI coach that adjusts for sleep."/>
 <link rel="canonical" href="https://versus24.net/runners/"/>
-<meta property="og:title" content="Versus Training for Runners · Strava Logs Runs. Versus Reads Them."/>
+<meta property="og:title" content="Training App for Runners &amp; Cyclists · Versus Training"/>
 <meta property="og:description" content="HR zones, taper logic, readiness. Full Strava + Garmin import."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://versus24.net/runners/"/>
@@ -19,20 +19,66 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Versus Training",
-  "operatingSystem": "iOS, watchOS",
-  "applicationCategory": "HealthApplication",
-  "applicationSubCategory": "Endurance Training",
-  "description": "Endurance training app for runners and cyclists. HR zone targeting, ACWR for endurance, race-week taper, Strava and Garmin import.",
-  "url": "https://versus24.net/runners/",
-  "image": "https://versus24.net/assets/og-runners.png",
-  "offers": [
-    { "@type": "Offer", "name": "Free",          "price": "0",     "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Monthly",  "price": "9.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Yearly",   "price": "79.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Yearly",  "price": "119.99", "priceCurrency": "USD" }
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Versus Training",
+      "operatingSystem": "iOS, watchOS",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Endurance Training",
+      "description": "Endurance training app for runners and cyclists. HR zone targeting, ACWR for endurance, race-week taper, Strava and Garmin import.",
+      "url": "https://versus24.net/runners/",
+      "image": "https://versus24.net/assets/og-runners.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Monthly",
+          "price": "9.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Yearly",
+          "price": "79.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Monthly",
+          "price": "14.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Yearly",
+          "price": "119.99",
+          "priceCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://versus24.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Runners",
+          "item": "https://versus24.net/runners/"
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -100,27 +146,27 @@
     </div>
     <div class="built-grid">
       <div class="built-cell reveal">
-        <h4>HR zone targeting</h4>
+        <h3>HR zone targeting</h3>
         <p>Z1 through Z5 set from lab tests or HRmax estimate. watchOS gives you live HR + zone during the workout.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Threshold + Z2 splits</h4>
+        <h3>Threshold + Z2 splits</h3>
         <p>Time in zone per session, weekly distribution, polarized vs pyramidal training balance.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Strava + Garmin import</h4>
+        <h3>Strava + Garmin import</h3>
         <p>Five years in one tap. Activity → effective load. Your history becomes a baseline, not just memory.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>ACWR for endurance</h4>
+        <h3>ACWR for endurance</h3>
         <p>Acute:Chronic Workload Ratio tuned for running and cycling. Surface overreaching trends from your workload ratio.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Taper + race week</h4>
+        <h3>Taper + race week</h3>
         <p>Tell Sensei your race date. It backs out the taper, the peak block, and adjusts as readiness shifts.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Apple Watch native</h4>
+        <h3>Apple Watch native</h3>
         <p>Live HR, lap splits, interval prompts. Saves back to phone, syncs to Strava if you keep both.</p>
       </div>
     </div>

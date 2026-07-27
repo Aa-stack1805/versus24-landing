@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 {{HEAD_COMMON}}
-<title>Versus Training for Lifters · Lifting App That Understands Fatigue</title>
+<title>Lifting App That Understands Fatigue · Versus Training</title>
 <meta name="description" content="PRs, plateau detection, ACWR workload ratio, full Hevy and Strong import, and an AI coach that knows when you should deload."/>
 <link rel="canonical" href="https://versus24.net/lifters/"/>
 <meta property="og:title" content="Versus Training for Lifters · The Lifting App That Understands Fatigue"/>
@@ -19,20 +19,66 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Versus Training",
-  "operatingSystem": "iOS, watchOS",
-  "applicationCategory": "HealthApplication",
-  "applicationSubCategory": "Strength Training",
-  "description": "Lifting app for strength and hypertrophy athletes. PR auto-detection, ACWR workload ratio, plateau detection, imports from Hevy, Strong, and Fitbod.",
-  "url": "https://versus24.net/lifters/",
-  "image": "https://versus24.net/assets/og-lifters.png",
-  "offers": [
-    { "@type": "Offer", "name": "Free",          "price": "0",     "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Monthly",  "price": "9.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Yearly",   "price": "79.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Yearly",  "price": "119.99", "priceCurrency": "USD" }
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Versus Training",
+      "operatingSystem": "iOS, watchOS",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Strength Training",
+      "description": "Lifting app for strength and hypertrophy athletes. PR auto-detection, ACWR workload ratio, plateau detection, imports from Hevy, Strong, and Fitbod.",
+      "url": "https://versus24.net/lifters/",
+      "image": "https://versus24.net/assets/og-lifters.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Monthly",
+          "price": "9.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Yearly",
+          "price": "79.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Monthly",
+          "price": "14.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Yearly",
+          "price": "119.99",
+          "priceCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://versus24.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Lifters",
+          "item": "https://versus24.net/lifters/"
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -100,27 +146,27 @@
     </div>
     <div class="built-grid">
       <div class="built-cell reveal">
-        <h4>PR auto-detection</h4>
+        <h3>PR auto-detection</h3>
         <p>Every set is checked. e1RM, 3RM, 5RM, volume PR. Celebrates the win. Opt-in to share to gym feed.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>ACWR workload ratio (Core)</h4>
+        <h3>ACWR workload ratio (Core)</h3>
         <p>Acute:Chronic Workload Ratio computed across all your training. A widely-used sports-science signal for whether your workload is ramping too fast.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Plateau detector</h4>
+        <h3>Plateau detector</h3>
         <p>30-day window per movement. When you stall, Sensei suggests a deload, variation, or fatigue-management protocol.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Templates + supersets</h4>
+        <h3>Templates + supersets</h3>
         <p>Build once, run forever. Drop sets, supersets, RPE/RIR, rest timers, percentage-of-1RM auto-loading.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Imports</h4>
+        <h3>Imports</h3>
         <p>Five years from Hevy, Strong, Fitbod in one tap. Your PR history travels with you.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Body composition</h4>
+        <h3>Body composition</h3>
         <p>12 measurements, FFMI and skeletal frame insights, AI body-fat estimate from progress photos. Trend lines, not vanity.</p>
       </div>
     </div>

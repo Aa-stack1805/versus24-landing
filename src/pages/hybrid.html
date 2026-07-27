@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 {{HEAD_COMMON}}
-<title>Versus Training for Hybrid Athletes · Lift + Sport, Lift + Run, Two-Sport</title>
+<title>Hybrid Athlete Training App · Versus Training</title>
 <meta name="description" content="Training app for hybrid athletes who train two modalities. Lift + sport, lift + run, combat + lift. Cross-modality ACWR, periodisation, AI programming."/>
 <link rel="canonical" href="https://versus24.net/hybrid/"/>
 <meta property="og:title" content="Versus Training for Hybrid Athletes · Lift + Anything"/>
@@ -19,20 +19,66 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Versus Training",
-  "operatingSystem": "iOS, watchOS",
-  "applicationCategory": "HealthApplication",
-  "applicationSubCategory": "Hybrid Athlete Training",
-  "description": "Training app for hybrid athletes who train two modalities. Lift + sport, lift + run, combat + lift. Cross-modality ACWR, multi-modal periodisation, AI programming.",
-  "url": "https://versus24.net/hybrid/",
-  "image": "https://versus24.net/assets/og-hybrid.png",
-  "offers": [
-    { "@type": "Offer", "name": "Free",          "price": "0",     "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Monthly",  "price": "9.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Core Yearly",   "price": "79.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" },
-    { "@type": "Offer", "name": "Elite Yearly",  "price": "119.99", "priceCurrency": "USD" }
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Versus Training",
+      "operatingSystem": "iOS, watchOS",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Hybrid Athlete Training",
+      "description": "Training app for hybrid athletes who train two modalities. Lift + sport, lift + run, combat + lift. Cross-modality ACWR, multi-modal periodisation, AI programming.",
+      "url": "https://versus24.net/hybrid/",
+      "image": "https://versus24.net/assets/og-hybrid.png",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Monthly",
+          "price": "9.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Core Yearly",
+          "price": "79.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Monthly",
+          "price": "14.99",
+          "priceCurrency": "USD"
+        },
+        {
+          "@type": "Offer",
+          "name": "Elite Yearly",
+          "price": "119.99",
+          "priceCurrency": "USD"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://versus24.net/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Hybrid athletes",
+          "item": "https://versus24.net/hybrid/"
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -92,27 +138,27 @@
     </div>
     <div class="built-grid">
       <div class="built-cell reveal">
-        <h4>Cross-modality ACWR</h4>
+        <h3>Cross-modality ACWR</h3>
         <p>Acute:Chronic Workload Ratio computed across everything you train. Lift, combat, run, sport: same baseline, same workload model.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Two-sport Training Camp</h4>
+        <h3>Two-sport Training Camp</h3>
         <p>Periodisation that knows you're lifting AND running. Volume and intensity adjusted across both, not stacked blindly.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Sensei multi-modality</h4>
+        <h3>Sensei multi-modality</h3>
         <p>Sensei sees your full week. "Should I run tomorrow or lift?" gets a real answer grounded in HRV, sleep, and what you trained.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Readiness, one number</h4>
+        <h3>Readiness, one number</h3>
         <p>Pulls from HealthKit. Same score whether you're a hybrid lifter+runner or BJJ+strength. The number that runs the whole app.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>5 modality loggers</h4>
+        <h3>5 modality loggers</h3>
         <p>Resistance, combat, endurance, sport, mobility. All five available on day one. Switch in two taps.</p>
       </div>
       <div class="built-cell reveal">
-        <h4>Imports across the board</h4>
+        <h3>Imports across the board</h3>
         <p>Strava, Hevy, Strong, Fitbod, Garmin. Bring five years of history from whichever silo your data is in.</p>
       </div>
     </div>

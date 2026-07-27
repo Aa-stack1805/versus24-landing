@@ -7,6 +7,47 @@
    encode a modality.
    ========================================================================= */
 
+/* Fonts are self-hosted so first paint waits on this stylesheet and nothing
+   else: no fonts.googleapis.com CSS in front of the woff2 it points at. The
+   files and unicode-ranges are exactly what Google serves for the latin and
+   latin-ext subsets, so glyph coverage is unchanged (arrows, box-drawing and
+   check marks still come from the system stack, as they always did).
+   Re-fetching: see scripts/fetch_fonts.sh. */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/assets/fonts/archivo-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url('/assets/fonts/archivo-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/assets/fonts/jetbrains-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/assets/fonts/jetbrains-mono-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
 :root {
   /* Surfaces: near-black with a faint warm cast, so it reads as printed
      stock rather than a switched-off screen. */
@@ -710,12 +751,12 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 /* --------------------------------------------------------- FEATURE LIST --- */
 /* Ticks become typographic marks on a hairline, like a checklist in a manual. */
 .feature-list { list-style: none; padding: 0; margin: 0; }
+/* The marker is positioned, not a layout column. A grid or flex li would make
+   every inline <a> or <strong> its own track and break the line where the
+   link starts, which is exactly what these rows are full of. */
 .feature-list li {
-  display: grid;
-  grid-template-columns: 22px 1fr;
-  align-items: start;
-  gap: 10px;
-  padding: 11px 0;
+  position: relative;
+  padding: 11px 0 11px 32px;
   border-bottom: 1px solid var(--rule);
   color: var(--ink-body);
   font-size: 15px;
@@ -724,12 +765,15 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .feature-list li:first-child { border-top: 1px solid var(--rule); }
 .feature-list li::before {
   content: '';
+  position: absolute;
+  left: 0;
+  top: 22px;          /* centred on the first line, not the whole row */
   width: 13px;
   height: 1px;
   background: var(--gold);
-  margin-top: 11px;
 }
-.feature-list.compact li { padding: 7px 0; font-size: 14px; }
+.feature-list.compact li { padding: 7px 0 7px 32px; font-size: 14px; }
+.feature-list.compact li::before { top: 18px; }
 .feature-list strong { color: var(--ink); font-weight: 700; }
 
 /* ------------------------------------------------------------ READINESS --- */
@@ -791,7 +835,11 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .built-grid > .built-cell:not(:nth-child(3n)) { padding-right: var(--s-4); }
 .built-cell + .built-cell { padding-left: var(--s-4); }
 .built-grid > .built-cell:nth-child(3n+1) { padding-left: 0; }
-.built-cell h4 { font-size: 17px; margin-bottom: 8px; color: var(--ink); }
+/* h2 on pages where the cells are the page's top-level sections (press,
+   support), h3 where they sit under one. Same size either way. */
+.built-cell h3, .built-cell h2 { font-size: 17px; font-weight: 700;
+  font-variation-settings: 'wdth' 100; letter-spacing: -0.012em;
+  line-height: 1.25; margin-bottom: 8px; color: var(--ink); }
 .built-cell p { color: var(--ink-body); font-size: 14px; line-height: 1.58; }
 @media (max-width: 900px) {
   .built-grid > .built-cell:nth-child(3n) { border-right: 1px solid var(--rule); padding-right: var(--s-4); }
@@ -880,17 +928,15 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .plan-period { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-muted); margin: 10px 0 var(--s-4); min-height: 1.6em; }
 .plan ul { margin: var(--s-4) 0 0; padding: 0; list-style: none; flex-grow: 1; }
 .plan li {
-  display: grid;
-  grid-template-columns: 18px 1fr;
-  align-items: start;
-  gap: 8px;
-  padding: 8px 0;
+  position: relative;
+  padding: 8px 0 8px 26px;
   border-bottom: 1px solid var(--rule);
   color: var(--ink-body);
   font-size: 13.5px;
   line-height: 1.5;
 }
-.plan li::before { content: ''; width: 11px; height: 1px; background: var(--gold); margin-top: 9px; }
+.plan li::before { content: ''; position: absolute; left: 0; top: 17px;
+  width: 11px; height: 1px; background: var(--gold); }
 .plan li.dim { color: var(--ink-muted); }
 .plan li.dim::before { content: '·'; color: var(--ink-faint); }
 .plan-cta { margin-top: 0; }
@@ -996,7 +1042,7 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .footer-badge { display: inline-block; margin-top: var(--s-3); opacity: 0.75; transition: opacity 140ms ease; }
 .footer-badge:hover { opacity: 1; }
 .footer-badge img { display: block; }
-.footer h4 {
+.footer h2 {
   font-family: var(--font-mono);
   font-size: 10.5px;
   font-weight: 500;
@@ -1053,19 +1099,17 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
   max-width: 100%;
   margin: 0;
 }
-.privacy-callout h3 { margin-bottom: var(--s-2); }
+.privacy-callout h3, .privacy-callout .h-sub { margin-bottom: var(--s-2); }
 .privacy-callout > p { color: var(--ink-body); margin-bottom: var(--s-3); }
 .privacy-callout ul { display: block; text-align: left; list-style: none; padding: 0; margin: var(--s-3) 0; max-width: 66ch; }
 .privacy-callout li {
-  display: grid;
-  grid-template-columns: 22px 1fr;
-  align-items: start;
-  gap: 10px;
-  padding: 10px 0;
+  position: relative;
+  padding: 10px 0 10px 32px;
   border-bottom: 1px solid var(--rule);
   color: var(--ink-body);
 }
-.privacy-callout li::before { content: ''; width: 13px; height: 1px; background: var(--gold); margin-top: 12px; }
+.privacy-callout li::before { content: ''; position: absolute; left: 0; top: 22px;
+  width: 13px; height: 1px; background: var(--gold); }
 
 /* ---------------------------------------------------------- LEGAL PAGES --- */
 .legal-page { max-width: var(--container); margin: 0 auto; padding: var(--s-8) var(--s-4); }
@@ -1078,6 +1122,21 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
   border-top: 1px solid var(--rule);
   color: var(--ink);
 }
+/* Some pages are a flat list of small sections (press resources, support
+   channels, the about page's asides). Those headings are h2 so the outline
+   reads correctly, but a 52px h2 would overpower the paragraph beside it, so
+   they are set at h3 scale. Structure and size are separate decisions. */
+.h-sub,
+.about-subhead {
+  font-size: clamp(20px, 2.3vw, 27px);
+  font-weight: 700;
+  font-variation-settings: 'wdth' 100;
+  line-height: 1.12;
+  letter-spacing: -0.028em;   /* h3's tracking: same size, same fit */
+  color: var(--ink);
+}
+.about-subhead { margin: var(--s-5) 0 var(--s-2); }
+
 .legal-page h2 { max-width: 26ch; }
 .legal-page h3 { font-size: 17px; margin-top: var(--s-4); margin-bottom: var(--s-1); }
 .legal-page p, .legal-page li { color: var(--ink-body); line-height: 1.7; margin-bottom: 12px; font-size: 16px; max-width: 74ch; }
