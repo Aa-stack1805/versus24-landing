@@ -18,7 +18,9 @@ files, so re-run and commit whenever src/ changes.
 
     python3 scripts/build_site.py
 """
+import datetime
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -50,6 +52,22 @@ SITE = {
 
 NAV_ITEMS = ("features", "pricing", "faq", "about")
 SCRIPT_TAG = '<script src="/assets/script.js" defer></script>'
+
+# sitemap.xml is generated from SITE so a new page can never be forgotten.
+# Anything absent from these maps falls back to monthly / 0.5.
+SITE_URL = "https://versus24.net/"
+SITEMAP_FREQ = {"index": "weekly", "changelog": "weekly", "dmca": "yearly"}
+SITEMAP_PRIORITY = {
+    "index": "1.0",
+    "fighters": "0.9", "lifters": "0.9", "runners": "0.9", "sports": "0.9",
+    "pricing": "0.9",
+    "hybrid": "0.8", "features": "0.8",
+    "android": "0.7",
+    "faq": "0.6", "about": "0.6",
+    "support": "0.5", "changelog": "0.5",
+    "press": "0.4", "privacy": "0.4", "terms": "0.4",
+    "dmca": "0.2",
+}
 
 # Legal pages ship without the analytics block (marked in head-common.html):
 # no tracking on the pages where people read the privacy terms.
@@ -109,6 +127,50 @@ def render(name, active, is_home, partials):
     return page + "\n"
 
 
+def git(*args):
+    out = subprocess.run(["git", *args], cwd=ROOT, capture_output=True,
+                         text=True, timeout=10)
+    return out.stdout.strip() if out.returncode == 0 else ""
+
+
+def page_lastmod(name):
+    """Date a page's source last changed, so <lastmod> is a real signal rather
+    than a number someone remembered to bump.
+
+    Uncommitted edits stamp today: the sitemap is generated before the commit
+    that contains it, so today's date is what that commit will carry, and
+    --check stays green afterwards. Clean sources keep their commit date, which
+    is why editing one page does not bump <lastmod> on the other sixteen.
+    """
+    src = PAGES / f"{name}.html"
+    try:
+        if git("status", "--porcelain", "--", str(src)):
+            return datetime.date.today().isoformat()
+        stamp = git("log", "-1", "--format=%cs", "--", str(src))
+        if stamp:
+            return stamp
+    except Exception:
+        pass
+    return datetime.date.fromtimestamp(src.stat().st_mtime).isoformat()
+
+
+def render_sitemap():
+    rows = []
+    for name, (out_rel, _active, is_home) in SITE.items():
+        loc = SITE_URL + ("" if is_home else out_rel.replace("index.html", ""))
+        rows.append(
+            "  <url>\n"
+            f"    <loc>{loc}</loc>\n"
+            f"    <lastmod>{page_lastmod(name)}</lastmod>\n"
+            f"    <changefreq>{SITEMAP_FREQ.get(name, 'monthly')}</changefreq>\n"
+            f"    <priority>{SITEMAP_PRIORITY.get(name, '0.5')}</priority>\n"
+            "  </url>"
+        )
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            + "\n".join(rows) + "\n</urlset>\n")
+
+
 def main():
     check = "--check" in sys.argv[1:]
     partials = (
@@ -129,6 +191,15 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(page)
         print(f"  {out_rel}")
+
+    sitemap = render_sitemap()
+    sitemap_out = ROOT / "sitemap.xml"
+    if check:
+        if not sitemap_out.exists() or sitemap_out.read_text() != sitemap:
+            drifted.append("sitemap.xml")
+    else:
+        sitemap_out.write_text(sitemap)
+        print("  sitemap.xml")
 
     if check:
         if drifted:
