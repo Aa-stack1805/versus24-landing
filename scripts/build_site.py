@@ -46,6 +46,7 @@ SITE = {
     "dmca":      ("dmca/index.html",       None,       False),
     "press":     ("press/index.html",      None,       False),
     "privacy":   ("privacy/index.html",    None,       False),
+    "r":         ("r/index.html",          None,       False),
     "support":   ("support/index.html",    None,       False),
     "terms":     ("terms/index.html",      None,       False),
 }
@@ -56,6 +57,9 @@ SCRIPT_TAG = '<script src="/assets/script.js" defer></script>'
 # sitemap.xml is generated from SITE so a new page can never be forgotten.
 # Anything absent from these maps falls back to monthly / 0.5.
 SITE_URL = "https://versus24.net/"
+# /r/ is a per-invite landing page, not a search result. It is noindex, so
+# listing it would only ask Google to crawl something it must then ignore.
+SITEMAP_EXCLUDE = {"r"}
 SITEMAP_FREQ = {"index": "weekly", "changelog": "weekly", "dmca": "yearly"}
 SITEMAP_PRIORITY = {
     "index": "1.0",
@@ -157,6 +161,8 @@ def page_lastmod(name):
 def render_sitemap():
     rows = []
     for name, (out_rel, _active, is_home) in SITE.items():
+        if name in SITEMAP_EXCLUDE:
+            continue
         loc = SITE_URL + ("" if is_home else out_rel.replace("index.html", ""))
         rows.append(
             "  <url>\n"
