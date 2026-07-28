@@ -7,6 +7,23 @@
 <meta name="apple-itunes-app" content="app-id=6760545665"/>
 <title>Page not found · Versus Training</title>
 <meta name="robots" content="noindex, follow"/>
+<!-- GitHub Pages has no wildcard routing, so the /r/{code} invite links that
+     shipped app builds hand out are served by this file. That makes these
+     preview tags describe an invite rather than a 404: an invite link is the
+     only versus24.net URL that gets shared into a chat, and a bare 404 URL
+     effectively never is. Crawlers that skip non-200 responses will ignore
+     them either way, which is why /r/ also exists as a real 200 page. -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Versus Training"/>
+<meta property="og:title" content="You have been invited to Versus Training"/>
+<meta property="og:description" content="Join with your friend's code and you both get 7 free days of Versus Core. Combat, strength, endurance and sport in one training log."/>
+<meta property="og:image" content="https://versus24.net/assets/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="You have been invited to Versus Training"/>
+<meta name="twitter:description" content="Join with your friend's code and you both get 7 free days of Versus Core."/>
+<meta name="twitter:image" content="https://versus24.net/assets/og-image.png"/>
 <link rel="icon" href="/assets/favicon.ico" sizes="any"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"/>
@@ -17,68 +34,23 @@
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_GlVHXxRTqO0Oo8haC0i5YI13wMxul9SMdEC8dGd7egX',{api_host:'https://us.i.posthog.com',person_profiles:'identified_only'});
 </script>
-<style>
-  .rr { min-height: 100dvh; display: flex; align-items: center; justify-content: center; padding: var(--s-4); }
-  .rr-card { width: 100%; max-width: 460px; text-align: center; }
-  .rr-logo { font-weight: 800; font-size: 20px; color: var(--gold); letter-spacing: -0.025em; display: inline-block; margin-bottom: var(--s-4); }
-  .rr-code { font-family: var(--font-mono); font-size: clamp(28px, 8vw, 44px); font-weight: 700; letter-spacing: 0.12em; color: var(--gold); background: var(--card); border: 1px solid var(--gold-border); border-radius: var(--radius-md); padding: 14px 22px; display: inline-block; margin: 14px 0 10px; }
-  .rr-copy { font-size: 13px; color: var(--text-subtle); background: transparent; border: 1px solid var(--border-strong); border-radius: var(--radius-pill); padding: 7px 16px; cursor: pointer; }
-  .rr-steps { color: var(--text-subtle); font-size: 15px; margin-top: var(--s-4); line-height: 1.6; }
-  .rr .appstore-badge { margin-top: var(--s-4); }
-  .rr .eyebrow::after { content: ''; width: 20px; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); flex-shrink: 0; }
-</style>
 </head>
 <body>
 <div class="rr">
   <div class="rr-card">
     <a href="/" class="rr-logo">Versus<span class="nav-logo-dot"></span></a>
     <div id="rr-slot"></div>
+    <!-- This file answers both /r/{code} invites and genuine 404s, and a
+         noscript block cannot tell which one it is, so it says something true
+         of both instead of guessing wrong at an invited friend. -->
     <noscript>
-      <p class="eyebrow">404</p>
-      <h1 style="margin-top:12px">Page not found.</h1>
-      <p class="subhead" style="margin-top:16px;color:var(--text-subtle)">That page doesn't exist. Head back home, or grab the app.</p>
-      <div style="margin-top:var(--s-4)"><a class="btn btn-ghost btn-lg" href="/">Go home</a></div>
-      <a class="appstore-badge" href="https://apps.apple.com/app/id6760545665" aria-label="Download Versus Training on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store"/></a>
+      <h1 class="rr-title">Versus Training</h1>
+      <p class="rr-lead">If you followed an invite link, your code is the last part of that link. Download Versus and enter it when you sign up, and you both get 7 free days of Core. Otherwise, that page does not exist.</p>
+      <a class="appstore-badge" href="https://apps.apple.com/app/id6760545665?ct=referral&amp;mt=8" aria-label="Download Versus Training on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store"/></a>
+      <div class="rr-actions"><a class="btn btn-ghost btn-lg" href="/">Go home</a></div>
     </noscript>
   </div>
 </div>
-<script>
-(function () {
-  var APPSTORE = 'https://apps.apple.com/app/id6760545665';
-  var badge = '<a class="appstore-badge" href="' + APPSTORE + '" aria-label="Download Versus Training on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store"/></a>';
-  var slot = document.getElementById('rr-slot');
-
-  function esc(s) { return s.replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
-
-  var m = location.pathname.match(/^\/r\/([^\/?#]+)/);
-  if (m) {
-    var code = decodeURIComponent(m[1]).toUpperCase().replace(/[^A-Z0-9\-]/g, '').slice(0, 32);
-    // Referral links land here too, so the tab should not read "Page not found".
-    document.title = 'Your invite · Versus Training';
-    slot.innerHTML =
-      '<p class="eyebrow">You\'ve been invited</p>' +
-      '<h1 style="margin-top:12px">Get <span class="accent-gold">7 free days of Core</span>.</h1>' +
-      '<p class="subhead" style="margin-top:16px;color:var(--text-subtle)">You and your friend both get 7 free days of Core when you join with this code.</p>' +
-      '<div class="rr-code">' + esc(code) + '</div><br/>' +
-      '<button class="rr-copy" type="button" id="rr-copy">Copy code</button>' +
-      badge +
-      '<p class="rr-steps">Download Versus, then enter this code when you sign up.</p>';
-    var btn = document.getElementById('rr-copy');
-    btn.addEventListener('click', function () {
-      var done = function () { btn.textContent = 'Copied ✓'; setTimeout(function () { btn.textContent = 'Copy code'; }, 1800); };
-      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(code).then(done, done); } else { done(); }
-    });
-    if (window.posthog && window.posthog.capture) { try { window.posthog.capture('referral_link_opened', { code: code }); } catch (e) {} }
-  } else {
-    slot.innerHTML =
-      '<p class="eyebrow">404</p>' +
-      '<h1 style="margin-top:12px">Page not found.</h1>' +
-      '<p class="subhead" style="margin-top:16px;color:var(--text-subtle)">That page doesn\'t exist. Head back home, or grab the app.</p>' +
-      '<div style="margin-top:var(--s-4)"><a class="btn btn-ghost btn-lg" href="/">Go home</a></div>' +
-      badge;
-    if (window.posthog && window.posthog.capture) { try { window.posthog.capture('page_404', { path: location.pathname }); } catch (e) {} }
-  }
-})();
-</script>
+<script src="/assets/referral.js" defer></script>
 </body>
 </html>
