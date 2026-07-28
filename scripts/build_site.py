@@ -19,6 +19,7 @@ files, so re-run and commit whenever src/ changes.
     python3 scripts/build_site.py
 """
 import datetime
+import json
 import re
 import subprocess
 import sys
@@ -177,6 +178,53 @@ def render_sitemap():
             + "\n".join(rows) + "\n</urlset>\n")
 
 
+def check_universal_links():
+    """Assert the Universal Link file is still publishable.
+
+    Nothing here builds it, but losing it breaks every /r/ invite link and it
+    fails silently: links keep working in a browser and simply stop opening the
+    app. Two ways it has actually gone missing on GitHub Pages: deleting
+    .nojekyll (Jekyll refuses to publish directories starting with a dot), and
+    switching Pages from branch deploys to the Actions flow (the
+    upload-pages-artifact action excludes dotfiles by default).
+
+    Editing the file is expensive: Apple's CDN takes up to a day to reach new
+    installs and about a week to reach existing ones, with no way to purge. So
+    it is worth catching a mistake here rather than after the wait.
+    """
+    problems = []
+    if not (ROOT / ".nojekyll").exists():
+        problems.append(".nojekyll is missing, so Pages will not publish /.well-known/")
+
+    aasa = ROOT / ".well-known" / "apple-app-site-association"
+    if not aasa.exists():
+        problems.append("missing .well-known/apple-app-site-association")
+    else:
+        if aasa.suffix:
+            problems.append("the file must have no extension, Apple looks for it by exact name")
+        try:
+            data = json.loads(aasa.read_text())
+        except ValueError as exc:
+            problems.append(f"apple-app-site-association is not valid JSON: {exc}")
+        else:
+            details = data.get("applinks", {}).get("details", [])
+            paths = [c.get("/") for d in details for c in d.get("components", [])]
+            paths += [p for d in details for p in d.get("paths", [])]
+            # Bare /r matters: strip the trailing slash, which shorteners and
+            # some messaging apps do, and a /r/* pattern no longer matches.
+            for wanted in ("/r", "/r/", "/r/*"):
+                if wanted not in paths:
+                    problems.append(f"apple-app-site-association does not cover {wanted}")
+            if any("appID" in d and "appIDs" in d for d in details):
+                problems.append("do not mix the appID/paths and appIDs/components forms")
+
+    if problems:
+        print("universal links:")
+        for p in problems:
+            print(f"  {p}")
+        raise SystemExit(1)
+
+
 def main():
     check = "--check" in sys.argv[1:]
     partials = (
@@ -206,6 +254,8 @@ def main():
     else:
         sitemap_out.write_text(sitemap)
         print("  sitemap.xml")
+
+    check_universal_links()
 
     if check:
         if drifted:

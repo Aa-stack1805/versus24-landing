@@ -1,10 +1,22 @@
 {
   "applinks": {
-    "apps": [],
     "details": [
       {
-        "appID": "4QSYUPKR2U.aaditsingal.Versus",
-        "paths": ["/r/*"]
+        "appIDs": ["4QSYUPKR2U.aaditsingal.Versus"],
+        "components": [
+          {
+            "/": "/r",
+            "comment": "Invite link with the trailing slash stripped, which link shorteners and some messaging apps do. iOS matches the URL as sent, before any redirect, so this needs its own entry."
+          },
+          {
+            "/": "/r/",
+            "comment": "Invite link carrying the code in the query or the fragment. Listed explicitly rather than relying on a wildcard matching zero characters."
+          },
+          {
+            "/": "/r/*",
+            "comment": "Invite link with the code in the path, which is what shipped app builds generate."
+          }
+        ]
       }
     ]
   }

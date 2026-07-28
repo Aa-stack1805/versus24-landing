@@ -32,6 +32,36 @@ Pages are assembled from `src/pages/` + `src/partials/` by
 `python3 scripts/build_site.py --check` (exits non-zero if the committed HTML
 has drifted from source). Never hand-edit the built files at the repo root.
 
+## Invite links
+
+App builds hand out `https://versus24.net/r/{code}`. GitHub Pages has no
+wildcard routing, so that path is served by `404.html`, with a 404 status;
+`/r/` is a real 200 page. Both render from `assets/referral.js`, which also
+accepts `?c=CODE` and `#CODE`. New app builds should use `/r/#CODE`: it
+returns 200, so messaging apps will build a link preview for it.
+
+`.well-known/apple-app-site-association` is what makes those links open the
+app. Two things about it:
+
+- It is not built from `src/`, and it fails silently: links keep working in a
+  browser and simply stop opening the app. `build_site.py` asserts it is
+  present, parses, and covers `/r`, `/r/` and `/r/*`. Bare `/r` needs its own
+  entry because link shorteners strip trailing slashes and iOS matches the URL
+  as sent, before any redirect.
+- Editing it is slow to take effect: Apple's CDN takes up to a day to reach new
+  installs and about a week for existing ones, with no way to purge. Diagnose
+  first, then make one change. `curl -s -D- https://app-site-association.cdn-apple.com/a/v1/versus24.net`
+  shows what Apple actually ingested.
+
+Deleting `.nojekyll`, or switching Pages from branch deploys to the Actions
+flow, drops the whole `.well-known` directory. The build guard catches the
+first; nothing catches the second, so do not switch without checking.
+
+Ignore advice that the file must be served as `application/json`. Apple's
+current docs and TN3155 do not require it, and since iOS 14 the device reads a
+normalised copy from Apple's CDN, which sniffs the body. GitHub Pages serves it
+as `application/octet-stream` and that is fine.
+
 ## Design
 
 The art direction is "the training log": type carries the page, colour is a
