@@ -61,6 +61,7 @@ SITE_URL = "https://versus24.net/"
 # /r/ is a per-invite landing page, not a search result. It is noindex, so
 # listing it would only ask Google to crawl something it must then ignore.
 SITEMAP_EXCLUDE = {"r"}
+LASTMOD = re.compile(r"<lastmod>[^<]*</lastmod>")
 SITEMAP_FREQ = {"index": "weekly", "changelog": "weekly", "dmca": "yearly"}
 SITEMAP_PRIORITY = {
     "index": "1.0",
@@ -284,9 +285,23 @@ def main():
 
     sitemap = render_sitemap()
     sitemap_out = ROOT / "sitemap.xml"
+    stale_dates = False
     if check:
-        if not sitemap_out.exists() or sitemap_out.read_text() != sitemap:
+        if not sitemap_out.exists():
             drifted.append("sitemap.xml")
+        elif sitemap_out.read_text() != sitemap:
+            # <lastmod> cannot be checked reproducibly: the sitemap is built
+            # before the commit that carries it, so it stamps today's local
+            # date, while the commit it lands in gets a committer date from
+            # whatever machine makes it. A squash merge crossing midnight UTC
+            # is enough to put the two a day apart. Structure still has to
+            # match exactly; a date-only difference is worth reporting, not
+            # worth failing a build over.
+            bare = lambda s: LASTMOD.sub("<lastmod/>", s)
+            if bare(sitemap_out.read_text()) != bare(sitemap):
+                drifted.append("sitemap.xml")
+            else:
+                stale_dates = True
     else:
         sitemap_out.write_text(sitemap)
         print("  sitemap.xml")
@@ -300,6 +315,9 @@ def main():
             for rel in drifted:
                 print(f"  {rel}")
             raise SystemExit(1)
+        if stale_dates:
+            print("sitemap.xml: same URLs, some <lastmod> dates behind "
+                  "(rebuild to refresh them)")
         print("built output matches src/, no drift")
 
 
