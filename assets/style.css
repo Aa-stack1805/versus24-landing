@@ -156,8 +156,15 @@ a { color: inherit; text-decoration: none; }
 :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; border-radius: 2px; }
 
 /* ---------------------------------------------------------------- TYPE --- */
-/* The width axis is the voice: display type is drawn wide and heavy, labels
-   are drawn narrow. Both come from one family, so the page feels authored. */
+/* The width axis is the voice, and it runs the opposite way to the size: the
+   bigger the type, the more it condenses. Large sizes carry narrow letterforms
+   comfortably and gain height by it; small sizes do not, so they sit at normal
+   width. Tracking follows the axis, because a condensed face is already tight
+   and does not want the negative letter-spacing a wide one needs. Word spacing
+   moves against it: the space glyph narrows along with the letters and then
+   takes the negative tracking on top, so h1 hands some back or its words start
+   touching. h2 gets none, because at wdth 90 it does not need it and the extra
+   width breaks the 20ch section titles onto a second line. */
 
 h1, h2, h3, h4, h5 {
   margin: 0;
@@ -169,15 +176,16 @@ h1, h2, h3, h4, h5 {
 }
 h1 {
   font-size: clamp(42px, 6.6vw, 88px);
-  font-variation-settings: 'wdth' 112;
+  font-variation-settings: 'wdth' 85;
   line-height: 0.92;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.026em;
+  word-spacing: 0.035em;
 }
 h2 {
   font-size: clamp(30px, 4.2vw, 52px);
-  font-variation-settings: 'wdth' 108;
+  font-variation-settings: 'wdth' 90;
   line-height: 0.96;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.024em;
 }
 h3 { font-size: clamp(20px, 2.3vw, 27px); font-weight: 700; line-height: 1.12; }
 h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.012em; line-height: 1.25; }
@@ -312,8 +320,8 @@ p { margin: 0; text-wrap: pretty; }
   gap: 5px;
   font-size: 19px;
   font-weight: 800;
-  font-variation-settings: 'wdth' 108;
-  letter-spacing: -0.02em;
+  font-variation-settings: 'wdth' 96;
+  letter-spacing: -0.018em;
   color: var(--ink);
 }
 .nav-logo-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
@@ -825,8 +833,8 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
   min-height: 56px;
   font-size: 54px;
   font-weight: 800;
-  font-variation-settings: 'wdth' 108;
-  letter-spacing: -0.04em;
+  font-variation-settings: 'wdth' 90;
+  letter-spacing: -0.03em;
   line-height: 1;
   color: var(--ink);
   font-feature-settings: 'tnum';
