@@ -76,3 +76,37 @@ tree (beginner level on Free, all belts on Core/Elite), 14 sports, 8 Vanity
 Vault check-ins on Free, 12 body measurements. AI Meal Scan and the Physique
 Report Card are Elite. Prices are per App Store storefront; US and India are
 both defined in `assets/script.js`.
+
+### ACWR, and what the rings mean
+
+The app's three rings were rebuilt for v1.2. The inner ring stopped being an
+acute:chronic workload ratio gauge and became Balance: full when every system
+you train sits near your own baseline, draining only on a spike, unaffected by
+rest days. Readiness became a pure recovery measure (subjective, HRV, sleep);
+training volume left the score entirely.
+
+The copy is now written for v1.2. Readiness is described as recovery only
+(check-in, HRV, sleep), workload as own-baseline and per-system, and ACWR is
+down to a single mention on `features.html`, kept for credibility and search
+and framed as research context rather than an injury predictor. Do not
+reintroduce it as a headline feature: the ratio is the part the 2020–2021
+methodology papers took apart, and own-baseline deviation is the part that
+survived. Do not put a number of check-in questions or a baseline window in
+the copy either, unless you have just checked it against the app.
+
+**Still owed: screenshots.** These four images predate v1.2 and show the old
+ring set, so the pages currently illustrate a UI that no longer exists. Their
+alt text describes what is in the image and is therefore correct as long as
+the old image is there. Replace the image and the alt together:
+
+- `assets/screens/readiness.webp`, used on `index.html` (with a figcaption
+  quoting Score 87 / Load 1797) and on `sports.html`.
+- `assets/screens/screen-readiness.webp` on `features.html`, alt naming the
+  Score/Load/ACWR rings.
+- `assets/screens/screen-watch-readiness.webp` on `features.html`, alt calling
+  the inner ring blue. Balance renders cyan.
+- `assets/screens/screen-dashboard.webp` on `features.html`, whose alt quotes
+  an on-screen callout saying the readiness score adapts to load. It no
+  longer does.
+
+The v1.0 changelog entry naming ACWR is a historical record. Leave it.
