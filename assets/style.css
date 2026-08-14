@@ -386,7 +386,12 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* --------------------------------------------------------------- HERO --- */
-/* Left-aligned and asymmetric. No glow, no dot grid, no floating devices. */
+/* Left-aligned and asymmetric. No glow, no dot grid.
+   The home page is the one exception to "devices are shown, not styled": its
+   hero splits into copy and a pair of tilted screens. The tilt is what makes
+   the two read as a single object instead of two flat rectangles side by side.
+   Every other hero still stands the device up straight, and nothing else on
+   the site floats. */
 .hero {
   position: relative;
   padding: clamp(52px, 8vh, 92px) 0 var(--s-6);
@@ -415,6 +420,51 @@ p { margin: 0; text-wrap: pretty; }
   flex-wrap: wrap;
 }
 
+/* The home hero: copy left, screens right. Scoped to its own classes because
+   .hero-visual is shared with the six pages that stand one phone up centred. */
+.hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: var(--s-5);
+  align-items: center;
+}
+.hero-split .hero-copy { min-width: 0; }
+/* Narrower column, so the measures tighten to match it. */
+.hero-split h1 { max-width: 11ch; }
+.hero-split .subhead { max-width: 44ch; }
+
+.hero-stage {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0;
+}
+.hero-stage .phone { width: 216px; height: 432px; }
+/* Both lean the same way, a few degrees only, and the second drops and sits
+   behind. Same direction is what makes them one object; splaying them apart
+   would read as two separate props. The overlap stays small so neither frame
+   is swallowed. */
+.hero-stage .phone:first-child {
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+.hero-stage .phone:last-child {
+  transform: rotate(-3deg) translateY(32px);
+  margin-left: -10px;
+}
+
+@media (max-width: 980px) {
+  .hero-split { grid-template-columns: 1fr; gap: var(--s-6); }
+  .hero-split h1 { max-width: 15ch; }
+  .hero-split .subhead { max-width: 54ch; }
+  .hero-stage { margin-top: var(--s-2); }
+}
+@media (max-width: 560px) {
+  /* Two tilted phones do not fit a phone. Stand them up and show one. */
+  .hero-stage .phone:first-child { transform: none; }
+  .hero-stage .phone:last-child { display: none; }
+}
+
 /* The trust strip becomes a spec line: mono, ruled top and bottom. */
 .trust-strip {
   font-family: var(--font-mono);
@@ -429,21 +479,23 @@ p { margin: 0; text-wrap: pretty; }
   text-align: left;
 }
 
-/* Doorways read as an index of routes, not a row of chips. */
+/* Doorways read as an index of routes, not a row of chips: one per line, each
+   ruled off, the arrow parked on the right edge. They sit in the hero's left
+   column, so a single row would not fit anyway. */
 .doorways {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
+  display: block;
   margin-top: var(--s-4);
   border-top: 1px solid var(--rule);
 }
 .doorway-pill {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
-  padding: 14px 22px 14px 0;
-  margin-right: var(--s-4);
+  width: 100%;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--rule);
   font-size: 15px;
   font-weight: 600;
   color: var(--ink-body);
@@ -457,18 +509,6 @@ p { margin: 0; text-wrap: pretty; }
 }
 .doorway-pill:hover { color: var(--ink); }
 .doorway-pill:hover::after { opacity: 1; transform: translateX(3px); }
-
-@media (max-width: 560px) {
-  .doorways { display: block; }
-  .doorway-pill {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-right: 0;
-    padding: 13px 0;
-    border-bottom: 1px solid var(--rule);
-  }
-}
 
 /* --------------------------------------------------------------- PHONE --- */
 /* A plain, honest device frame. The screenshot is the point. */
@@ -1119,8 +1159,10 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
   transition-delay: var(--reveal-delay, 0ms);
 }
 .reveal.shown { opacity: 1; transform: none; }
-/* The headline never waits on JS: it is the LCP element. */
-.hero h1.reveal, .hero .eyebrow.reveal { opacity: 1; transform: none; }
+/* Nothing above the fold waits on JS. The headline is the LCP element on
+   narrow screens; on wide ones the home hero's screens are the larger paint,
+   and they are in view before any observer could fire. */
+.hero h1.reveal, .hero .eyebrow.reveal, .hero-stage.reveal { opacity: 1; transform: none; }
 
 .scroll-progress {
   position: fixed;
