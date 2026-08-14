@@ -147,7 +147,7 @@
       <p class="eyebrow">Voice logging</p>
       <h2>Speak your workout. Watch it log itself.</h2>
       <p class="body-copy mt-3">Combat and endurance sessions log themselves from voice. "Three rounds rolling, got a triangle, sRPE seven" becomes a fully-structured combat session in 8 seconds.</p>
-      <p class="body-copy mt-2">Speech is transcribed on-device by Apple's Speech framework. The transcript (not the audio) is sent to Claude to extract discipline, rounds, technique attempts, intensity, and free-form notes. You review and save.</p>
+      <p class="body-copy mt-2">Speech is transcribed by Apple's Speech Recognition, the same engine behind dictation: online it runs on Apple's servers, offline it runs on the phone. The transcript, never the audio, is then sent to Claude to extract discipline, rounds, technique attempts, intensity, and free-form notes. You review and save.</p>
       <p class="body-copy mt-2">Resistance voice parsing shipped in v1.1: say your lifting session and Versus extracts exercise, sets, reps, and RPE the same way.</p>
     </div>
     <div class="hero-visual reveal" style="margin-top:var(--s-6)">
@@ -437,6 +437,7 @@
       <h2>Native watchOS app, not a phone-screen mirror.</h2>
       <p class="body-copy mt-3">Combat round timer with rest intervals, sRPE prompt at session end, live HR throughout. Endurance lap splits + interval prompts. Sessions sync back to the phone via WatchConnectivity before you tap out.</p>
       <p class="body-copy mt-2">Works standalone. Start a session from the watch without the phone nearby, sync when it reconnects.</p>
+      <p class="body-copy mt-2">Outdoor runs and rides record a GPS route while the session is running, so distance and elevation come from satellites rather than an estimate, and the session detail draws the route on a map coloured by pace. Location is only read during an outdoor session, and you can refuse the permission and still log everything else. See the <a href="/privacy/" class="text-gold">privacy policy</a>.</p>
       <p class="body-copy mt-2">Free tier.</p>
     </div>
     <div class="watch-pair reveal" style="margin-top:var(--s-6)">
