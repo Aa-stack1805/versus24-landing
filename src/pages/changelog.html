@@ -13,14 +13,14 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://versus24.net/assets/og-image.png"/>
 <style>
-  .release { border-left: 2px solid var(--border); padding: var(--s-2) 0 var(--s-4) var(--s-3); position: relative; }
+  .release { border-left: 2px solid var(--rule); padding: var(--s-2) 0 var(--s-4) var(--s-3); position: relative; }
   .release::before { content: ''; position: absolute; left: -7px; top: var(--s-3); width: 12px; height: 12px; border-radius: 50%; background: var(--gold); }
   .release-version { font-family: var(--font-mono); font-size: 14px; color: var(--gold); letter-spacing: 0.04em; }
-  .release-date { color: var(--text-muted); font-size: 13px; margin-left: var(--s-2); }
+  .release-date { color: var(--ink-muted); font-size: 13px; margin-left: var(--s-2); }
   .release h2 { margin: 8px 0 var(--s-2); font-size: 22px; font-weight: 700;
     font-variation-settings: 'wdth' 100; line-height: 1.12; letter-spacing: -0.028em; }
   .release ul { margin: 0; padding-left: var(--s-3); }
-  .release li { color: var(--text-subtle); padding: 4px 0; }
+  .release li { color: var(--ink-body); padding: 4px 0; max-width: 68ch; }
 </style>
 <script type="application/ld+json">
 {
@@ -103,15 +103,15 @@
       <span class="release-date">Shipped</span>
       <h2>Train Together, the Physique Report Card, and Nutrition.</h2>
       <ul>
-        <li><strong style="color:var(--text)">Train Together:</strong> run a live session with a training partner. Pick one of your templates as the shared structure and they get a push; you both land in the resistance logger with the same exercises, each logging your own weights. Their sets appear on your screen as they finish them, with side-by-side progress and a live in-sync status.</li>
-        <li><strong style="color:var(--text)">Physique Report Card (Elite):</strong> an honest judge's read on where you actually are. It weighs your check-in photos against your previous ones, all 12 measurements, your frame and FFMI, then returns a 0 to 100 score, per-muscle-group grades, your proportions against classic targets, what changed since last time, and a numbered list of what to fix first. Score history tracks across reports.</li>
-        <li><strong style="color:var(--text)">Regional fat distribution:</strong> where you store fat first and where you lean out last, so you know what to expect on the way down instead of guessing.</li>
-        <li><strong style="color:var(--text)">Nutrition Logger:</strong> track meals, calories, and daily macros alongside your training. Targets auto-calculated from your stats and goal; water, fiber, sugar, and sodium included</li>
-        <li><strong style="color:var(--text)">AI Meal Scan (Elite):</strong> log a meal by photo, voice, or text, with no cap</li>
-        <li><strong style="color:var(--text)">Vacation Mode:</strong> mark planned time away from training so Versus knows the break is intentional</li>
-        <li><strong style="color:var(--text)">Voice logging for strength:</strong> record exercises, sets, and intensity by voice</li>
-        <li><strong style="color:var(--text)">Sports Logger upgrade:</strong> faster sport selection, session controls, game results, score tracking, improved session recovery</li>
-        <li><strong style="color:var(--text)">Vanity Vault:</strong> FFMI and skeletal frame insights, plus guided photo capture that ghosts your last shot so angles match</li>
+        <li><strong style="color:var(--ink)">Train Together:</strong> live joint resistance sessions. Shared template, separate weights, partner's sets appear as they finish them.</li>
+        <li><strong style="color:var(--ink)">Physique Report Card (Elite):</strong> 0 to 100 score, per-muscle grades and ranked priorities, from your check-in photos, 12 measurements, frame and FFMI. Score history tracks across reports.</li>
+        <li><strong style="color:var(--ink)">Regional fat distribution:</strong> where you store fat first and lean out last.</li>
+        <li><strong style="color:var(--ink)">Nutrition Logger:</strong> meals, calories and macros, with targets from your own stats. Water, fiber, sugar and sodium included</li>
+        <li><strong style="color:var(--ink)">AI Meal Scan (Elite):</strong> log a meal by photo, voice, or text, with no cap</li>
+        <li><strong style="color:var(--ink)">Vacation Mode:</strong> mark planned time away so the break counts as intentional</li>
+        <li><strong style="color:var(--ink)">Voice logging for strength:</strong> record exercises, sets, and intensity by voice</li>
+        <li><strong style="color:var(--ink)">Sports Logger upgrade:</strong> faster sport selection, session controls, game results, score tracking, improved session recovery</li>
+        <li><strong style="color:var(--ink)">Vanity Vault:</strong> FFMI and skeletal frame insights. Guided capture ghosts your last shot so angles match</li>
         <li>Bug fixes and overall polish</li>
       </ul>
     </div>
@@ -119,8 +119,12 @@
     <div class="release reveal" style="opacity:0.5">
       <span class="release-version">v1.2 · Planned</span>
       <span class="release-date">Late 2026</span>
-      <h2>Shareable workout cards + Spanish voice.</h2>
+      <h2>Sensei reads the session. Your coach still runs it.</h2>
       <ul>
+        <li><strong style="color:var(--ink)">AI coaching past the weights room:</strong> endurance, combat and sport sessions get a read from Sensei. Until now only resistance training did.</li>
+        <li><strong style="color:var(--ink)">Endurance, prescribed:</strong> zone target, duration and effort arrive pre-set in the logger, so the goal ring and the zone HUD are armed before you start.</li>
+        <li><strong style="color:var(--ink)">Combat and sport, Sensei's Read:</strong> an intensity ceiling, what to protect, what to recover. No techniques, no drills, no round structures. Your coach programs the session; the app carries the load history your coach cannot see.</li>
+        <li><strong style="color:var(--ink)">Sport days schedule properly:</strong> a sport day in your weekly split now survives into the AI Daily Stack instead of being swapped for something else.</li>
         <li>Export workout cards as social-ready images (IG Stories, TikTok)</li>
         <li>Voice logging in Spanish + Portuguese</li>
       </ul>
