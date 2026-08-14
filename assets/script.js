@@ -126,6 +126,13 @@
       const [int, dec] = fmtPrice(tier.mo).split('.');
       el.innerHTML = '<sup>' + p.symbol + '</sup>' + int + '<small>' + (dec ? '.' + dec : '') + '/mo</small>';
     });
+    // The home page states prices in a sentence rather than in a plan card, so
+    // it needs the number on its own without the sup/small price-tag markup.
+    document.querySelectorAll('[data-price-inline]').forEach(el => {
+      const tier = p[el.getAttribute('data-price-inline')];
+      if (!tier) return;
+      el.textContent = p.symbol + fmtPrice(tier.mo);
+    });
     document.querySelectorAll('[data-period]').forEach(el => {
       const tier = p[el.getAttribute('data-period')];
       if (!tier) return;
@@ -142,7 +149,7 @@
     try { window.posthog.capture(name, props); } catch (e) {}
   }
 
-  if (document.querySelector('[data-price]')) {
+  if (document.querySelector('[data-price], [data-price-inline]')) {
     const { region, source } = detectRegion();
     const grid = document.querySelector('.pricing-grid');
     // The toggle is an escape hatch for misdetection, not a feature for

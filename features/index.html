@@ -140,6 +140,7 @@
       <a class="pill pill-gold" href="#skill-tree">Skill tree</a>
       <a class="pill pill-gold" href="#readiness">Readiness</a>
       <a class="pill pill-gold" href="#calendar">Training calendar</a>
+      <a class="pill pill-gold" href="#vacation">Vacation Mode</a>
       <a class="pill pill-gold" href="#camp">Training Camp</a>
       <a class="pill pill-gold" href="#daily-stack">AI Daily Stack</a>
       <a class="pill pill-gold" href="#mobility">AI Mobility Protocol</a>
@@ -223,6 +224,9 @@
       <h2>One number. Every morning.</h2>
       <p class="body-copy mt-3">Versus reads HRV, sleep, RHR, training load, and the prior 7 days from HealthKit. It compares against your 30-day rolling baseline and outputs a readiness score from 0 to 100.</p>
       <p class="body-copy mt-2">The score isn't a vanity stat. Sensei uses it to decide what to recommend, Training Camp uses it to adjust the next block, Fight Week uses it to flag overreaching during the cut. You see it once each morning; the rest of the app silently uses it everywhere.</p>
+      <p class="body-copy mt-2">There is an injury log alongside it. Record a niggle with the date and the area, and it sits on the same timeline as your load, so when you look back at a flare-up you can see what the fortnight before it actually contained. It records what happened. It does not attribute a cause.</p>
+      <p class="body-copy mt-2">Apple Health sync runs both ways: Versus reads HRV, sleep and resting heart rate, and writes your sessions back so the rest of your Health data stays complete.</p>
+      <p class="body-copy mt-2">It is an estimate, and worth saying plainly: it is computed from four signals your watch measured, so it is a guide for how to train today, not a verdict on your body. ACWR alongside it shows when volume is ramping quickly. Neither number diagnoses an injury or predicts one, and Versus is a training log, not a medical device.</p>
       <p class="body-copy mt-2">Free tier. Every user, every day.</p>
     </div>
     <div class="hero-visual reveal" style="margin-top:var(--s-6)">
@@ -250,6 +254,18 @@
           <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/screen-training-calendar.webp" alt="Versus Training History screen showing March 2026 month view: 44 sessions, 36.7 hours, 1 day streak, with a stacked modality bar (Endurance 19, Resistance 12, Combat 12, Mobility 1) and a calendar grid where each day shows colour-coded dots for the modalities trained. All / Resistance / Combat / Endurance filter chips at the bottom."/>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="vacation">
+  <div class="container container-narrow">
+    <div class="reveal">
+      <p class="eyebrow">Vacation Mode</p>
+      <h2>A planned week off is not a missed week.</h2>
+      <p class="body-copy mt-3">Mark the dates you are away and Versus treats the gap as intentional. Your streak survives it, the calendar shows the week as time off rather than a hole, and readiness stops reading the drop in training load as detraining you did not choose.</p>
+      <p class="body-copy mt-2">It matters most on the way back. Because the break is on record, your chronic workload baseline is not quietly rebuilt around a week of nothing, so the first session back does not register as a spike that was never real.</p>
+      <p class="body-copy mt-2">Free tier. Shipped in v1.1.</p>
     </div>
   </div>
 </section>
@@ -298,7 +314,7 @@
       <p class="eyebrow">AI Mobility Protocol</p>
       <h2>Post-session mobility, prescribed by AI.</h2>
       <p class="body-copy mt-3">Finish a session and Versus generates a mobility block tuned to what you just trained. Sparring six hard rounds? You get neck, hip, shoulder work weighted toward the positions you spent time in. Heavy lower-body day? Hip flexors, glutes, hamstrings, ankle work in priority order.</p>
-      <p class="body-copy mt-2">Movements pulled from the mobility library, prescribed in 8–12 minute blocks you can actually execute before bed.</p>
+      <p class="body-copy mt-2">Movements pulled from the mobility library, prescribed in 8–12 minute blocks you can actually execute before bed. Guided cooldown sequences run the same way straight after a session, while you are still warm.</p>
       <p class="body-copy mt-2">Core tier.</p>
     </div>
     <div class="hero-visual reveal" style="margin-top:var(--s-6)">
@@ -319,6 +335,7 @@
       <p class="body-copy mt-3">Enter your fight date and target weight. Versus builds a daily plan for the week: water intake curve, sodium curve, sauna sessions, training taper, and the morning-of weigh-in protocol.</p>
       <p class="body-copy mt-2">Log water and sauna time as you go. Sensei flags if your cut is on or off pace. The night before weigh-in, the protocol switches into the dehydration phase.</p>
       <p class="body-copy mt-2">Core tier. Combat-discipline athletes only.</p>
+      <p style="color:var(--ink-muted);margin-top:var(--s-3);font-size:14px">Fight Week logs and counts down a cut. It does not prescribe one. Cutting weight, and dehydration in particular, carries real medical risk, so plan it with your coach and a doctor who know your history. Not for anyone under 18. See the <a href="/terms/" class="text-gold">health disclaimer</a>.</p>
     </div>
     <div class="hero-visual reveal" style="margin-top:var(--s-6)">
       <div class="phone">
@@ -383,7 +400,7 @@
       <p class="body-copy mt-3">Progress photos tell you something, but only if someone knows how to read them. The Physique Report Card weighs your latest front, side, and back shots against your previous ones, plus your tape measurements, frame, FFMI, and weight trend. What comes back is a judge's assessment, not a number scraped off one photo.</p>
       <p class="body-copy mt-2">A score out of 100 and a category band. A written verdict on what changed since your last check-in. Grades and a one-line read for ten muscle groups. Your proportions against the classic targets, where you store fat first and go lean last, what's already working, and a numbered list of what to fix, each with the prescription that fixes it.</p>
       <p class="body-copy mt-2">It grades on your frame, not someone else's: <span data-measure="38" data-unit="cm">38 cm</span> arms on a small frame beat <span data-measure="40" data-unit="cm">40 cm</span> on a large one, and the report says so. It only grades what the angles actually show, it states its own confidence, and it won't contradict a number you've measured. A judge's eye, not a measurement, which is why the trend across reports matters more than any single one.</p>
-      <p style="color:var(--ink-muted);margin-top:var(--s-3);font-size:14px">Elite-tier, capped at two reports a day. Photos are processed for the report and never sold or shared. See the <a href="/privacy/" class="text-gold">privacy policy</a>. A physique assessment is an opinion, not a medical or dietetic one.</p>
+      <p style="color:var(--ink-muted);margin-top:var(--s-3);font-size:14px">Elite-tier, capped at two reports a day. Photos are processed for the report, never sold, and never shown to other users. See the <a href="/privacy/" class="text-gold">privacy policy</a>. A physique assessment is an opinion about appearance, not a medical or dietetic one, and it says nothing about whether you are healthy. If your relationship with food, training or your body image is a difficult one, skip this feature.</p>
     </div>
     <figure class="shot-figure reveal" style="margin-top:var(--s-6)">
       <div class="phone">

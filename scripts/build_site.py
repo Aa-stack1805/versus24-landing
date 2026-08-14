@@ -19,6 +19,7 @@ files, so re-run and commit whenever src/ changes.
     python3 scripts/build_site.py
 """
 import datetime
+import json
 import re
 import subprocess
 import sys
@@ -177,6 +178,87 @@ def render_sitemap():
             + "\n".join(rows) + "\n</urlset>\n")
 
 
+def check_universal_links():
+    """Assert the Universal Link file is still publishable.
+
+    Nothing here builds it, but losing it breaks every /r/ invite link and it
+    fails silently: links keep working in a browser and simply stop opening the
+    app. Two ways it has actually gone missing on GitHub Pages: deleting
+    .nojekyll (Jekyll refuses to publish directories starting with a dot), and
+    switching Pages from branch deploys to the Actions flow (the
+    upload-pages-artifact action excludes dotfiles by default).
+
+    Editing the file is expensive: Apple's CDN takes up to a day to reach new
+    installs and about a week to reach existing ones, with no way to purge. So
+    it is worth catching a mistake here rather than after the wait.
+    """
+    problems = []
+    if not (ROOT / ".nojekyll").exists():
+        problems.append(".nojekyll is missing, so Pages will not publish /.well-known/")
+
+    aasa = ROOT / ".well-known" / "apple-app-site-association"
+    if not aasa.exists():
+        problems.append("missing .well-known/apple-app-site-association")
+    else:
+        if aasa.suffix:
+            problems.append("the file must have no extension, Apple looks for it by exact name")
+        try:
+            data = json.loads(aasa.read_text())
+        except ValueError as exc:
+            problems.append(f"apple-app-site-association is not valid JSON: {exc}")
+        else:
+            details = data.get("applinks", {}).get("details", [])
+            paths = [c.get("/") for d in details for c in d.get("components", [])]
+            paths += [p for d in details for p in d.get("paths", [])]
+            # Bare /r matters: strip the trailing slash, which shorteners and
+            # some messaging apps do, and a /r/* pattern no longer matches.
+            for wanted in ("/r", "/r/", "/r/*"):
+                if wanted not in paths:
+                    problems.append(f"apple-app-site-association does not cover {wanted}")
+            if any("appID" in d and "appIDs" in d for d in details):
+                problems.append("do not mix the appID/paths and appIDs/components forms")
+
+    if problems:
+        print("universal links:")
+        for p in problems:
+            print(f"  {p}")
+        raise SystemExit(1)
+
+
+FIGURE = re.compile(r"<figure\b.*?</figure>", re.S)
+FIG_ALT = re.compile(r'\balt="([^"]*)"')
+FIG_CAPTION = re.compile(r"<figcaption>(.*?)</figcaption>", re.S)
+STEP_NUM = re.compile(r'<span class="step-num">.*?</span>', re.S)
+NUMBER = re.compile(r"\d+(?:[.,]\d+)?")
+
+
+def check_captions(pages):
+    """A caption that quotes a screenshot has to still be true of it.
+
+    Alt text drifting from its image is invisible. A visible caption saying
+    "87, Optimal, ACWR 1.04" beside a screenshot that no longer says that is a
+    public error, so every number in a caption must also appear in the alt text
+    of the image it sits with. That is not proof the alt matches the pixels, but
+    it does mean the two descriptions cannot drift apart silently.
+    """
+    problems = []
+    for name, page in pages.items():
+        for fig in FIGURE.findall(page):
+            alt = FIG_ALT.search(fig)
+            cap = FIG_CAPTION.search(fig)
+            if not alt or not cap:
+                continue
+            text = re.sub(r"<[^>]+>", " ", STEP_NUM.sub(" ", cap.group(1)))
+            for number in NUMBER.findall(text):
+                if number not in alt.group(1):
+                    problems.append(f"{name}: caption says {number}, the alt beside it does not")
+    if problems:
+        print("captions:")
+        for p in problems:
+            print(f"  {p}")
+        raise SystemExit(1)
+
+
 def main():
     check = "--check" in sys.argv[1:]
     partials = (
@@ -187,8 +269,10 @@ def main():
     )
 
     drifted = []
+    rendered = {}
     for name, (out_rel, active, is_home) in SITE.items():
         page = render(name, active, is_home, partials)
+        rendered[out_rel] = page
         out = ROOT / out_rel
         if check:
             if not out.exists() or out.read_text() != page:
@@ -206,6 +290,9 @@ def main():
     else:
         sitemap_out.write_text(sitemap)
         print("  sitemap.xml")
+
+    check_universal_links()
+    check_captions(rendered)
 
     if check:
         if drifted:

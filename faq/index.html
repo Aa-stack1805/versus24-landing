@@ -90,7 +90,7 @@
           "name": "Does voice work for lifting?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Combat, endurance, and resistance all parse from voice. Resistance shipped in v1.1, so \"bench press, three sets of eight at 80 kilos, RPE eight\" becomes a structured session. Usage cap: one voice log per day on Free and Core, unlimited on Elite."
+            "text": "Yes. Combat, endurance, and resistance all parse from voice. Resistance shipped in v1.1, so \"bench press, three sets of eight at 80 kilos, RPE eight\" becomes a structured session. Templates and last-session recall keep tap-through logging under 15 seconds when you'd rather not talk. Usage cap: one voice log per day on Free and Core, unlimited on Elite. The cap is shared across modalities, not per-modality."
           }
         },
         {
@@ -146,7 +146,7 @@
           "name": "Where does my data live?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). HRV and sleep stay on-device in HealthKit; Versus reads them for the readiness score but never stores them on the server."
+            "text": "On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). Raw HRV and sleep samples stay in HealthKit on your phone; Versus reads them to compute your readiness score and doesn't copy the samples to the server. The score it works out from them is stored, because your training partners can see it and Sensei uses it."
           }
         },
         {
@@ -162,7 +162,7 @@
           "name": "Can I delete my account?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Settings \u2192 Account \u2192 Delete Account. Your profile, workouts, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you."
+            "text": "Yes. Settings \u2192 Account \u2192 Delete Account. Your profile, workouts, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you. Two exceptions the privacy policy spells out: moderation records if you were reported or blocked, and basic device and IP logs, kept up to 24 months."
           }
         },
         {
@@ -178,7 +178,7 @@
           "name": "Does Anthropic train on my data?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Versus uses Anthropic's API tier, which doesn't train on customer data."
+            "text": "No. Versus uses Anthropic's commercial API, whose terms say customer inputs and outputs aren't used to train their models."
           }
         },
         {
@@ -202,7 +202,7 @@
           "name": "How do I report a bug?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Email aadit@versus24.net. Steps to reproduce and your iOS version help a lot. There's also an in-app feedback form (Settings \u2192 Send feedback). Usually reply within a few hours."
+            "text": "Email me at aadit@versus24.net. Steps to reproduce and your iOS version help a lot. There's also an in-app feedback form (Settings \u2192 Send feedback). I usually reply within a few hours."
           }
         },
         {
@@ -346,7 +346,7 @@
 
       <details>
         <summary>Where does my data live?</summary>
-        <p>On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). HRV and sleep stay on-device in HealthKit; Versus reads them for the readiness score but never stores them on the server.</p>
+        <p>On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). Raw HRV and sleep samples stay in HealthKit on your phone; Versus reads them to compute your readiness score and doesn't copy the samples to the server. The score it works out from them is stored, because your training partners can see it and Sensei uses it.</p>
       </details>
 
       <details>
@@ -356,7 +356,7 @@
 
       <details>
         <summary>Can I delete my account?</summary>
-        <p>Yes. Settings → Account → Delete Account. Your profile, workouts, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you.</p>
+        <p>Yes. Settings → Account → Delete Account. Your profile, workouts, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you. Two exceptions the privacy policy spells out: moderation records if you were reported or blocked, and basic device and IP logs, kept up to 24 months.</p>
       </details>
 
       <p class="eyebrow" style="margin-top:var(--s-5);margin-bottom:var(--s-2)">Sensei AI</p>
@@ -368,7 +368,7 @@
 
       <details>
         <summary>Does Anthropic train on my data?</summary>
-        <p>No. Versus uses Anthropic's API tier, which doesn't train on customer data.</p>
+        <p>No. Versus uses Anthropic's commercial API, whose terms say customer inputs and outputs aren't used to train their models.</p>
       </details>
 
       <details>
