@@ -128,7 +128,7 @@
           "name": "Where does my data live?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). Raw HRV and sleep samples stay in HealthKit on your phone; Versus reads them to compute your readiness score and doesn't copy the samples to the server. The score it works out from them is stored, because your training partners can see it and Sensei uses it."
+            "text": "On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). That includes the GPS route of any outdoor run or ride you record. Raw HRV and sleep samples stay in HealthKit on your phone; Versus reads them to compute your readiness score and doesn't copy the samples to the server. The score it works out from them is stored, because your training partners can see it and Sensei uses it."
           }
         },
         {
@@ -144,7 +144,7 @@
           "name": "Can I delete my account?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Settings \u2192 Account \u2192 Delete Account. Your profile, workouts, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you. Two exceptions the privacy policy spells out: moderation records if you were reported or blocked, and basic device and IP logs, kept up to 24 months."
+            "text": "Yes. Settings \u2192 Account \u2192 Delete Account. Your profile, workouts and their GPS routes, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you. Two exceptions the privacy policy spells out: moderation records if you were reported or blocked, and basic device and IP logs, kept up to 24 months."
           }
         },
         {
@@ -152,7 +152,7 @@
           "name": "Where does Sensei run?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On Anthropic's Claude. When you chat with Sensei, the relevant session context and your message go to Anthropic to generate the response. For voice logging, your phone transcribes the audio on-device first using Apple's Speech framework; only the text transcript goes to Anthropic, never the audio."
+            "text": "On Anthropic's Claude. When you chat with Sensei, the relevant session context and your message go to Anthropic to generate the response. For voice logging, Apple's Speech Recognition transcribes the audio first: on Apple's servers when you are online, on the phone when you are not. Only the text transcript goes to Anthropic, never the audio."
           }
         },
         {
@@ -313,7 +313,7 @@
 
       <details>
         <summary>Where does my data live?</summary>
-        <p>On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). Raw HRV and sleep samples stay in HealthKit on your phone; Versus reads them to compute your readiness score and doesn't copy the samples to the server. The score it works out from them is stored, because your training partners can see it and Sensei uses it.</p>
+        <p>On your phone first (SwiftData), backed up to my Supabase database (encrypted in transit and at rest). That includes the GPS route of any outdoor run or ride you record. Raw HRV and sleep samples stay in HealthKit on your phone; Versus reads them to compute your readiness score and doesn't copy the samples to the server. The score it works out from them is stored, because your training partners can see it and Sensei uses it.</p>
       </details>
 
       <details>
@@ -323,14 +323,14 @@
 
       <details>
         <summary>Can I delete my account?</summary>
-        <p>Yes. Settings → Account → Delete Account. Your profile, workouts, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you. Two exceptions the privacy policy spells out: moderation records if you were reported or blocked, and basic device and IP logs, kept up to 24 months.</p>
+        <p>Yes. Settings → Account → Delete Account. Your profile, workouts and their GPS routes, photos, feed posts, comments, partnerships, and gym memberships are gone within 30 days. Anonymized aggregates might stick around for product improvement; nothing tied to you. Two exceptions the privacy policy spells out: moderation records if you were reported or blocked, and basic device and IP logs, kept up to 24 months.</p>
       </details>
 
       <p class="eyebrow" style="margin-top:var(--s-5);margin-bottom:var(--s-2)">Sensei AI</p>
 
       <details>
         <summary>Where does Sensei run?</summary>
-        <p>On Anthropic's Claude. When you chat with Sensei, the relevant session context and your message go to Anthropic to generate the response. For voice logging, your phone transcribes the audio on-device first using Apple's Speech framework; only the text transcript goes to Anthropic, never the audio. The <a href="/privacy/" class="text-gold">privacy policy</a> spells it all out.</p>
+        <p>On Anthropic's Claude. When you chat with Sensei, the relevant session context and your message go to Anthropic to generate the response. For voice logging, Apple's Speech Recognition transcribes the audio first: on Apple's servers when you are online, on the phone when you are not. Only the text transcript goes to Anthropic, never the audio. The <a href="/privacy/" class="text-gold">privacy policy</a> spells it all out.</p>
       </details>
 
       <details>
