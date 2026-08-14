@@ -424,40 +424,44 @@ p { margin: 0; text-wrap: pretty; }
    .hero-visual is shared with the six pages that stand one phone up centred. */
 .hero-split {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: var(--s-5);
-  align-items: center;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 56px;
+  align-items: start;
 }
 .hero-split .hero-copy { min-width: 0; }
-/* Narrower column, so the measures tighten to match it. */
+/* Narrower column, so the measures tighten to match it. The design file says
+   12ch, but it was drawn against wdth 112 type. ch is the zero glyph's
+   advance, so at the condensed wdth 85 this heading runs 12ch would take one
+   more word and flatten to two lines. 11ch keeps the design's three-line
+   break, which is the thing the number was there to produce. */
 .hero-split h1 { max-width: 11ch; }
-.hero-split .subhead { max-width: 44ch; }
+.hero-split .subhead { max-width: 50ch; }
 
+/* Geometry taken from the design file: the two screens sit apart, not
+   overlapping, and tilt away from each other by two degrees, with the second
+   dropped 20px. */
 .hero-stage {
   display: flex;
+  gap: 28px;
   justify-content: center;
   align-items: flex-start;
+  padding-top: var(--s-3);
   min-width: 0;
 }
-.hero-stage .phone { width: 216px; height: 432px; }
-/* Both lean the same way, a few degrees only, and the second drops and sits
-   behind. Same direction is what makes them one object; splaying them apart
-   would read as two separate props. The overlap stays small so neither frame
-   is swallowed. */
-.hero-stage .phone:first-child {
-  transform: rotate(-3deg);
-  z-index: 2;
-}
-.hero-stage .phone:last-child {
-  transform: rotate(-3deg) translateY(32px);
-  margin-left: -10px;
-}
+.hero-stage .phone { width: 262px; height: 524px; }
+.hero-stage .phone:first-child { transform: rotate(-2deg); }
+.hero-stage .phone:last-child { transform: rotate(2deg) translateY(20px); }
 
-@media (max-width: 980px) {
+/* The pair is 569px wide and the right column is 513px at full container, so
+   the screens bleed 28px each side. That is the design's own geometry and it
+   sits inside the 32px page gutter. Below a 1200px container the column
+   shrinks, the bleed outgrows the gutter and the page scrolls sideways, so
+   the split stacks instead of being squeezed. */
+@media (max-width: 1199px) {
   .hero-split { grid-template-columns: 1fr; gap: var(--s-6); }
   .hero-split h1 { max-width: 15ch; }
   .hero-split .subhead { max-width: 54ch; }
-  .hero-stage { margin-top: var(--s-2); }
+  .hero-stage { padding-top: 0; margin-top: var(--s-2); }
 }
 @media (max-width: 560px) {
   /* Two tilted phones do not fit a phone. Stand them up and show one. */
