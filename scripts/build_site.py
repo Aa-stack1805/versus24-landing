@@ -160,16 +160,35 @@ def page_lastmod(name):
     return datetime.date.fromtimestamp(src.stat().st_mtime).isoformat()
 
 
+def published_lastmods():
+    """<lastmod> dates already published, so a rebuild can never move one back.
+
+    page_lastmod() mixes two clocks: git's %cs is the committer's local date,
+    date.today() is the builder's. A machine an hour behind the last committer
+    (or just west of them) therefore computes yesterday for a page that already
+    went out stamped today, and a <lastmod> that walks backwards tells crawlers
+    the page was un-edited. Floor each date at what is already in sitemap.xml.
+    """
+    try:
+        published = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    except OSError:
+        return {}
+    return dict(re.findall(r"<loc>([^<]*)</loc>\s*<lastmod>([^<]*)</lastmod>",
+                           published))
+
+
 def render_sitemap():
     rows = []
+    floor = published_lastmods()
     for name, (out_rel, _active, is_home) in SITE.items():
         if name in SITEMAP_EXCLUDE:
             continue
         loc = SITE_URL + ("" if is_home else out_rel.replace("index.html", ""))
+        lastmod = max(page_lastmod(name), floor.get(loc, ""))
         rows.append(
             "  <url>\n"
             f"    <loc>{loc}</loc>\n"
-            f"    <lastmod>{page_lastmod(name)}</lastmod>\n"
+            f"    <lastmod>{lastmod}</lastmod>\n"
             f"    <changefreq>{SITEMAP_FREQ.get(name, 'monthly')}</changefreq>\n"
             f"    <priority>{SITEMAP_PRIORITY.get(name, '0.5')}</priority>\n"
             "  </url>"

@@ -76,3 +76,34 @@ tree (beginner level on Free, all belts on Core/Elite), 14 sports, 8 Vanity
 Vault check-ins on Free, 12 body measurements. AI Meal Scan and the Physique
 Report Card are Elite. Prices are per App Store storefront; US and India are
 both defined in `assets/script.js`.
+
+### ACWR, and what the rings mean
+
+The app's three rings were rebuilt for v1.2. The inner ring stopped being an
+acute:chronic workload ratio gauge and became Balance: full when every system
+you train sits near your own baseline, draining only on a spike, unaffected by
+rest days. Readiness became a pure recovery measure (subjective, HRV, sleep);
+training volume left the score entirely.
+
+The site is written for the **shipped** build, so it still describes readiness
+as including recent load. Everything else has already moved to own-baseline
+workload language, which is true of both builds, and ACWR is down to a single
+mention on `features.html` (kept for credibility and search, framed as a
+research metric rather than an injury predictor). Do not reintroduce it as a
+headline feature: the ratio is the part the 2020–2021 methodology papers took
+apart, and own-baseline deviation is the part that survived.
+
+**Flip these on the day v1.2 ships**, once new screenshots exist:
+
+- `src/pages/index.html`: readiness composition bullet in "What readiness and
+  workload are"; the `readiness.webp` alt and the figcaption quoting
+  "Load 1797, ACWR 1.04".
+- `src/pages/fighters.html`: readiness composition bullet.
+- `src/pages/features.html`: the "reads HRV, sleep, RHR, training load" and
+  "four signals your watch measured" sentences; the `screen-readiness.webp`
+  alt naming the Score/Load/ACWR rings.
+- `src/pages/sports.html`: the `readiness.webp` alt.
+- `src/pages/changelog.html`: move v1.2 from Planned to Shipped, and bump
+  `softwareVersion` in the JSON-LD.
+
+The v1.0 changelog entry naming ACWR is a historical record. Leave it.
