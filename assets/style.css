@@ -756,6 +756,43 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-8); align-items: center; }
 @media (max-width: 900px) { .two-column { grid-template-columns: 1fr; gap: var(--s-5); } }
 
+/* --------------------------------------------------------- FEATURE SPLIT --- */
+/* A feature section that stands its screen beside the copy instead of under
+   it. The measure is already set on the text, so at full width the right half
+   of the section was empty and every feature cost two screens of scrolling:
+   one of words, then one of phone. The screen now takes the column the
+   measure was leaving.
+
+   Only for sections that show a single device. A pair (the skill tree, the
+   Vault, the two watches) needs the full width and keeps the stacked layout,
+   which also gives the page a change of rhythm rather than sixteen identical
+   rows. */
+.feature-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 268px;
+  /* No row gap: a third block sets its own top margin, and a zero here keeps
+     the stacked layout below from inheriting a 64px gap it does not want. */
+  gap: 0 var(--s-8);
+  align-items: start;
+}
+/* align-items:start is what lets the screen travel. The grid area still runs
+   the full height of the copy, so the sticky box has somewhere to go: on the
+   long sections the words run to twice the height of the phone, and the
+   screenshot would otherwise scroll away from the paragraph describing it. */
+.feature-split > .hero-visual,
+.feature-split > .shot-figure { margin: 0; position: sticky; top: var(--s-12); }
+/* Anything after the copy and the screen carries on down the copy's column,
+   not across both: the eyebrow rule is as wide as the block it sits on, so a
+   full-width band would draw a longer rule than every other eyebrow on the
+   page and break the left column's single measure. */
+.feature-split > :nth-child(n+3) { grid-column: 1; }
+
+@media (max-width: 900px) {
+  .feature-split { grid-template-columns: minmax(0, 1fr); }
+  .feature-split > .hero-visual,
+  .feature-split > .shot-figure { position: static; margin-top: var(--s-6); }
+}
+
 .chat-mockup {
   background: var(--paper-raised);
   border: 1px solid var(--rule);
