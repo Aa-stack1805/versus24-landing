@@ -87,9 +87,9 @@
 
   <p class="eyebrow">Legal</p>
   <h1>Privacy Policy</h1>
-  <p class="effective-date">Effective date: May 21, 2026 · Applies to the Versus iOS application</p>
+  <p class="effective-date">Effective date: August 14, 2026 · Replaces the version of May 21, 2026 · Applies to the Versus iOS application and to versus24.net</p>
 
-  <p>This privacy policy applies to the Versus app (referred to as the "Application") for mobile devices, developed by Aadit Singal (referred to as the "Service Provider") as a freemium service. This service is provided "AS IS".</p>
+  <p>This privacy policy applies to the Versus app (referred to as the "Application") for mobile devices, developed by Aadit Singal (referred to as the "Service Provider") as a freemium service, and to the versus24.net website. This service is provided "AS IS".</p>
 
   <h2>Information We Collect</h2>
   <p>The Application collects information you provide when you register and use it. This includes:</p>
@@ -99,10 +99,12 @@
     <li>Age (stored as approximate date of birth)</li>
     <li>Gender</li>
   </ul>
+  <p>The Application also collects the training and body data you enter or import: sessions, exercises, personal records, skill-tree progress, competition and fight records, body measurements, progress photos, and the nutrition you log (calories, macronutrients, fibre, sugar, sodium, and water).</p>
   <p>The Application also collects certain information automatically, including the type of mobile device you use, your device's unique ID, IP address, mobile operating system, browser type, and information about how you use the Application.</p>
+  <p><strong>This website.</strong> versus24.net is covered by this policy too. If you join the waitlist, it records your email address along with the page you signed up from and any campaign parameters in the link you followed. Every page also loads PostHog product analytics, which records page views and the technical details above, and derives an approximate city-level location from your IP address. The pricing pages additionally read your device's time zone and language setting to choose which currency to show; that check happens entirely in your browser and is not sent anywhere. The privacy, terms and DMCA pages load no analytics at all.</p>
 
   <h2>Health and Fitness Data</h2>
-  <p>The Application reads health and fitness data from Apple HealthKit, including heart rate variability (HRV) and sleep data. This data is used solely to calculate your daily readiness score. <strong>Health data is never sold, shared with advertisers, or used for any purpose other than delivering the readiness features within the Application.</strong> All health data processing is performed in accordance with Apple's HealthKit guidelines and applicable privacy laws.</p>
+  <p>The Application reads health and fitness data from Apple HealthKit, including heart rate variability (HRV) and sleep data. It is used to calculate your daily readiness score. That score, and the training context derived from it, is also used by the Sensei coaching feature described below, and is visible to training partners you have accepted. <strong>Health data is never sold and never shared with advertisers.</strong> All health data processing is performed in accordance with Apple's HealthKit guidelines and applicable privacy laws.</p>
 
   <h2>How We Share Your Data with Other Users</h2>
   <p>The Application includes social features that share certain information with other users in your gym network and with users you have accepted as training partners. The following information may be visible to other users depending on your settings:</p>
@@ -136,18 +138,23 @@
     <li>Opponent scouting and gameplan suggestions based on structured profile data</li>
     <li>Structured session extraction from voice logging (see below)</li>
     <li>Body-composition estimates from progress photos you explicitly submit for analysis (see below)</li>
+    <li>Meal recognition from a photo of a meal, a spoken description, or typed text (see below)</li>
+    <li>Physique reports generated from your check-in photos and body measurements (see below)</li>
   </ul>
   <p>Sensei is powered by the Claude API operated by <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener noreferrer">Anthropic</a>. When you interact with Sensei, the relevant session context, chat messages, and (for voice features) text transcripts are transmitted to Anthropic for processing and returned to the Application. Anthropic acts as a data processor on the Service Provider's behalf.</p>
   <p><strong>Voice Logging.</strong> When you use the voice-logging feature, your speech is transcribed on-device by Apple's Speech framework. The resulting text transcript (not the original audio) is then sent to Anthropic's Claude API to extract structured session data such as exercise, duration, or perceived effort. The audio recording itself is not transmitted off-device and is not retained after on-device transcription.</p>
   <p><strong>AI Body-Composition Analysis.</strong> If you choose to use the optional body-composition estimate feature, the progress photo you submit is sent to an AI image-analysis service to produce an estimated body-fat percentage and related metrics. This is opt-in and only performed on photos you explicitly submit for analysis; photos you upload solely to the Vanity Vault are not analysed by AI. Estimates are approximate and are not a medical assessment.</p>
+  <p><strong>AI Meal Scan.</strong> If you log a meal by photograph, by voice, or by typed description, that input is sent to an AI service to identify the food and estimate its calories and macronutrients. A photograph you take for this purpose is processed to produce that estimate. Voice input follows the same path as voice session logging described above. Nutrition estimates are approximate and are not dietetic advice.</p>
+  <p><strong>Physique Report Card.</strong> If you request a physique report, your most recent front, side and back check-in photos are sent for analysis together with your previous check-in photos, your body measurements, and your weight trend, so the report can describe what has changed over time. This is a comparison across multiple photographs rather than a single-image estimate. Reports are an opinion, not a medical or dietetic assessment.</p>
   <p>All AI outputs are recommendations the user acts on voluntarily. No automated decisions with legal or significant personal effect are made by the Application. All AI processing is performed in accordance with this privacy policy and applicable laws.</p>
 
   <h2>Location Data</h2>
-  <p>The Application does not collect precise or approximate location information from your device. The Application does not request location permissions.</p>
+  <p>The Application does not request location permissions and does not collect precise or approximate location information from your device.</p>
+  <p>This website is a separate case. As described under "Information We Collect", PostHog derives an approximate, city-level location from the IP address of anyone who loads a page. That is server-side geolocation of an IP address, not access to your device's location services, and it does not happen on the privacy, terms or DMCA pages.</p>
 
   <h2>Third Party Access</h2>
-  <p>Only aggregated, anonymised data is periodically transmitted to external services to help improve the Application. The Service Provider may share your information with third parties as described in this policy.</p>
-  <p>The Application uses the following third-party services, each with their own privacy policies:</p>
+  <p>The Application relies on the third-party services listed below, each acting as a processor on the Service Provider's behalf. What each one receives differs and is stated alongside it: analytics and error tracking receive pseudonymised usage and diagnostic data, while the storage, payment, email and AI services necessarily receive the content you submit. Nothing on this list receives your data for its own advertising purposes.</p>
+  <p>The Application and this website use the following third-party services, each with their own privacy policies:</p>
   <ul>
     <li><a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase</a>: authentication, database, cloud storage (including photo storage), and serverless functions</li>
     <li><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">RevenueCat</a>: subscription and payment management</li>
@@ -156,7 +163,10 @@
     <li><a href="https://posthog.com/privacy" target="_blank" rel="noopener noreferrer">PostHog</a>: product analytics</li>
     <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple HealthKit</a>: health and fitness data</li>
     <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple Push Notification Service (APNs)</a>: delivery of push notifications to your device</li>
+    <li><a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Resend</a>: delivery and list management for waitlist and product emails you sign up for on this website</li>
+    <li><a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Pages</a>: hosting for versus24.net. Server logs, including IP addresses, are handled by GitHub</li>
   </ul>
+  <p><strong>Services you connect yourself.</strong> If you import training history, you authorise the Application to read your data from that provider through its own login flow. The Application currently supports <a href="https://www.strava.com/legal/privacy" target="_blank" rel="noopener noreferrer">Strava</a>, <a href="https://www.garmin.com/en-US/privacy/connect/" target="_blank" rel="noopener noreferrer">Garmin</a>, Hevy, Strong and Fitbod. These connections are optional, are made one at a time by you, and can be revoked from the provider's own settings. Imported sessions are then stored the same way sessions you log yourself are.</p>
   <p>The Service Provider may disclose your information:</p>
   <ul>
     <li>As required by law, such as to comply with a subpoena or similar legal process</li>
