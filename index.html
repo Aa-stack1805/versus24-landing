@@ -21,7 +21,7 @@
   posthog.init('phc_GlVHXxRTqO0Oo8haC0i5YI13wMxul9SMdEC8dGd7egX',{api_host:'https://us.i.posthog.com',person_profiles:'identified_only'});
 </script>
 <title>Versus Training · The Athlete's Operating System</title>
-<meta name="description" content="Training app for combat, strength, endurance and sport athletes. Readiness, AI coaching, voice logging and nutrition on iPhone and Apple Watch."/>
+<meta name="description" content="One training log for athletes who lift, fight, run and play. Say your session, get one readiness score each morning. iPhone and Apple Watch."/>
 <link rel="canonical" href="https://versus24.net/"/>
 <meta property="og:title" content="Versus Training · The Athlete's Operating System"/>
 <meta property="og:description" content="Combat, strength, endurance, sport. One unified training system. Readiness, AI coaching, voice logging, built for the hybrid athlete."/>
@@ -45,18 +45,12 @@
       "alternateName": "Versus",
       "operatingSystem": "iOS, watchOS",
       "applicationCategory": "HealthApplication",
-      "description": "Combat-sports and hybrid-athlete training app. 17 martial arts, strength, conditioning, readiness, and AI coaching in one unified system.",
+      "description": "Combat-sports and hybrid-athlete training app. 17 martial arts, strength, conditioning, readiness, and a coach grounded in your own training history.",
       "url": "https://versus24.net/",
       "offers": [
-        { "@type": "Offer", "name": "Free",          "price": "0",      "priceCurrency": "USD" },
+        { "@type": "Offer", "name": "Free",          "price": "0",     "priceCurrency": "USD" },
         { "@type": "Offer", "name": "Core Monthly",  "price": "9.99",  "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Core Yearly",   "price": "79.99",  "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Elite Monthly", "price": "14.99",  "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Elite Yearly",  "price": "119.99", "priceCurrency": "USD" },
-        { "@type": "Offer", "name": "Core Monthly (India)",  "price": "250",  "priceCurrency": "INR", "eligibleRegion": "IN" },
-        { "@type": "Offer", "name": "Core Yearly (India)",   "price": "2000", "priceCurrency": "INR", "eligibleRegion": "IN" },
-        { "@type": "Offer", "name": "Elite Monthly (India)", "price": "500",  "priceCurrency": "INR", "eligibleRegion": "IN" },
-        { "@type": "Offer", "name": "Elite Yearly (India)",  "price": "4000", "priceCurrency": "INR", "eligibleRegion": "IN" }
+        { "@type": "Offer", "name": "Elite Monthly", "price": "14.99", "priceCurrency": "USD" }
       ]
     },
     {
@@ -114,7 +108,7 @@
   <div class="container container-narrow">
     <p class="eyebrow reveal">The Athlete's Operating System</p>
     <h1 class="reveal">Train like the sport demands.</h1>
-    <p class="subhead reveal">Versus is a training app built for athletes who train across modalities: combat, strength, endurance, sport. Readiness, programming, recovery, and an AI coach that actually understands your training. iPhone + Apple Watch.</p>
+    <p class="subhead reveal">One training log for people who lift, fight, run and play, instead of one app each. Say your session out loud, get one readiness number in the morning, and ask a coach that has actually read the last month. iPhone and Apple Watch.</p>
     <div class="hero-ctas reveal">
       <a class="appstore-badge" href="https://apps.apple.com/app/id6760545665" aria-label="Download Versus Training on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store" width="200" height="67"/></a>
       <a href="#demo" class="btn btn-ghost btn-lg">See it in action</a>
@@ -137,10 +131,10 @@
         </div>
       </div>
 
-      <!-- Readiness home screen -->
+      <!-- A month of mixed training -->
       <div class="phone">
         <div class="phone-screen has-img">
-          <img decoding="async" class="phone-shot" src="/assets/screens/screen-readiness.webp" alt="Versus Training Daily Readiness home screen: score 69 marked Moderate, surrounded by three rings tracking Score, Load and ACWR, with the Speak Your Session prompt above and a 7-day trend at the bottom."/>
+          <img decoding="async" class="phone-shot" src="/assets/screens/screen-training-calendar.webp" alt="Versus Training History screen showing March 2026 month view: 44 sessions, 36.7 hours, 1 day streak, with a stacked modality bar (Endurance 19, Resistance 12, Combat 12, Mobility 1) and a calendar grid where each day shows colour-coded dots for the modalities trained. All / Resistance / Combat / Endurance filter chips at the bottom."/>
         </div>
       </div>
     </div>
@@ -148,292 +142,68 @@
   </div>
 </section>
 
-<!-- ────────────────────────  AUDIENCE DOORWAYS  ──────────────────────── -->
-<section class="section" id="audiences">
-  <div class="container">
-    <div class="section-title-block reveal">
-      <p class="eyebrow">Who's it for</p>
-      <h2>One product. Five athletes.</h2>
-      <p class="subhead">Versus is the umbrella. Each segment is a doorway.</p>
-    </div>
-    <div class="audience-grid">
-      <a href="/fighters/" class="audience-card reveal" style="--audience-color:var(--combat);--audience-color-dim:var(--combat-dim)">
-        <div class="audience-card-icon">01</div>
-        <h3>I fight.</h3>
-        <p>MMA, BJJ, Muay Thai, boxing, wrestling. Train through camps, peak for weigh-in, debrief sparring.</p>
-        <span class="audience-card-cta">Built for fighters →</span>
-      </a>
-      <a href="/lifters/" class="audience-card reveal" style="--audience-color:var(--strength);--audience-color-dim:var(--strength-dim)">
-        <div class="audience-card-icon">02</div>
-        <h3>I lift.</h3>
-        <p>Hypertrophy, strength, recomp. PR auto-detection, plateau detection, ACWR workload ratio, imports from Hevy / Strong / Fitbod.</p>
-        <span class="audience-card-cta">Built for lifters →</span>
-      </a>
-      <a href="/runners/" class="audience-card reveal" style="--audience-color:var(--endurance);--audience-color-dim:var(--endurance-dim)">
-        <div class="audience-card-icon">03</div>
-        <h3>I run, ride, or swim.</h3>
-        <p>Zones, taper, race weeks. Strava + Garmin import. Effective load that respects what your watch already measured.</p>
-        <span class="audience-card-cta">Built for endurance →</span>
-      </a>
-      <a href="/sports/" class="audience-card reveal" style="--audience-color:var(--sport);--audience-color-dim:var(--sport-dim)">
-        <div class="audience-card-icon">04</div>
-        <h3>My sport is the training.</h3>
-        <p>Basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket. Any sport. Off-field lifting periodised around your season. ACWR for in-season workload. Skill marks per discipline. Readiness so you peak on game day, not on a Tuesday.</p>
-        <span class="audience-card-cta">Built for sport athletes →</span>
-      </a>
-      <a href="/hybrid/" class="audience-card reveal" style="--audience-color:var(--gold);--audience-color-dim:var(--gold-dim)">
-        <div class="audience-card-icon">05</div>
-        <h3>I do more than one of those.</h3>
-        <p>Lift in the morning, sport at night. Two seasons stacked. Versus Training tracks both properly, so you don't have to choose which one counts.</p>
-        <span class="audience-card-cta">Hybrid athletes →</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ──────────────────────  THREE-STEP FRAMEWORK  ────────────────────── -->
+<!-- ───────────────────────────  THE PROBLEM  ─────────────────────────── -->
 <section class="section">
-  <div class="container">
+  <div class="container container-narrow">
     <div class="section-title-block reveal">
-      <p class="eyebrow">How it works</p>
-      <h2>Three steps. <span class="accent-gold">That's it.</span></h2>
+      <p class="eyebrow">You came here because</p>
+      <h2>Most apps only count one kind of training.</h2>
     </div>
-    <div class="step-grid">
-      <div class="step-card reveal">
-        <p class="step-num">01 / LOG IT</p>
-        <h3>Speak it, import it, or tap.</h3>
-        <p>Combat rounds, lifting sets, endurance intervals, mobility. Same app. Voice-parse a sparring session in 8 seconds, or import five years from Strava, Hevy, Strong, Fitbod, and Garmin in one tap.</p>
-      </div>
-      <div class="step-card reveal">
-        <p class="step-num">02 / KNOW IT</p>
-        <h3>One number every morning.</h3>
-        <p>Versus reads your HealthKit data and gives you one readiness score. HRV, sleep, training load, your week's pattern, distilled into a number you can act on.</p>
-      </div>
-      <div class="step-card reveal">
-        <p class="step-num">03 / IMPROVE IT</p>
-        <h3>A coach who actually read your data.</h3>
-        <p>Sensei is powered by Claude. It knows your fight record, camp, last week's sleep, and whether you're peaking or about to plateau. Voice in, structured plans out.</p>
-      </div>
-    </div>
+    <ul class="feature-list reveal" style="font-size:17px">
+      <li>You lifted Monday, sparred Tuesday, ran Thursday. Your lifting app saw one session that week and called it a light week.</li>
+      <li>So you keep two apps and a Notes file, and none of the three knows what the other two cost you.</li>
+      <li>Then something starts hurting and you cannot say whether you ramped too fast, because nothing ever added it all up.</li>
+    </ul>
   </div>
 </section>
 
-<!-- ───────────────────────────  VOICE DEMO  ──────────────────────────── -->
+<!-- ────────────────────────────  PROOF  ──────────────────────────────── -->
 <section class="section section-tinted" id="demo">
   <div class="container">
-    <div class="two-column">
-      <div class="reveal">
-        <p class="eyebrow">The 30-second log</p>
-        <h2 style="margin-top:var(--s-1)">Speak your workout. Watch it log itself.</h2>
-        <p class="subhead" style="margin-top:var(--s-3)">Most apps make you tap through five screens to log a sparring session. Versus's Sensei understands what you just trained: discipline, rounds, techniques, intensity, even the way it felt. One voice log per day, free for everyone. Unlimited in Elite.</p>
-        <div class="pill-list" style="margin-top:var(--s-3)">
-          <span class="pill pill-gold">Combat sessions</span>
-          <span class="pill pill-gold">Endurance runs</span>
-          <span class="pill pill-gold">Resistance sets</span>
-        </div>
-        <div style="margin-top:var(--s-4)">
-          <a href="https://apps.apple.com/app/id6760545665" class="btn btn-primary">Get the app</a>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <div class="phone" style="margin:0 auto">
-          <div class="phone-screen has-img">
-            <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/screen-voice-muaythai.webp" alt="Versus Training Combat voice parse: Session Parsed confirmation showing Muay Thai discipline, Drilling type, 6 rounds at RPE 8/10, with Pad work and Kicks techniques tagged. Transcript begins 'Did six rounds of pad work with intensity dropping in th...' Open in Combat Logger button below."/>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────────────────────────  MODALITY CARDS  ────────────────────────── -->
-<section class="section" id="features">
-  <div class="container">
     <div class="section-title-block reveal">
-      <p class="eyebrow">What's inside</p>
-      <h2>One app. <span class="accent-gold">Every session.</span></h2>
-      <p class="subhead">Five loggers tuned to how each modality actually trains. Switch in two taps.</p>
+      <p class="eyebrow">See it work</p>
+      <h2>Three steps. <span class="accent-gold">Three screens.</span></h2>
+      <p class="subhead">In the order you would actually hit them. These are the app's own screens, with the app's own numbers on them.</p>
     </div>
-
-    <div class="modality-stack">
-      <!-- COMBAT -->
-      <div class="modality-card reveal" style="--modality-color:var(--combat);--modality-color-dim:var(--combat-dim)">
-        <div class="modality-card-grid">
-          <div>
-            <p class="eyebrow">Combat</p>
-            <h3>A combat app you don't have to hack around.</h3>
-            <ul class="feature-list">
-              <li>Skill tree across 17 martial arts disciplines: BJJ, MMA, Muay Thai, boxing, wrestling, more</li>
-              <li>sRPE + round + rest timer, native Apple Watch</li>
-              <li>Sparring debrief that knows the difference between a setup and a finish (Elite)</li>
-              <li>Fight week + weight-cut tracking with water, sodium, sauna logging</li>
-              <li>Opponent scouting and gameplan (Elite)</li>
-              <li>Belt + competition record tracking</li>
-            </ul>
-          </div>
-          <div class="modality-card-visual">
-            <div style="position:relative;text-align:center;width:100%">
-              <div style="font-family:var(--font-mono);font-size:48px;font-weight:700;color:var(--combat)">4 / 6</div>
-              <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.14em;margin-top:6px">Rounds</div>
-              <div style="display:flex;justify-content:center;gap:6px;margin-top:14px">
-                <span style="width:24px;height:6px;background:var(--combat);border-radius:3px"></span>
-                <span style="width:24px;height:6px;background:var(--combat);border-radius:3px"></span>
-                <span style="width:24px;height:6px;background:var(--combat);border-radius:3px"></span>
-                <span style="width:24px;height:6px;background:var(--combat);border-radius:3px"></span>
-                <span style="width:24px;height:6px;background:rgba(255,255,255,0.1);border-radius:3px"></span>
-                <span style="width:24px;height:6px;background:rgba(255,255,255,0.1);border-radius:3px"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- STRENGTH -->
-      <div class="modality-card reveal" style="--modality-color:var(--strength);--modality-color-dim:var(--strength-dim)">
-        <div class="modality-card-grid">
-          <div>
-            <p class="eyebrow">Strength</p>
-            <h3>Hevy's logger. FitBod's intelligence. Without leaving the app you actually use.</h3>
-            <ul class="feature-list">
-              <li>PR auto-detection with E1RM calc on every set</li>
-              <li>ACWR workload score (Core)</li>
-              <li>Plateau detector + Sensei intervention</li>
-              <li>Workout templates, supersets, drop sets, RPE/RIR</li>
-              <li>Imports from Hevy, Strong, Fitbod</li>
-              <li>Body composition tracking (Vault)</li>
-            </ul>
-          </div>
-          <div class="modality-card-visual">
-            <div style="text-align:center;width:100%">
-              <div style="font-family:var(--font-mono);font-size:46px;font-weight:700;color:var(--strength)">+<span data-measure="15" data-unit="kg">15 kg</span></div>
-              <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.14em;margin-top:6px">Bench PR · 4 weeks</div>
-              <div style="margin-top:14px;height:32px;display:flex;align-items:flex-end;gap:3px;justify-content:center">
-                <span style="width:8px;height:40%;background:var(--strength);opacity:0.4;border-radius:2px"></span>
-                <span style="width:8px;height:55%;background:var(--strength);opacity:0.5;border-radius:2px"></span>
-                <span style="width:8px;height:50%;background:var(--strength);opacity:0.6;border-radius:2px"></span>
-                <span style="width:8px;height:65%;background:var(--strength);opacity:0.7;border-radius:2px"></span>
-                <span style="width:8px;height:75%;background:var(--strength);opacity:0.8;border-radius:2px"></span>
-                <span style="width:8px;height:100%;background:var(--strength);border-radius:2px"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ENDURANCE -->
-      <div class="modality-card reveal" style="--modality-color:var(--endurance);--modality-color-dim:var(--endurance-dim)">
-        <div class="modality-card-grid">
-          <div>
-            <p class="eyebrow">Endurance</p>
-            <h3>Strava's data. Whoop's recovery science. None of the two-app shuffle.</h3>
-            <ul class="feature-list">
-              <li>HR zone targeting and interval programming</li>
-              <li>Z2 base, threshold, VO₂max splits</li>
-              <li>ACWR for endurance load</li>
-              <li>Strava + Garmin import</li>
-              <li>watchOS live HR + interval timer</li>
-              <li>Race week taper logic</li>
-            </ul>
-          </div>
-          <div class="modality-card-visual">
-            <div style="text-align:center;width:100%">
-              <div style="font-family:var(--font-mono);font-size:36px;font-weight:700;color:var(--endurance)">142 BPM</div>
-              <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.14em;margin-top:6px">Zone 2 · 38 min</div>
-              <svg viewBox="0 0 200 40" style="margin-top:14px;width:200px;height:40px">
-                <polyline points="0,30 20,28 40,22 60,18 80,16 100,15 120,14 140,16 160,18 180,20 200,22" stroke="var(--endurance)" stroke-width="2" fill="none"/>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SPORT -->
-      <div class="modality-card reveal" style="--modality-color:var(--sport);--modality-color-dim:var(--sport-dim)">
-        <div class="modality-card-grid">
-          <div>
-            <p class="eyebrow">Sport</p>
-            <h3>For athletes whose sport is the training.</h3>
-            <ul class="feature-list">
-              <li>Logger covers basketball, soccer, hockey, rugby, baseball, volleyball, tennis, cricket, lacrosse, American football, badminton, handball, and more</li>
-              <li>Per-sport skill marks across 14 sport disciplines</li>
-              <li>Readiness model that peaks for game day</li>
-              <li>ACWR for in-season workload (where it matters most)</li>
-              <li>Periodised lifting around your season (pre / in / post)</li>
-              <li>Game results + score tracking, with live session controls</li>
-              <li>sRPE + duration logged in under 20 seconds</li>
-              <li>Apple Watch session capture</li>
-            </ul>
-          </div>
-          <div class="modality-card-visual">
-            <div style="text-align:center;width:100%">
-              <div style="font-family:var(--font-mono);font-size:36px;font-weight:700;color:var(--sport)">Game Day</div>
-              <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.14em;margin-top:6px">2 days · readiness 82</div>
-              <div style="display:flex;gap:8px;justify-content:center;margin-top:14px;flex-wrap:wrap;max-width:200px">
-                <span class="pill" style="color:var(--sport);background:var(--sport-dim);border-color:rgba(34,197,94,0.3);font-size:10px">Basketball</span>
-                <span class="pill" style="color:var(--sport);background:var(--sport-dim);border-color:rgba(34,197,94,0.3);font-size:10px">Soccer</span>
-                <span class="pill" style="color:var(--sport);background:var(--sport-dim);border-color:rgba(34,197,94,0.3);font-size:10px">Tennis</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MOBILITY -->
-      <div class="modality-card reveal" style="--modality-color:var(--mobility);--modality-color-dim:var(--mobility-dim)">
-        <div class="modality-card-grid">
-          <div>
-            <p class="eyebrow">Mobility / Recovery</p>
-            <h3>Recovery that means something, because your readiness tracks it.</h3>
-            <ul class="feature-list">
-              <li>Guided cooldown sequences</li>
-              <li>HRV + sleep + RHR rolling baseline</li>
-              <li>Mobility logger with movement library</li>
-              <li>Apple Health two-way sync</li>
-              <li>Injury log tied to load history</li>
-            </ul>
-          </div>
-          <div class="modality-card-visual">
-            <div style="text-align:center;width:100%">
-              <div style="font-family:var(--font-mono);font-size:36px;font-weight:700;color:var(--mobility)">68 ms</div>
-              <div style="font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.14em;margin-top:6px">HRV · 7-day avg</div>
-              <div style="display:flex;gap:3px;justify-content:center;margin-top:14px">
-                <span style="width:6px;height:14px;background:var(--mobility);opacity:.3;border-radius:1px"></span>
-                <span style="width:6px;height:22px;background:var(--mobility);opacity:.5;border-radius:1px"></span>
-                <span style="width:6px;height:18px;background:var(--mobility);opacity:.6;border-radius:1px"></span>
-                <span style="width:6px;height:26px;background:var(--mobility);opacity:.8;border-radius:1px"></span>
-                <span style="width:6px;height:22px;background:var(--mobility);opacity:.7;border-radius:1px"></span>
-                <span style="width:6px;height:30px;background:var(--mobility);border-radius:1px"></span>
-                <span style="width:6px;height:28px;background:var(--mobility);opacity:.9;border-radius:1px"></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="proof-strip proof-strip--wide reveal">
+      <figure class="proof-item">
+        <div class="phone"><div class="phone-screen has-img">
+          <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/screen-voice-muaythai.webp" alt="Versus Training Combat voice parse: Session Parsed confirmation showing Muay Thai discipline, Drilling type, 6 rounds at RPE 8/10, with Pad work and Kicks techniques tagged. Transcript begins 'Did six rounds of pad work with intensity dropping in th...' Open in Combat Logger button below."/>
+        </div></div>
+        <figcaption><span class="step-num">01 / LOG IT</span>You say: "Did six rounds of pad work with intensity dropping in th…" It comes back as Muay Thai, drilling, 6 rounds, RPE 8/10, pad work and kicks tagged.</figcaption>
+      </figure>
+      <figure class="proof-item">
+        <div class="phone"><div class="phone-screen has-img">
+          <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/readiness.webp" alt="Versus Training Daily Readiness card: score 87 marked Optimal, surrounded by three concentric rings tracking Score, Load and ACWR. Description reads: High readiness. Cleared for heavy loading and intensity work. Below the rings: Score 87, Load 1797, ACWR 1.04."/>
+        </div></div>
+        <figcaption><span class="step-num">02 / KNOW IT</span>Next morning: 87, Optimal. Load 1797, ACWR 1.04. "Cleared for heavy loading and intensity work." One number, and the reason for it.</figcaption>
+      </figure>
+      <figure class="proof-item">
+        <div class="phone"><div class="phone-screen has-img">
+          <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/screen-sensei-chat.webp" alt="Versus Training Sensei chat thread: user asks 'Alternate exercise for lateral raise' and Sensei replies 'You're currently doing Lateral Raise (Cable) in your Upper and Push sessions. What's driving the swap? Joint discomfort, equipment availability, or just looking for a variation? Give me the reason and I'll lock in the replacement.' Input bar at bottom reads 'Ask your Sensei...'"/>
+        </div></div>
+        <figcaption><span class="step-num">03 / IMPROVE IT</span>Ask for a lateral raise alternative. Sensei names the two sessions it appears in, then asks what is driving the swap before it changes anything.</figcaption>
+      </figure>
+    </div>
+    <div style="text-align:center;margin-top:var(--s-5)">
+      <a class="appstore-badge" href="https://apps.apple.com/app/id6760545665" aria-label="Download Versus Training on the App Store"><img src="/assets/appstore-badge.svg" alt="Download on the App Store" width="200" height="67" loading="lazy"/></a>
     </div>
   </div>
 </section>
 
-<!-- ──────────────────────  DAILY READINESS  ─────────────────────────── -->
+<!-- ──────────────────────  READINESS AND ITS LIMITS  ─────────────────── -->
 <section class="section">
-  <div class="container">
-    <div class="readiness-hero">
-      <div class="reveal section-title-block">
-        <p class="eyebrow">Daily Readiness</p>
-        <h2>The one number that runs everything.</h2>
-      </div>
-      <div class="readiness-hero-card readiness-hero-card--img reveal">
-        <img loading="lazy" decoding="async" class="readiness-hero-shot" width="900" height="1045" src="/assets/screens/readiness.webp" alt="Versus Training Daily Readiness card: score 87 marked Optimal, surrounded by three concentric rings tracking Score, Load and ACWR. Description reads: High readiness. Recovery and recent-load signals support a higher-intensity day. Below the rings: Score 87, Load 1797, ACWR 1.04."/>
-      </div>
-      <div class="readiness-floating-chips reveal">
-        <span class="pill pill-gold">Pulls from HealthKit</span>
-        <span class="pill pill-gold">30-day rolling baseline</span>
-        <span class="pill pill-gold">Adjusts for training load (ACWR)</span>
-        <span class="pill pill-gold">Push, hold, or rest</span>
-      </div>
-      <p class="subhead reveal" style="max-width:62ch;margin-top:var(--s-3)">Readiness isn't a vanity stat. It's the number Versus uses to decide what Sensei suggests, what your camp recommends, and when to nudge you to deload. Available to every user, every tier, every day.</p>
+  <div class="container container-narrow">
+    <div class="section-title-block reveal">
+      <p class="eyebrow">How to read the number</p>
+      <h2>What readiness and ACWR are, and what they aren't.</h2>
     </div>
+    <ul class="feature-list reveal" style="font-size:17px">
+      <li><strong>Readiness is an estimate.</strong> It comes from HRV, sleep, resting heart rate and recent load in Apple Health, compared against your own 30-day baseline. A guide for how to train today, not a verdict on your body.</li>
+      <li><strong>ACWR counts every modality.</strong> The acute:chronic workload ratio compares recent work to that baseline. On most apps it only sees one sport, which is why a heavy lifting week can hide inside a running app. Here the roll, the run and the squat session land in the same total.</li>
+      <li><strong>Neither one diagnoses an injury or predicts one.</strong> Versus is a training log and a planning tool, not a medical device. The ratio tells you the ramp is steep; it does not tell you that you are hurt, and it is no substitute for noticing that you are.</li>
+    </ul>
+    <p style="margin-top:var(--s-4);color:var(--ink-muted);font-size:13.5px">Readiness is free on every tier, every day. <a href="/features/#readiness" class="text-gold">How it is calculated →</a></p>
   </div>
 </section>
 
@@ -447,197 +217,96 @@
         </div>
       </div>
       <div class="reveal">
-        <p class="eyebrow">The Coach</p>
-        <h2 style="margin-top:var(--s-1)">A coach who actually read your data.</h2>
-        <p class="subhead" style="margin-top:var(--s-3)">Sensei is powered by Anthropic's Claude. It knows your last 30 sessions, your active camp, your fight week if you're in one, your readiness, your skill tree, your PRs. Its responses are grounded in your recent training data. It talks about <em>your</em> training.</p>
-        <div class="pill-list" style="margin-top:var(--s-3)">
-          <span class="pill pill-gold">Chat</span>
-          <span class="pill pill-gold">AI Sparring Debrief</span>
-          <span class="pill pill-gold">Situation Drill</span>
-          <span class="pill pill-gold">Opponent Scouting</span>
-          <span class="pill pill-gold">AI Body Fat Estimate</span>
-        </div>
-        <p style="margin-top:var(--s-3);color:var(--text-muted);font-size:13px">Sensei is Elite-tier. <a href="/pricing/" class="text-gold">See pricing →</a></p>
+        <p class="eyebrow">The coach</p>
+        <h2 style="margin-top:var(--s-1)">It asks before it prescribes.</h2>
+        <p class="subhead" style="margin-top:var(--s-3)">Sensei runs on Anthropic's Claude, with your last 30 sessions, your current camp, your readiness and your PRs in front of it. That is the whole trick: it answers about your training instead of about training. Ask it for an exercise swap and it wants to know why first. Tell it what happened in a round and it tags the positions and the finishes.</p>
+        <p style="margin-top:var(--s-3);color:var(--text-muted);font-size:13px">Elite tier. <a href="/features/#sensei" class="text-gold">What it can do →</a></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ──────────────────────────  NUTRITION  ───────────────────────────── -->
-<section class="section section-tinted" id="nutrition">
-  <div class="container">
-    <div class="two-column">
-      <div class="reveal">
-        <div class="phone" style="margin:0 auto">
-          <div class="phone-screen has-img">
-            <img loading="lazy" decoding="async" class="phone-shot" src="/assets/screens/nutrition.webp" alt="Versus Training Nutrition screen: 1,646 kcal left of a 2,726 kcal target auto-calculated from your stats, with 1,080 eaten shown in a gold progress ring. Macro bars read protein 77g of 144g, carbs 137g of 346g, fat 18g of 85g, with fiber, sugar and sodium tiles below. An AI Meal Scan button offers photo, voice or text logging. Water shows 1,500 of 2,800 ml with +250, +500 and +750 quick adds, and breakfast lists oatmeal with blueberries at 380 kcal."/>
-          </div>
-        </div>
-      </div>
-      <div class="reveal">
-        <p class="eyebrow">Nutrition</p>
-        <h2 style="margin-top:var(--s-1)">Fuel the training, <span class="accent-gold">not a generic target.</span></h2>
-        <p class="subhead" style="margin-top:var(--s-3)">Calories and macros calculated from your own stats and goal, then adjusted for what you actually trained. Log a meal by photo, voice, or text with AI Meal Scan. Track water, fiber, sugar, and sodium in the same place as your sessions.</p>
-        <ul class="feature-list" style="margin-top:var(--s-3)">
-          <li>Daily calorie + protein, carb, fat targets set from your stats (cut, maintain, or bulk)</li>
-          <li>AI Meal Scan (Elite): snap a photo, say it out loud, or type it, and the macros are filled in for you</li>
-          <li>Fiber, sugar, and sodium tracked against sensible caps</li>
-          <li>Water logging with one-tap quick adds</li>
-          <li>Meals grouped by breakfast, lunch, dinner, and snacks</li>
-        </ul>
-        <div style="margin-top:var(--s-4)">
-          <a href="/features/#nutrition" class="btn btn-ghost">How nutrition works</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ────────────────────  BUILT FOR REAL ATHLETES  ────────────────────── -->
-<section class="section">
+<!-- ──────────────────────  AUDIENCE DOORWAYS  ──────────────────────── -->
+<section class="section" id="audiences">
   <div class="container">
     <div class="section-title-block reveal">
-      <p class="eyebrow">The details</p>
-      <h2>Built for the way real athletes train.</h2>
+      <p class="eyebrow">Who's it for</p>
+      <h2>One product. Five athletes.</h2>
+      <p class="subhead">Same app underneath. Pick the one that sounds like your week.</p>
     </div>
-    <div class="built-grid">
-      <div class="built-cell reveal">
-        <h3>Apple Watch native</h3>
-        <p>Combat round timer, live HR, session saves back to the phone. No companion app shenanigans.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Training Camp</h3>
-        <p>Auto-generated 6-week periodisation with deload and peak weeks. Adjusts to your readiness.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Fight Week</h3>
-        <p>Weight-cut tracking, water and sauna logging, sodium curve, weigh-in countdown.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Nutrition + AI Meal Scan</h3>
-        <p>Calories and macros from your own stats. Log meals by photo, voice, or text. Water, fiber, sugar, sodium too.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Vanity Vault</h3>
-        <p>Body comp tracking, 12 measurements, FFMI and skeletal frame insights, AI body-fat estimate from progress photos.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Vacation Mode</h3>
-        <p>Mark planned time away so Versus knows the break is intentional. Your streaks and load baseline understand the difference.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Train Together</h3>
-        <p>Run a live session with a partner. Same template, same sets, each logging your own weights. Their sets land on your screen as they finish them.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Physique Report Card</h3>
-        <p>Elite. Photos, measurements, frame and FFMI judged together into a score, per-muscle grades, and a ranked list of what to fix first.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Gym Feed</h3>
-        <p>Opt-in community accountability with reactions and comments. Off by default.</p>
-      </div>
-      <div class="built-cell reveal">
-        <h3>Imports</h3>
-        <p>Five years from Strava, Hevy, Strong, Fitbod, and Garmin. In one tap.</p>
-      </div>
+    <div class="audience-grid">
+      <a href="/fighters/" class="audience-card reveal" style="--audience-color:var(--combat);--audience-color-dim:var(--combat-dim)">
+        <div class="audience-card-icon">01</div>
+        <h3>I fight.</h3>
+        <p>MMA, BJJ, Muay Thai, boxing, wrestling. Rounds and sRPE, a skill tree that goes position by position, camps and fight week.</p>
+        <span class="audience-card-cta">Built for fighters →</span>
+      </a>
+      <a href="/lifters/" class="audience-card reveal" style="--audience-color:var(--strength);--audience-color-dim:var(--strength-dim)">
+        <div class="audience-card-icon">02</div>
+        <h3>I lift.</h3>
+        <p>PRs detected as you set them, a plateau you get told about, and your history imported from Hevy, Strong or Fitbod.</p>
+        <span class="audience-card-cta">Built for lifters →</span>
+      </a>
+      <a href="/runners/" class="audience-card reveal" style="--audience-color:var(--endurance);--audience-color-dim:var(--endurance-dim)">
+        <div class="audience-card-icon">03</div>
+        <h3>I run, ride, or swim.</h3>
+        <p>Zones, intervals and race-week taper, with Strava and Garmin imported so the work you already did still counts.</p>
+        <span class="audience-card-cta">Built for endurance →</span>
+      </a>
+      <a href="/sports/" class="audience-card reveal" style="--audience-color:var(--sport);--audience-color-dim:var(--sport-dim)">
+        <div class="audience-card-icon">04</div>
+        <h3>My sport is the training.</h3>
+        <p>14 sports, logged in seconds with sRPE and a score. Off-field lifting periodised around your season, and readiness that knows when the game is.</p>
+        <span class="audience-card-cta">Built for sport athletes →</span>
+      </a>
+      <a href="/hybrid/" class="audience-card reveal" style="--audience-color:var(--gold);--audience-color-dim:var(--gold-dim)">
+        <div class="audience-card-icon">05</div>
+        <h3>I do more than one of those.</h3>
+        <p>Lift in the morning, sport at night. Two seasons stacked. Both count toward the same load, so neither one is invisible.</p>
+        <span class="audience-card-cta">Hybrid athletes →</span>
+      </a>
     </div>
+    <p class="reveal" style="margin-top:var(--s-5);color:var(--ink-muted);font-size:14px;max-width:66ch">Most people use two of the five loggers and ignore the rest. That is the intended use, not a failure of the app.</p>
   </div>
 </section>
 
-<!-- ───────────────────────────  PRICING  ─────────────────────────────── -->
-<section class="section" id="pricing">
-  <div class="container">
+<!-- ──────────────────────────  PRICING  ─────────────────────────────── -->
+<section class="section section-tinted" id="pricing">
+  <div class="container container-narrow">
     <div class="section-title-block reveal">
-      <p class="eyebrow">Simple, honest pricing</p>
-      <h2>Start free. <span class="accent-gold">Grow with it.</span></h2>
+      <p class="eyebrow">Pricing</p>
+      <h2>Free forever is <span class="accent-gold">the actual plan.</span></h2>
     </div>
-    <div class="pricing-grid">
-      <div class="plan reveal">
-        <div class="plan-name">Free</div>
-        <div class="plan-tagline">No card. No catch.</div>
-        <div class="plan-price">0</div>
-        <div class="plan-period">Free forever</div>
-        <a href="https://apps.apple.com/app/id6760545665" class="btn btn-ghost plan-cta btn-block">Download Free</a>
-        <ul>
-          <li>All 5 loggers (combat, endurance, resistance, mobility, sport)</li>
-          <li>Gym feed + partner hub (challenges + Train Together)</li>
-          <li>Daily readiness + morning check-in</li>
-          <li>90-day session history</li>
-          <li>Skill tree: 17 martial arts, beginner level only</li>
-          <li>Nutrition tracking: calorie + macro targets, water</li>
-          <li>Training calendar + streaks</li>
-          <li>3 workout templates</li>
-          <li>8 Vanity Vault check-ins</li>
-          <li>Voice session logging: 1/day</li>
-        </ul>
-      </div>
-      <div class="plan plan-featured reveal">
-        <span class="plan-badge">Most popular</span>
-        <div class="plan-name">Core</div>
-        <div class="plan-tagline">For the serious trainee</div>
-        <div class="plan-price" data-price="core"><sup>$</sup>9<small>.99/mo</small></div>
-        <div class="plan-period" data-period="core">or $79.99/yr (save 33%)</div>
-        <a href="https://apps.apple.com/app/id6760545665" class="btn btn-primary plan-cta btn-block">Get Core</a>
-        <ul>
-          <li>Everything in Free</li>
-          <li>Full 365-day session history</li>
-          <li>ACWR workload chart + plateau detection</li>
-          <li>Training Camps + Fight Week</li>
-          <li>AI Daily Stack: sessions prescribed each morning</li>
-          <li>AI Mobility Protocol: post-session mobility</li>
-          <li>Full skill tree: all belts, all 17 martial arts</li>
-          <li>Unlimited Vanity Vault (all angles)</li>
-          <li>Unlimited workout templates</li>
-        </ul>
-      </div>
-      <div class="plan reveal">
-        <div class="plan-name">Elite</div>
-        <div class="plan-tagline">Full AI coaching layer</div>
-        <div class="plan-price" data-price="elite"><sup>$</sup>14<small>.99/mo</small></div>
-        <div class="plan-period" data-period="elite">or $119.99/yr (save 33%)</div>
-        <a href="https://apps.apple.com/app/id6760545665" class="btn btn-ghost plan-cta btn-block">Get Elite</a>
-        <ul>
-          <li>Everything in Core</li>
-          <li>Sensei AI Coach: conversational, load-aware</li>
-          <li>AI Sparring Debrief</li>
-          <li>Situation Drill + Opponent Scouting</li>
-          <li>Unlimited voice session logging</li>
-          <li>Unlimited AI Meal Scan: log meals by photo, voice, or text</li>
-          <li>AI Body Fat Estimate</li>
-          <li>Physique Report Card: photos + measurements graded, with priorities</li>
-        </ul>
-      </div>
+    <p class="subhead reveal">All five loggers, daily readiness, the skill tree, nutrition, imports and the Watch app cost nothing and always will. Core at <span data-price-inline="core">$9.99</span>/mo adds camps, workload trends and every belt in the skill tree. Elite at <span data-price-inline="elite">$14.99</span>/mo adds Sensei.</p>
+    <div class="reveal hero-ctas" style="margin-top:var(--s-4)">
+      <a href="https://apps.apple.com/app/id6760545665" class="btn btn-primary btn-lg">Start free</a>
+      <a href="/pricing/" class="btn btn-ghost btn-lg">Full feature comparison</a>
     </div>
     <p class="pricing-note reveal">Prices shown for your App Store region. The App Store always confirms your local price before purchase.</p>
-    <p style="margin-top:var(--s-4);color:var(--text-muted);font-size:14px">
-      Want the full feature-by-feature breakdown? <a href="/pricing/" class="text-gold">See the comparison table →</a>
-    </p>
   </div>
 </section>
 
-<!-- ────────────────────────  PRIVACY CALLOUT  ────────────────────────── -->
+<!-- ────────────────────────────  DATA  ──────────────────────────────── -->
 <section class="section">
-  <div class="container">
-    <div class="privacy-callout reveal">
+  <div class="container container-narrow">
+    <div class="section-title-block reveal">
       <p class="eyebrow">Your data, your data</p>
-      <h3>Your training data stays yours.</h3>
-      <ul>
-        <li>GDPR + CCPA compliant. Delete your account from inside the app at any time.</li>
-        <li>Health data is never sold and never shared with advertisers.</li>
-        <li>Every processor is named in the <a href="/privacy/" class="text-gold">privacy policy</a>, in plain English, with what each one receives.</li>
-      </ul>
-      <p style="margin-top:var(--s-2)"><a href="/privacy/" class="text-gold">Read the privacy policy →</a></p>
+      <h2>Your training data stays yours.</h2>
     </div>
+    <ul class="feature-list reveal">
+      <li>GDPR + CCPA compliant. Delete your account from inside the app at any time.</li>
+      <li>Health data is never sold and never shared with advertisers.</li>
+      <li>Every processor is named in the <a href="/privacy/" class="text-gold">privacy policy</a>, in plain English, with what each one receives.</li>
+    </ul>
   </div>
 </section>
 
-<!-- ──────────────────────  FINAL CTA + WAITLIST  ─────────────────────── -->
+<!-- ──────────────────────────  FINAL CTA  ───────────────────────────── -->
 <section class="final-cta" id="waitlist">
   <div class="container container-narrow">
     <p class="eyebrow reveal">Now on iOS</p>
     <h2 class="reveal">Start training with Versus.</h2>
-    <p class="reveal">Versus Training is live on iPhone and Apple Watch. Download it free and start logging every modality today.</p>
+    <p class="reveal">Free to start, on iPhone and Apple Watch. Built solo by Aadit Singal. Questions? <a href="mailto:aadit@versus24.net" class="text-gold">aadit@versus24.net</a></p>
     <div class="appstore-cta reveal">
       <a class="appstore-badge" href="https://apps.apple.com/app/id6760545665" aria-label="Download Versus Training on the App Store">
         <img src="/assets/appstore-badge.svg" alt="Download on the App Store" width="200" height="67"/>
