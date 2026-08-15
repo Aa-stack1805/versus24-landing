@@ -94,19 +94,24 @@ methodology papers took apart, and own-baseline deviation is the part that
 survived. Do not put a number of check-in questions or a baseline window in
 the copy either, unless you have just checked it against the app.
 
-**Still owed: screenshots.** These four images predate v1.2 and show the old
-ring set, so the pages currently illustrate a UI that no longer exists. Their
-alt text describes what is in the image and is therefore correct as long as
-the old image is there. Replace the image and the alt together:
+**Still owed: two screenshots.** These predate v1.2 and show the old ring set.
+Alt text describes what is in the image, so it is correct as long as the old
+image is there. Replace the image and the alt together:
 
-- `assets/screens/readiness.webp`, used on `index.html` (with a figcaption
-  quoting Score 87 / Load 1797) and on `sports.html`.
-- `assets/screens/screen-readiness.webp` on `features.html`, alt naming the
-  Score/Load/ACWR rings.
 - `assets/screens/screen-watch-readiness.webp` on `features.html`, alt calling
-  the inner ring blue. Balance renders cyan.
+  the inner ring blue. On the phone, Balance renders blue, so that wording is
+  probably right; check it against the new capture rather than assuming.
 - `assets/screens/screen-dashboard.webp` on `features.html`, whose alt quotes
   an on-screen callout saying the readiness score adapts to load. It no
   longer does.
+
+Done: `readiness.webp` (900x1045, home/sports/fighters) and
+`screen-readiness.webp` (900x1948, features) were rebuilt from a v1.2 capture.
+Both come from one 1242x2688 screenshot; `readiness.webp` is the region from
+just above the rings to just below the stat bubbles, cropped to the same
+aspect the old file used so the framing did not change. That capture has no
+check-in behind it, so Balance reads as a dash and a "check in for accurate
+scores" prompt sits under the rings. The alt text says so. If a populated
+capture turns up later, both files and all three alts want redoing together.
 
 The v1.0 changelog entry naming ACWR is a historical record. Leave it.
