@@ -77,6 +77,41 @@ Vault check-ins on Free, 12 body measurements. AI Meal Scan and the Physique
 Report Card are Elite. Prices are per App Store storefront; US and India are
 both defined in `assets/script.js`.
 
+### AI sport coaching, and what this branch is for
+
+**This branch describes v1.3, which is not released. Do not merge it until the
+app ships.** Every claim below is written in the present tense and is false
+until then.
+
+What v1.3 adds: the AI stops refusing to program sport skill work. It becomes
+two per-sport switches ("I have a coach for this", "let Sensei program my skill
+work"), both off by default. Coach plus AI gives complement mode: solo homework
+only, nothing needing a partner, about 60% of full-mode minutes, and the
+athlete's coached sessions counted against the same budget. Generation is
+Elite; the drill library, running drills by hand and skill tree credit are free
+on every tier. Fourteen sports. **Combat is a later release, so nothing on the
+site may promise it**, which is why `fighters.html` is untouched.
+
+The load model to describe: three separate budgets (jump landings, hard cuts,
+sprint metres), built from age, mass, lifting history, recent load and
+recovery, with the athlete's own games charged against them. Injuries remove
+classes of drill rather than adding a warning. Never describe it as preventing
+or predicting injury, for the same reason the rings are not described that way.
+
+Numbers to firm up before release, currently hedged as approximate: the drill
+count ("around 390") and the complement-mode share ("around 60%").
+
+**Before merging, on release day:**
+
+- Swap the three `.shot-pending` placeholders for real captures and write their
+  alt text: the weekly plan card and the drill runner on `sports.html`, the
+  two-switch setup on `features.html`. Grep for `shot-pending`; the build does
+  not fail on a leftover one.
+- `changelog.html`: v1.3 from Planned to Shipped with a date, and
+  `softwareVersion` in its JSON-LD from 1.2 to 1.3.
+- Decide whether `index.html` gets a mention. It is deliberately untouched
+  here, so the home page still sells v1.2.
+
 ### ACWR, and what the rings mean
 
 The app's three rings were rebuilt for v1.2. The inner ring stopped being an

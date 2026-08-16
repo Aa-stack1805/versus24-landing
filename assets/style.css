@@ -541,6 +541,33 @@ p { margin: 0; text-wrap: pretty; }
 .phone-shot { width: 100%; height: 100%; object-fit: contain; display: block; }
 .phone-screen .eyebrow { font-size: 10px; }
 
+/* A device frame with no capture in it yet. Deliberately unfinished-looking:
+   a placeholder that looked designed would eventually ship as one, and an
+   <img> pointing at a file that does not exist would 404 in the build. The
+   label names what belongs there, so swapping in the real screenshot is a
+   one-element edit. */
+.shot-pending {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: var(--s-3);
+  border: 1px dashed var(--rule-strong);
+  border-radius: 23px;
+  text-align: center;
+}
+.shot-pending b {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.shot-pending span { font-size: 12.5px; line-height: 1.5; color: var(--ink-muted); }
+
 .card-shot-wrap {
   width: 100%;
   max-width: 520px;
