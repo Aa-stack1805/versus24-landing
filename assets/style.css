@@ -800,6 +800,47 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-8); align-items: center; }
 @media (max-width: 900px) { .two-column { grid-template-columns: 1fr; gap: var(--s-5); } }
 
+/* --------------------------------------------------------- SEGMENT PAGE --- */
+/* An audience page is about one modality from top to bottom, so it is accented
+   in that modality's colour rather than in the site's gold. This does not break
+   the rule that the five modality colours only ever encode a modality: the
+   page's whole subject is the modality, so every accent on it says the same
+   true thing. The hybrid page keeps gold for exactly that reason, since it is
+   the one audience that is not a single modality and colouring it as one would
+   be a lie.
+
+   Buttons stay gold everywhere, deliberately. The action colour belongs to the
+   product rather than to the audience, and dark button text fails contrast on
+   the combat red, so recolouring calls to action would cost legibility on the
+   page that needs it most.
+
+   A page opts in with class="segment-page" on <body> and sets --segment in its
+   own <style> block. */
+.segment-page {
+  --segment-rule: var(--gold-rule);
+  --segment-wash: rgba(212, 168, 67, 0.035);
+}
+@supports (color: color-mix(in srgb, red 40%, transparent)) {
+  .segment-page {
+    /* Same weights the gold rule and the featured-plan tint already use. */
+    --segment-rule: color-mix(in srgb, var(--segment) 40%, transparent);
+    --segment-wash: color-mix(in srgb, var(--segment) 4%, transparent);
+  }
+}
+
+.segment-page .eyebrow { color: var(--segment); border-bottom-color: var(--segment-rule); }
+/* The hero's label keeps a full-strength underline, as it did before. */
+.segment-page .segment-hero .eyebrow { border-bottom-color: var(--segment); }
+.segment-page .step-num { color: var(--segment); }
+.segment-page .accent-gold { color: var(--segment); }
+.segment-page .text-gold { color: var(--segment); }
+.segment-page .feature-list li::before { background: var(--segment); }
+.segment-page .built-cell:hover { background: var(--segment-wash); }
+.segment-page .plan-featured { background: var(--segment-wash); }
+.segment-page .plan-featured::before { background: var(--segment); }
+.segment-page .plan-badge { color: var(--segment); }
+.segment-page .pill-gold { border-color: var(--segment-rule); color: var(--segment); }
+
 /* --------------------------------------------------------- FEATURE SPLIT --- */
 /* A feature section that stands its screen beside the copy instead of under
    it. The measure is already set on the text, so at full width the right half
