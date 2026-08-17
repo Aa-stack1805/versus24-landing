@@ -619,7 +619,9 @@ p { margin: 0; text-wrap: pretty; }
    the third phone used to push past the container and scroll the whole page
    sideways by 16px. Let the phone take its column and cap it at full size
    instead: the squeeze costs a few pixels of screenshot rather than a layout
-   jump to one narrow column on a 900px display. */
+   jump to one narrow column on a 900px display. aspect-ratio holds the frame's
+   proportions, and box-sizing is border-box globally, so it matches the fixed
+   268x536 exactly at full width. */
 .proof-strip .phone { width: 100%; max-width: 268px; height: auto; }
 .proof-strip .phone-screen { height: auto; }
 /* The ratio is set on the screenshot rather than on the frame, and the frame
@@ -627,10 +629,10 @@ p { margin: 0; text-wrap: pretty; }
    not: .phone-screen's height:100% has no definite height to resolve against
    inside an aspect-ratio box, so it falls back to auto, and a tall screenshot
    (the full-screen captures are 900x1948) then sizes to its own intrinsic
-   height and stretches the frame. 250x518 is the frame's content box at full
-   size, so this reproduces 268x536 exactly. */
+   height and stretches the frame. That showed up as three phones at two
+   different heights. 250x518 is the frame's content box at full size, so this
+   reproduces 268x536 exactly. */
 .proof-strip .phone-shot { height: auto; aspect-ratio: 250 / 518; }
-
 .proof-item figcaption {
   font-family: var(--font-mono);
   font-size: 11.5px;
