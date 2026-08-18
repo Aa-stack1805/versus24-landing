@@ -101,6 +101,15 @@ or predicting injury, for the same reason the rings are not described that way.
 Numbers to firm up before release, currently hedged as approximate: the drill
 count ("around 390") and the complement-mode share ("around 60%").
 
+**Unverified copy on this branch.** The "longer arc" section on `sports.html`
+describes six-week blocks, field tests and an end-of-block review. Blocks and
+the review come from the progression engine's own rules (a focus is dropped
+after three weeks without progress and never outstays six). **Field tests were
+named in an app audit but never described to whoever wrote this copy**, so the
+bullet is deliberately general: it claims only that a short test is asked for
+periodically and that the next block is built on the result. Check it against
+the app before merging, and rewrite it with the real tests if it is wrong.
+
 **Before merging, on release day:**
 
 - Swap the three `.shot-pending` placeholders for real captures and write their
