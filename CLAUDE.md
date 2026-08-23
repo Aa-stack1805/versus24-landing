@@ -77,6 +77,39 @@ Vault check-ins on Free, 12 body measurements. AI Meal Scan and the Physique
 Report Card are Elite. Prices are per App Store storefront; US and India are
 both defined in `assets/script.js`.
 
+### AI sport coaching
+
+Shipped in v1.3. The AI stopped refusing to program sport skill work. It is two
+per-sport switches ("I have a coach for this", "let Sensei program my skill
+work"), both off by default. Coach plus AI gives complement mode: solo homework
+only, nothing needing a partner, about 60% of full-mode minutes, and the
+athlete's coached sessions counted against the same budget. Generation is
+Elite; the drill library, running drills by hand and skill tree credit are free
+on every tier. Fourteen sports, 415 drills. **Combat is a later release, so
+nothing on the site may promise it**, which is why `fighters.html` is untouched
+and both pages say combat follows.
+
+The load model: three separate budgets (jump landings, hard cuts, sprint
+metres), built from age, mass, lifting history, recent load and recovery, with
+the athlete's own games charged against them. Injuries remove classes of drill
+rather than adding a warning. Never describe it as preventing or predicting
+injury, for the same reason the rings are not described that way.
+
+**Owed on the sports and features pages: three captures.** The weekly plan card
+and the drill runner (`sports.html`), and the two-switch setup
+(`features.html`). Those sections shipped as full-width text rather than with
+placeholder frames, so nothing looks unfinished; when the captures exist, add a
+`hero-visual` phone block back and put `feature-split` on the section's
+container to stand it beside the copy, the way the readiness section does.
+
+**Unverified copy.** The "longer arc" section on `sports.html` describes
+six-week blocks, field tests and an end-of-block review. Blocks and the review
+come from the progression engine's own rules (a focus is dropped after three
+weeks without progress and never outstays six). **Field tests were named in an
+app audit but never described to whoever wrote this copy**, so the bullet
+claims only that a short test is asked for periodically and that the next block
+is built on the result. Verify it and rewrite with the real tests if wrong.
+
 ### ACWR, and what the rings mean
 
 The app's three rings were rebuilt for v1.2. The inner ring stopped being an

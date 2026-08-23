@@ -541,6 +541,33 @@ p { margin: 0; text-wrap: pretty; }
 .phone-shot { width: 100%; height: 100%; object-fit: contain; display: block; }
 .phone-screen .eyebrow { font-size: 10px; }
 
+/* A device frame with no capture in it yet. Deliberately unfinished-looking:
+   a placeholder that looked designed would eventually ship as one, and an
+   <img> pointing at a file that does not exist would 404 in the build. The
+   label names what belongs there, so swapping in the real screenshot is a
+   one-element edit. */
+.shot-pending {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: var(--s-3);
+  border: 1px dashed var(--rule-strong);
+  border-radius: 23px;
+  text-align: center;
+}
+.shot-pending b {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.shot-pending span { font-size: 12.5px; line-height: 1.5; color: var(--ink-muted); }
+
 .card-shot-wrap {
   width: 100%;
   max-width: 520px;
@@ -592,7 +619,9 @@ p { margin: 0; text-wrap: pretty; }
    the third phone used to push past the container and scroll the whole page
    sideways by 16px. Let the phone take its column and cap it at full size
    instead: the squeeze costs a few pixels of screenshot rather than a layout
-   jump to one narrow column on a 900px display. */
+   jump to one narrow column on a 900px display. aspect-ratio holds the frame's
+   proportions, and box-sizing is border-box globally, so it matches the fixed
+   268x536 exactly at full width. */
 .proof-strip .phone { width: 100%; max-width: 268px; height: auto; }
 .proof-strip .phone-screen { height: auto; }
 /* The ratio is set on the screenshot rather than on the frame, and the frame
@@ -600,10 +629,10 @@ p { margin: 0; text-wrap: pretty; }
    not: .phone-screen's height:100% has no definite height to resolve against
    inside an aspect-ratio box, so it falls back to auto, and a tall screenshot
    (the full-screen captures are 900x1948) then sizes to its own intrinsic
-   height and stretches the frame. 250x518 is the frame's content box at full
-   size, so this reproduces 268x536 exactly. */
+   height and stretches the frame. That showed up as three phones at two
+   different heights. 250x518 is the frame's content box at full size, so this
+   reproduces 268x536 exactly. */
 .proof-strip .phone-shot { height: auto; aspect-ratio: 250 / 518; }
-
 .proof-item figcaption {
   font-family: var(--font-mono);
   font-size: 11.5px;
@@ -772,6 +801,47 @@ a.pill:hover { border-color: var(--gold); color: var(--gold-bright); }
 /* ------------------------------------------------------------ TWO COLUMN --- */
 .two-column { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-8); align-items: center; }
 @media (max-width: 900px) { .two-column { grid-template-columns: 1fr; gap: var(--s-5); } }
+
+/* --------------------------------------------------------- SEGMENT PAGE --- */
+/* An audience page is about one modality from top to bottom, so it is accented
+   in that modality's colour rather than in the site's gold. This does not break
+   the rule that the five modality colours only ever encode a modality: the
+   page's whole subject is the modality, so every accent on it says the same
+   true thing. The hybrid page keeps gold for exactly that reason, since it is
+   the one audience that is not a single modality and colouring it as one would
+   be a lie.
+
+   Buttons stay gold everywhere, deliberately. The action colour belongs to the
+   product rather than to the audience, and dark button text fails contrast on
+   the combat red, so recolouring calls to action would cost legibility on the
+   page that needs it most.
+
+   A page opts in with class="segment-page" on <body> and sets --segment in its
+   own <style> block. */
+.segment-page {
+  --segment-rule: var(--gold-rule);
+  --segment-wash: rgba(212, 168, 67, 0.035);
+}
+@supports (color: color-mix(in srgb, red 40%, transparent)) {
+  .segment-page {
+    /* Same weights the gold rule and the featured-plan tint already use. */
+    --segment-rule: color-mix(in srgb, var(--segment) 40%, transparent);
+    --segment-wash: color-mix(in srgb, var(--segment) 4%, transparent);
+  }
+}
+
+.segment-page .eyebrow { color: var(--segment); border-bottom-color: var(--segment-rule); }
+/* The hero's label keeps a full-strength underline, as it did before. */
+.segment-page .segment-hero .eyebrow { border-bottom-color: var(--segment); }
+.segment-page .step-num { color: var(--segment); }
+.segment-page .accent-gold { color: var(--segment); }
+.segment-page .text-gold { color: var(--segment); }
+.segment-page .feature-list li::before { background: var(--segment); }
+.segment-page .built-cell:hover { background: var(--segment-wash); }
+.segment-page .plan-featured { background: var(--segment-wash); }
+.segment-page .plan-featured::before { background: var(--segment); }
+.segment-page .plan-badge { color: var(--segment); }
+.segment-page .pill-gold { border-color: var(--segment-rule); color: var(--segment); }
 
 /* --------------------------------------------------------- FEATURE SPLIT --- */
 /* A feature section that stands its screen beside the copy instead of under
