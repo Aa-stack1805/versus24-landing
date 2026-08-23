@@ -279,6 +279,27 @@ def check_captions(pages):
         raise SystemExit(1)
 
 
+def check_no_conflict_markers(pages):
+    """Refuse to emit a page containing merge-conflict scaffolding.
+
+    --check only asserts that the committed HTML matches src/, so markers left
+    in a source file are faithfully reproduced in the output and the check stays
+    green while the page is broken. That is how five of them reached production
+    inside the pricing table, where the parser foster-parented them out of the
+    tbody and printed two commit subjects to every visitor.
+    """
+    problems = []
+    for name, page in pages.items():
+        for n, line in enumerate(page.split("\n"), 1):
+            if line.startswith(("<<<<<<<", ">>>>>>>")) or line.rstrip() == "=======":
+                problems.append(f"{name}:{n}: {line.strip()[:60]}")
+    if problems:
+        print("merge-conflict markers in rendered output:")
+        for p in problems:
+            print(f"  {p}")
+        raise SystemExit(1)
+
+
 def main():
     check = "--check" in sys.argv[1:]
     partials = (
@@ -327,6 +348,7 @@ def main():
 
     check_universal_links()
     check_captions(rendered)
+    check_no_conflict_markers(rendered)
 
     if check:
         if drifted:
