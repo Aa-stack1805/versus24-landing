@@ -177,6 +177,12 @@
         <li>Notification actions: log a check-in or snooze a session from the notification itself</li>
         <li>Routine sharing: send a routine to a training partner with a share code</li>
         <li>Apple Health import, and GPX export for any outdoor session</li>
+        <li><strong style="color:var(--ink)">Imports read your files properly:</strong> the per-set RPE you recorded in Hevy or Strong now carries across instead of being read and dropped, session effort is derived from the sets you actually recorded rather than a flat default, Strong warmups count as warmups instead of working sets, routine names survive so an imported session can be compared against the last time you did it, and Fitbod notes are kept.</li>
+        <li><strong style="color:var(--ink)">Strava exports written in miles import at the right distance:</strong> they were being read as kilometres, so a 10 mile run landed as 10 km, about 38% short.</li>
+        <li>Duplicate detection no longer removes sessions you logged by hand. Two workouts on the same day are two workouts</li>
+        <li>Deleting your account tells you when it fails instead of reporting success, and clears linked services from the device</li>
+        <li>Export My Data includes your structured endurance workouts and your meets</li>
+        <li>Fixed a crash that could close the app when opening a logging screen</li>
       </ul>
     </div>
 
